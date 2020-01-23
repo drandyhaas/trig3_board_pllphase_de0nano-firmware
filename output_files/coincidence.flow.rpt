@@ -1,5 +1,5 @@
 Flow report for coincidence
-Thu Jan 16 14:40:07 2020
+Thu Jan 23 10:09:01 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,7 +40,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Jan 16 14:40:02 2020       ;
+; Flow Status                        ; Successful - Thu Jan 23 10:08:56 2020       ;
 ; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                      ; coincidence                                 ;
 ; Top-level Entity Name              ; coincidence                                 ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/16/2020 14:39:16 ;
+; Start date & time ; 01/23/2020 10:08:14 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; coincidence         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +--------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                      ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +--------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                ; 26830026706672.157920355613536         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                ; 26830026706672.157979209401900         ; --            ; --          ; --         ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE     ; Speed                                  ; Balanced      ; --          ; --         ;
 ; FITTER_EFFORT                        ; Standard Fit                           ; Auto Fit      ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP               ; 85                                     ; --            ; --          ; --         ;
@@ -118,11 +118,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 4868 MB             ; 00:00:33                           ;
-; Fitter               ; 00:00:26     ; 1.0                     ; 5562 MB             ; 00:00:34                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4683 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 4793 MB             ; 00:00:04                           ;
-; Total                ; 00:00:47     ; --                      ; --                  ; 00:01:12                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4875 MB             ; 00:00:26                           ;
+; Fitter               ; 00:00:24     ; 1.0                     ; 5560 MB             ; 00:00:30                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4682 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 4792 MB             ; 00:00:03                           ;
+; Total                ; 00:00:43     ; --                      ; --                  ; 00:01:00                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
