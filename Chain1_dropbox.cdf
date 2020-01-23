@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("C:/Users/ahaas/Dropbox/cygwin/home/cygwinhome/dist_board/trig3_board_pllphase_de0nano-firmware/output_files/") File("coincidence.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("C:/gitwork/head/trig3_board_pllphase_de0nano-firmware/output_files/") File("coincidence.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
