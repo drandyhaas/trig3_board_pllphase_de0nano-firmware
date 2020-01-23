@@ -40,8 +40,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 192 48)
 		(output)
-		(text "rx_out[3..0]" (rect 0 0 64 14)(font "Arial" (font_size 8)))
-		(text "rx_out[3..0]" (rect 134 34 187 47)(font "Arial" (font_size 8)))
+		(text "rx_out[7..0]" (rect 0 0 64 14)(font "Arial" (font_size 8)))
+		(text "rx_out[7..0]" (rect 134 34 187 47)(font "Arial" (font_size 8)))
 		(line (pt 192 48)(pt 128 48)(line_width 3))
 	)
 	(drawing

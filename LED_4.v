@@ -1,6 +1,6 @@
 module LED_4(
 	input nrst,
-	input clk0,
+	input clk_lvds,
 	output reg [3:0] led,
 	input [15:0] coax_in,
 	output [15:0] coax_out,	
@@ -8,8 +8,10 @@ module LED_4(
 	input clk_test, input [1:0] phaseoffset,
 	input clkin, input usefullwidth, input passthrough,
 	output integer histo[4], input resethist, input vetopmtlast,	
-	input [3:0] lvds_rx
+	input [NBINS-1:0] lvds_rx
 	);
+	
+	parameter NBINS = 8;
 	
 	// for testing logic
 	reg pmt1test;
@@ -22,36 +24,35 @@ module LED_4(
 	
 	wire pmt1;
 	//assign pmt1 = pmt1test; // pmt test input
-	assign pmt1 = coax_in[3] ||coax_in[8]; // pmt input (LVDS) || (se)
+	assign pmt1 = coax_in[3] ||coax_in[8]; // pmt input (LVDS) || (single-ended)
 	
 	assign coax_out[0]=pmt1test; //N11 // a test pulse
-	assign coax_out[1]=clk_test; // P9 // the 4x input clock that can also have its phase adjusted
-	reg out1;assign coax_out[2]=out1; // A6 // the out1, which should be true iff there's a pmt in the first 2 ticks
-	reg out2;assign coax_out[3]=out2; // B6 // the out2, which should be true iff there's a pmt in the last 2 ticks
-	assign coax_out[4]=clkin; // F9 // the input clock
-	assign coax_out[5]=clk0; // E7 // the clk for lvds
+	assign coax_out[1]=clk_test; // P9 // the 4x input for test pulses
+	reg out1;assign coax_out[2]=out1; // A6 // the out1
+	reg out2;assign coax_out[3]=out2; // B6 // the out2
+	assign coax_out[4]=clkin; // F9 // the input clock that can also have its phase adjusted
+	assign coax_out[5]=clk_lvds; // E7 // the clk for lvds that can also have its phase adjusted
 	
 	assign led[0]=pmt1;
 	assign led[1]=out1;
 	assign led[2]=out2;
 	assign led[3]=1;
-	
-	
+		
 	reg resethist1=0, resethist2=0;
-	reg [3:0] lvds_last=0;
-	reg [3:0] phot;	
+	reg [NBINS-1:0] lvds_last=0;
+	reg [NBINS-1:0] phot=0;
+	reg [NBINS-1:0] j;
 	always@(posedge clkin) begin
 		if (passthrough) begin
 			out1 <= pmt1;
 			out2 <= 0;
 		end
-		else begin
-			
+		else begin			
 			if (vetopmtlast) begin
-				lvds_last[3] = lvds_last[0];
-				lvds_last[2] = lvds_rx[3];
-				lvds_last[1] = lvds_rx[2];
-				lvds_last[0] = lvds_rx[1];
+				lvds_last[NBINS-1] = lvds_last[0];
+				for (j=0; j<NBINS-1; j=j+1) begin
+					lvds_last[j] = lvds_rx[j+1];
+				end
 				phot = lvds_rx & ~lvds_last;
 			end
 			else begin

@@ -20,5 +20,5 @@ FUNCTION lvds_rx
 )
 
 RETURNS (
-	rx_out[3..0]
+	rx_out[7..0]
 );
