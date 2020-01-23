@@ -5,7 +5,7 @@ module LED_4(
 	input [15:0] coax_in,
 	output [15:0] coax_out,	
 	input [7:0] deadticks, input [7:0] firingticks,
-	input clk_test, input [1:0] phaseoffset,
+	input clk_test, input [2:0] phaseoffset,
 	input clkin, input usefullwidth, input passthrough,
 	output integer histo[4], input resethist, input vetopmtlast,	
 	input [NBINS-1:0] lvds_rx
@@ -59,7 +59,7 @@ module LED_4(
 				phot = lvds_rx;
 			end
 			out1 <= phot[0+phaseoffset]||(phot[1+phaseoffset]&&usefullwidth);			
-			out2 <= phot[2+phaseoffset]||(phot[3+phaseoffset]&&usefullwidth);
+			out2 <= phot[NBINS/2+phaseoffset]||(phot[NBINS/2+1+phaseoffset]&&usefullwidth);
 			lvds_last = lvds_rx;
 
 			resethist1<=resethist;

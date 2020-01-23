@@ -30,7 +30,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg scanclk=0;
 	output reg clkswitch=0; // No matter what, inclk0 is the default clock
 	
-	output reg[1:0] phaseoffset=0; // offset the pmt counter phase by this many bins
+	output reg[2:0] phaseoffset=0; // offset the pmt counter phase by this many bins
 	
 	integer ioCount, ioCountToSend;
 	reg[7:0] data[16];//for writing out data in WRITE1,2

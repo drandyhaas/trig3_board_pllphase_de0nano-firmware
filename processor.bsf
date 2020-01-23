@@ -138,8 +138,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 248 208)
 		(output)
-		(text "phaseoffset[1..0]" (rect 0 0 66 12)(font "Arial" ))
-		(text "phaseoffset[1..0]" (rect 161 203 227 215)(font "Arial" ))
+		(text "phaseoffset[2..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "phaseoffset[2..0]" (rect 160 203 227 215)(font "Arial" ))
 		(line (pt 248 208)(pt 232 208)(line_width 3))
 	)
 	(port
