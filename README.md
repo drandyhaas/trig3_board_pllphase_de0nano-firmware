@@ -29,3 +29,20 @@ Open coincidence.qpf with Quartus (tested with version 18.0.0)
 11: toggle vetopmtlast
 
 12: adjust clock phase (c1)
+
+## outputs
+A6: out1 : coax_out[2] 
+
+B6: out2 : coax_out[3] 
+
+N11: test pulse : coax_out[0]
+
+P9: 4x clock for test pulse : coax_out[1]
+
+F9: phase shifted? input clock : coax_out[4] (shouldn't this always be 1 if loop runs on rising edge of clock?)
+
+E7: lvds clock (4x) phase shifted : coax_out[5]
+
+
+
+
