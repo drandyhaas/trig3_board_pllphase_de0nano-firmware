@@ -11,6 +11,8 @@ module LED_4(
 	input [NBINS-1:0] lvds_rx
 	);
 	
+	//TODO: histo should have NBINS; rewrite using bit shift operations 
+	
 	parameter NBINS = 8;
 	
 	// for testing logic
