@@ -27,12 +27,13 @@ Open coincidence.qpf with Quartus (tested with version 18.0.0)
 - E7: lvds clock (4x) phase shifted : coax_out[5]
 - C11: echos differential clock input
 - E11: echos single ended clock input
+- J13 - active clock
+- P11 - clock bad 0
+- D8 - clock bad 1
 
 ## inputs
 - R9/T9 - differential clock input (note that board has resistor networks to accept negative going ac coupled signal)
 - A8 - singled ended clock input
 - R16/P16 - differential pmt input (board has resistor network to accept AC coupled differential signal)
 - L15 - single ended pmt input
-- J13 - active clock
-- P11 - clock bad 0
-- D8 - clock bad 1
+
