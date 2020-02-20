@@ -39,10 +39,20 @@ N11: test pulse : coax_out[0]
 
 P9: 4x clock for test pulse : coax_out[1]
 
-F9: phase shifted? input clock : coax_out[4] (shouldn't this always be 1 if loop runs on rising edge of clock?)
+F9: phase shifted? input clock : coax_out[4] 
 
 E7: lvds clock (4x) phase shifted : coax_out[5]
 
+C11: echos differential clock input
 
+E11: echos single ended clock input
 
+##inputs
+R9/T9 - differential clock input (note that board has resistor networks to accept negative going ac coupled signal)
+
+A8 - singled ended clock input
+
+R16/P16 - differential pmt input (board has resistor network to accept AC coupled differential signal)
+
+L15 - single ended pmt input
 
