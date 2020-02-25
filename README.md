@@ -9,7 +9,7 @@ Open coincidence.qpf with Quartus (tested with version 18.0.0)
 - 2 + byte: set firingticks
 - 3: toggle output enable
 - 4: toggle clk inputs
-- 5: adjust clock phase
+- 5 + byte: set clock phase (phase shift = byte/128 * 360)
 - 6: step phaseoffset (0 bin on lvds) by one		
 - 7: toggle using first bin or first two bins
 - 8: toggle PMT passthrough
