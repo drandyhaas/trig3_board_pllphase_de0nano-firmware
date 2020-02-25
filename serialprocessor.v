@@ -1,7 +1,8 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
-	deadticks, firingticks, enable_outputs, 
-	phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
-	phaseoffset, usefullwidth, passthrough, h, resethist, vetopmtlast,areset);
+	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_clk_phase,
+	phaseoffset, usefullwidth, passthrough, h, resethist, vetopmtlast);
+	
+	//phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
 	
 	input clk;
 	input[7:0] rxData;
@@ -12,7 +13,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] readdata;//first byte we got
 	output reg enable_outputs=0;//set low to enable outputs
 	reg [7:0] extradata[10];//to store command extra data, like arguemnts (up to 10 bytes)
-	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5, PLLCLOCK=6, CLKSWITCH=7, ARESET=8;
+	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5,  UPDATEPLL=8;
 	integer state=READ;
 	integer bytesread, byteswanted;
 	output reg usefullwidth=1;
@@ -24,13 +25,18 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	
 	integer pllclock_counter=0;
 	integer scanclk_cycles=0;
-	output reg[2:0] phasecounterselect; // Dynamic phase shift counter Select. 000:all 001:M 010:C0 011:C1 100:C2 101:C3 110:C4. Registered in the rising edge of scanclk.
-	output reg phaseupdown=1; // Dynamic phase shift direction; 1:UP, 0:DOWN. Registered in the PLL on the rising edge of scanclk.
-	output reg phasestep=0;
-	output reg scanclk=0;
-	output reg clkswitch=0; // No matter what, inclk0 is the default clock
+	// output reg[2:0] phasecounterselect; // Dynamic phase shift counter Select. 000:all 001:M 010:C0 011:C1 100:C2 101:C3 110:C4. Registered in the rising edge of scanclk.
+	// output reg phaseupdown=1; // Dynamic phase shift direction; 1:UP, 0:DOWN. Registered in the PLL on the rising edge of scanclk.
+	// output reg phasestep=0;
+	// output reg scanclk=0;
+	// output reg clkswitch=0; // No matter what, inclk0 is the default clock
 	
-	output reg areset = 0; //output to reset the PLL
+//	output reg areset = 0; //output to reset the PLL
+
+	output reg updatepll = 0;
+	output reg pll_clk_src = 0;
+	output reg[7:0] pll_clk_phase;
+
 	
 	output reg[2:0] phaseoffset=0; // offset the pmt counter phase by this many bins
 	
@@ -48,6 +54,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		byteswanted<=0;
       ioCount = 0;
 		resethist=0;
+		updatepll = 0;
       if (rxReady) begin
 			readdata = rxData;
          state = SOLVING;
@@ -63,7 +70,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=11; // this is the firmware version
+			data[0]=12; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs
@@ -85,20 +92,27 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			state=READ;
 		end
 		else if (readdata==4) begin //toggle clk inputs
-			pllclock_counter=0;
-			
-			clkswitch = 1;
-			state=CLKSWITCH;
+			pll_clk_src = ~pll_clk_src;
+			state = UPDATEPLL;
 		end
-		else if (readdata==5) begin //adjust clock phase
-			phasecounterselect=3'b000; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
-			//phaseupdown=1'b1; // up
-			scanclk=1'b0; // start low
-			phasestep=1'b1; // assert!
-			pllclock_counter=0;
-			scanclk_cycles=0;
-			state=PLLCLOCK;
+//		else if (readdata==5) begin //adjust clock phase
+//			phasecounterselect=3'b000; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
+//			//phaseupdown=1'b1; // up
+//			scanclk=1'b0; // start low
+//			phasestep=1'b1; // assert!
+//			pllclock_counter=0;
+//			scanclk_cycles=0;
+//			state=PLLCLOCK;
+//		end
+		else if (readdata == 5) begin // set clock phase
+			byteswanted=1; if (bytesread<byteswanted) state=READMORE;
+			else begin
+				pll_clk_phase=extradata[0];
+				state=UPDATEPLL;
+			end
 		end
+
+
 		else if (readdata==6) begin //step phaseoffset of pmt counter by one		
 			phaseoffset=phaseoffset+1;
 			state=READ;
@@ -111,10 +125,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			passthrough = ~passthrough;
 			state=READ;
 		end
-		else if (readdata==9) begin //toggle phaseupdown up (default) or down
-			phaseupdown = ~phaseupdown;
-			state=READ;
-		end
+
 		else if (readdata==10) begin //send out histo
 			ioCountToSend = 16;
 			data[0]=h[0][7:0];
@@ -140,49 +151,23 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			vetopmtlast = ~vetopmtlast;
 			state=READ;
 		end
-		else if (readdata==12) begin //adjust clock phase
-			phasecounterselect=3'b011; // clock c1 - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
-			//phaseupdown=1'b1; // up
-			scanclk=1'b0; // start low
-			phasestep=1'b1; // assert!
-			pllclock_counter=0;
-			scanclk_cycles=0;
-			state=PLLCLOCK;
-		end
+
 		else if (readdata==13) begin // reset PLL
-			areset = 1; // pull areset high
-			pllclock_counter = 0;
-			state = ARESET;
+			pll_clk_phase = 0;
+			pll_clk_src = 0;
+			state = UPDATEPLL;
 		end
 		else state=READ; // if we got some other command, just ignore it
 	end
 	
-	CLKSWITCH: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
-		pllclock_counter=pllclock_counter+1;
-		if (pllclock_counter[3]) begin
-			clkswitch = 0;
-			state=READ;
-		end
+	
+	
+	UPDATEPLL: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
+		updatepll = 1;
+		state=READ;
 	end
 	
-	ARESET: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
-		pllclock_counter=pllclock_counter+1;
-		if (pllclock_counter[3]) begin
-			areset = 0;
-			state=READ;
-		end
-	end
 	
-	PLLCLOCK: begin // to step the clock phase, you have to toggle scanclk a few times
-		pllclock_counter=pllclock_counter+1;
-		if (pllclock_counter[4]) begin
-			scanclk = ~scanclk;
-			pllclock_counter=0;
-			scanclk_cycles=scanclk_cycles+1;
-			if (scanclk_cycles>5) phasestep=1'b0; // deassert!
-			if (scanclk_cycles>7) state=READ;
-		end
-	end
 	
 	//just writng out some data bytes over serial
 	WRITE1: begin
