@@ -1,8 +1,9 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_clk_phase,
-	phaseoffset, usefullwidth, passthrough, h, resethist, vetopmtlast);
+	mask1, mask2, passthrough, h, resethist, vetopmtlast);
 	
 	//phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
+	
 	
 	input clk;
 	input[7:0] rxData;
@@ -16,11 +17,12 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5,  UPDATEPLL=8;
 	integer state=READ;
 	integer bytesread, byteswanted;
-	output reg usefullwidth=1;
+	output reg[7:0] mask1 = 8'b00001111;
+	output reg[7:0] mask2 = 8'b11110000;
 	output reg passthrough=0;
 	output reg vetopmtlast=1;
 	
-	input integer h[4];
+	input integer h[8];
 	output reg resethist=0;
 	
 	integer pllclock_counter=0;
@@ -37,9 +39,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg pll_clk_src = 0;
 	output reg[7:0] pll_clk_phase;
 
-	
-	output reg[2:0] phaseoffset=0; // offset the pmt counter phase by this many bins
-	
+		
 	integer ioCount, ioCountToSend;
 	reg[7:0] data[16];//for writing out data in WRITE1,2
 	
@@ -70,7 +70,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=12; // this is the firmware version
+			data[0]=13; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs
@@ -113,13 +113,19 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 
-		else if (readdata==6) begin //step phaseoffset of pmt counter by one		
-			phaseoffset=phaseoffset+1;
-			state=READ;
+		else if (readdata==6) begin //set mask 1 
+			byteswanted=1; if (bytesread<byteswanted) state=READMORE;
+			else begin
+				mask1=extradata[0];
+				state=READ;
+			end
 		end
-		else if (readdata==7) begin //toggle use of full width (second time bin)
-			usefullwidth = ~usefullwidth;
-			state=READ;
+		else if (readdata==7) begin //set mask 2
+			byteswanted=1; if (bytesread<byteswanted) state=READMORE;
+			else begin
+				mask2=extradata[0];
+				state=READ;
+			end
 		end
 		else if (readdata==8) begin //toggle use of pmt passthrough
 			passthrough = ~passthrough;

@@ -5,13 +5,15 @@ module LED_4(
 	input [15:0] coax_in,
 	output [15:0] coax_out,	
 	input [7:0] deadticks, input [7:0] firingticks,
-	input clk_test, input [2:0] phaseoffset,
-	input clkin, input usefullwidth, input passthrough,
-	output integer histo[4], input resethist, input vetopmtlast,	
-	input [NBINS-1:0] lvds_rx
+	input clk_test,
+	input clkin, input passthrough,
+	output integer histo[8], input resethist, input vetopmtlast,	//histo must have at least NBINS
+	input [NBINS-1:0] lvds_rx,
+	input [NBINS-1:0] mask1,
+	input [NBINS-1:0] mask2
 	);
 	
-	//TODO: histo should have NBINS; rewrite using bit shift operations 
+	//TODO: rewrite using bit shift operations 
 	
 	parameter NBINS = 8;
 	
@@ -60,23 +62,28 @@ module LED_4(
 			else begin
 				phot = lvds_rx;
 			end
-			out1 <= phot[0+phaseoffset]||(phot[1+phaseoffset]&&usefullwidth);			
-			out2 <= phot[NBINS/2+phaseoffset]||(phot[NBINS/2+1+phaseoffset]&&usefullwidth);
+//			out1 <= phot[0+phaseoffset]||(phot[1+phaseoffset]&&usefullwidth);			
+//			out2 <= phot[NBINS/2+phaseoffset]||(phot[NBINS/2+1+phaseoffset]&&usefullwidth);
+
+			out1 <= (phot & mask1) != 0;
+			out2 <= (phot & mask2) != 0;
 			lvds_last = lvds_rx;
 
 			resethist1<=resethist;
 			resethist2<=resethist1;
 			if (resethist2) begin
-				histo[0]<=0;
-				histo[1]<=0;
-				histo[2]<=0;
-				histo[3]<=0;
+				for (j=0; j<NBINS-1; j=j+1) begin
+					histo[j] <= 0; 
+				end
 			end
 			else begin
-				if (phot[0+phaseoffset]) histo[0]<=histo[0]+1;
-				if (phot[1+phaseoffset]) histo[1]<=histo[1]+1;
-				if (phot[2+phaseoffset]) histo[2]<=histo[2]+1;
-				if (phot[3+phaseoffset]) histo[3]<=histo[3]+1;
+				for (j=0; j<NBINS-1; j=j+1) begin
+					histo[j] <= histo[j] + phot[j]; 
+				end
+//				if (phot[0+phaseoffset]) histo[0]<=histo[0]+1;
+//				if (phot[1+phaseoffset]) histo[1]<=histo[1]+1;
+//				if (phot[2+phaseoffset]) histo[2]<=histo[2]+1;
+//				if (phot[3+phaseoffset]) histo[3]<=histo[3]+1;
 			end
 			
 		end		

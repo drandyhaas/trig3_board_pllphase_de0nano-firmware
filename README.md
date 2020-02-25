@@ -10,8 +10,8 @@ Open coincidence.qpf with Quartus (tested with version 18.0.0)
 - 3: toggle output enable
 - 4: toggle clk inputs
 - 5 + byte: set clock phase (phase shift = byte/128 * 360)
-- 6: step phaseoffset (0 bin on lvds) by one		
-- 7: toggle using first bin or first two bins
+- 6 + byte: set output1 phase mask		
+- 7 + byte: set output2 phase mask
 - 8: toggle PMT passthrough
 - 9: toggle phase step direction
 - 10: send histogram (4 bins for now) 

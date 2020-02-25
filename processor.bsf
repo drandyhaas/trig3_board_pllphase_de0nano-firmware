@@ -54,8 +54,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 96)
 		(input)
-		(text "h[0..3][31..0]" (rect 0 0 48 12)(font "Arial" ))
-		(text "h[0..3][31..0]" (rect 21 91 69 103)(font "Arial" ))
+		(text "h[0..7][31..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "h[0..7][31..0]" (rect 21 91 69 103)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
@@ -124,16 +124,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 224 176)
 		(output)
-		(text "phaseoffset[2..0]" (rect 0 0 67 12)(font "Arial" ))
-		(text "phaseoffset[2..0]" (rect 136 171 203 183)(font "Arial" ))
+		(text "mask1[7..0]" (rect 0 0 46 12)(font "Arial" ))
+		(text "mask1[7..0]" (rect 157 171 203 183)(font "Arial" ))
 		(line (pt 224 176)(pt 208 176)(line_width 3))
 	)
 	(port
 		(pt 224 192)
 		(output)
-		(text "usefullwidth" (rect 0 0 43 12)(font "Arial" ))
-		(text "usefullwidth" (rect 160 187 203 199)(font "Arial" ))
-		(line (pt 224 192)(pt 208 192)(line_width 1))
+		(text "mask2[7..0]" (rect 0 0 47 12)(font "Arial" ))
+		(text "mask2[7..0]" (rect 156 187 203 199)(font "Arial" ))
+		(line (pt 224 192)(pt 208 192)(line_width 3))
 	)
 	(port
 		(pt 224 208)
