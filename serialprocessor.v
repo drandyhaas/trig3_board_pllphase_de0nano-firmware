@@ -1,7 +1,7 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	deadticks, firingticks, enable_outputs, 
 	phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
-	phaseoffset, usefullwidth, passthrough, h, resethist, vetopmtlast);
+	phaseoffset, usefullwidth, passthrough, h, resethist, vetopmtlast,areset);
 	
 	input clk;
 	input[7:0] rxData;
@@ -12,7 +12,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] readdata;//first byte we got
 	output reg enable_outputs=0;//set low to enable outputs
 	reg [7:0] extradata[10];//to store command extra data, like arguemnts (up to 10 bytes)
-	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5, PLLCLOCK=6, CLKSWITCH=7;
+	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5, PLLCLOCK=6, CLKSWITCH=7, ARESET=8;
 	integer state=READ;
 	integer bytesread, byteswanted;
 	output reg usefullwidth=1;
@@ -29,6 +29,8 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg phasestep=0;
 	output reg scanclk=0;
 	output reg clkswitch=0; // No matter what, inclk0 is the default clock
+	
+	output reg areset = 0; //output to reset the PLL
 	
 	output reg[2:0] phaseoffset=0; // offset the pmt counter phase by this many bins
 	
@@ -61,7 +63,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=10; // this is the firmware version
+			data[0]=11; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs
@@ -147,6 +149,11 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			scanclk_cycles=0;
 			state=PLLCLOCK;
 		end
+		else if (readdata==13) begin // reset PLL
+			areset = 1; // pull areset high
+			pllclock_counter = 0;
+			state = ARESET;
+		end
 		else state=READ; // if we got some other command, just ignore it
 	end
 	
@@ -154,6 +161,14 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		pllclock_counter=pllclock_counter+1;
 		if (pllclock_counter[3]) begin
 			clkswitch = 0;
+			state=READ;
+		end
+	end
+	
+	ARESET: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
+		pllclock_counter=pllclock_counter+1;
+		if (pllclock_counter[3]) begin
+			areset = 0;
 			state=READ;
 		end
 	end

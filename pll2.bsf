@@ -111,8 +111,8 @@ refer to the applicable agreement for further details.
 	)
 	(drawing
 		(text "Cyclone IV E" (rect 276 201 607 413)(font "Arial" ))
-		(text "inclk0 frequency: 50.000 MHz" (rect 130 100 383 211)(font "Arial" ))
-		(text "inclk1 frequency: 70.000 MHz" (rect 130 113 383 237)(font "Arial" ))
+		(text "inclk0 frequency: 70.000 MHz" (rect 130 100 383 211)(font "Arial" ))
+		(text "inclk1 frequency: 50.000 MHz" (rect 130 113 383 237)(font "Arial" ))
 		(text "Operation Mode: Normal" (rect 130 126 359 263)(font "Arial" ))
 		(text "Clk " (rect 131 147 276 305)(font "Arial" ))
 		(text "Ratio" (rect 152 147 324 305)(font "Arial" ))
