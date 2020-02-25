@@ -1,5 +1,6 @@
 db/*
 incremental_db/*
+coincidence.qws
 output_files/*.rpt
 output_files/*.done
 output_files/*.summary

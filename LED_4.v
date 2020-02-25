@@ -30,8 +30,8 @@ module LED_4(
 	assign coax_out[1]=clk_test; // P9 // the 4x input for test pulses
 	reg out1;assign coax_out[2]=out1; // A6 // the out1
 	reg out2;assign coax_out[3]=out2; // B6 // the out2
-	assign coax_out[4]=clkin; // F9 // the input clock that can also have its phase adjusted
-	assign coax_out[5]=clk_lvds; // E7 // the clk for lvds that can also have its phase adjusted
+	assign coax_out[4]=clkin; // D12 // the input clock that can also have its phase adjusted
+	assign coax_out[5]=clk_lvds; // B3 // the clk for lvds that can also have its phase adjusted
 	
 	assign led[0]=pmt1;
 	assign led[1]=out1;

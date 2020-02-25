@@ -89,7 +89,7 @@ set_location_assignment PIN_A6 -to coax_out[2]
 set_location_assignment PIN_B6 -to coax_out[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to led7_clock
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to coax_out[4]
-set_location_assignment PIN_F9 -to coax_out[4]
+set_location_assignment PIN_D12 -to coax_out[4]
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
@@ -108,6 +108,6 @@ set_global_assignment -name QIP_FILE pll2.qip
 set_global_assignment -name QIP_FILE pll1.qip
 set_global_assignment -name QIP_FILE lvds_rx.qip
 set_location_assignment PIN_P16 -to "coax_in[3](n)"
-set_location_assignment PIN_E7 -to coax_out[5]
+set_location_assignment PIN_B3 -to coax_out[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to coax_out[5]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
