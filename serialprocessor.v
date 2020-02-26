@@ -41,7 +41,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 
 		
 	integer ioCount, ioCountToSend;
-	reg[7:0] data[16];//for writing out data in WRITE1,2
+	reg[7:0] data[32];//for writing out data in WRITE1,2
 	
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
@@ -133,7 +133,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 		else if (readdata==10) begin //send out histo
-			ioCountToSend = 16;
+			ioCountToSend = 32;
 			data[0]=h[0][7:0];
 			data[1]=h[0][15:8];
 			data[2]=h[0][23:16];
@@ -150,6 +150,22 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			data[13]=h[3][15:8];
 			data[14]=h[3][23:16];
 			data[15]=h[3][31:24];
+			data[16]=h[4][7:0];
+			data[17]=h[4][15:8];
+			data[18]=h[4][23:16];
+			data[19]=h[4][31:24];
+			data[20]=h[5][7:0];
+			data[21]=h[5][15:8];
+			data[22]=h[5][23:16];
+			data[23]=h[5][31:24];
+			data[24]=h[6][7:0];
+			data[25]=h[6][15:8];
+			data[26]=h[6][23:16];
+			data[27]=h[6][31:24];
+			data[28]=h[7][7:0];
+			data[29]=h[7][15:8];
+			data[30]=h[7][23:16];
+			data[31]=h[7][31:24];
 			state=WRITE1;	
 			resethist=1;
 		end
