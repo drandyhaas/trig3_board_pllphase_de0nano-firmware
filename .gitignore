@@ -4,3 +4,5 @@ coincidence.qws
 output_files/*.rpt
 output_files/*.done
 output_files/*.summary
+board/*.b#*
+board/*.s#*
