@@ -10,7 +10,9 @@ module LED_4(
 	output integer histo[8], input resethist, input vetopmtlast,	//histo must have at least NBINS
 	input [NBINS-1:0] lvds_rx,
 	input [NBINS-1:0] mask1,
-	input [NBINS-1:0] mask2
+	input [NBINS-1:0] mask2,
+	input [7:0] cyclesToVeto,
+	output integer ipihist[64], //70 Mhz / 64 = ~1.1 MHz
 	);
 	
 	//TODO: rewrite using bit shift operations 
@@ -34,8 +36,12 @@ module LED_4(
 	assign coax_out[1]=clk_test; // P9 // the 4x input for test pulses
 	reg out1;assign coax_out[2]=out1; // A6 // the out1
 	reg out2;assign coax_out[3]=out2; // B6 // the out2
+	
+	
+	
 	assign coax_out[4]=clkin; // F9 // the input clock that can also have its phase adjusted
 	assign coax_out[5]=clk_lvds; // E7 // the clk for lvds that can also have its phase adjusted
+	
 	
 	assign led[0]=pmt1;
 	assign led[1]=out1;
@@ -45,11 +51,19 @@ module LED_4(
 	reg resethist1=0, resethist2=0;
 	reg [NBINS-1:0] lvds_last=0;
 	reg [NBINS-1:0] phot=0;
-	reg [NBINS-1:0] j;
+	reg [7:0] j;
+	reg [7:0] k;
+	
+	reg [7:0] cyclecounter;
+	reg wasphot;
+	
+	reg inveto; assign coax_out[6] = inveto; // check pin planner; whether new photons will be vetoed
+	reg collision; assign coax_out[7] = collision; // check pin planner; two photons arrived within veto window
+	
 	always@(posedge clkin) begin
 		if (passthrough) begin
 			out1 <= pmt1;
-			out2 <= 0;
+			out2 <= (lvds_rx != 0);
 		end
 		else begin			
 			if (vetopmtlast) begin
@@ -62,8 +76,27 @@ module LED_4(
 			else begin
 				phot = lvds_rx;
 			end
-//			out1 <= phot[0+phaseoffset]||(phot[1+phaseoffset]&&usefullwidth);			
-//			out2 <= phot[NBINS/2+phaseoffset]||(phot[NBINS/2+1+phaseoffset]&&usefullwidth);
+			if (cyclecounter < cyclesToVeto) begin
+				phot = 0;
+			end
+			
+			
+			//within a block
+			//<= --> parallel execution (simultaneous update at the end of the clock cycle)
+			// = --> serial execution
+			
+			if (phot) begin
+				if (cyclecounter < 64) begin
+					ipihist[cyclecounter] <= ipihist[cyclecounter] + 1;				
+				end 
+				cyclecounter = 0;								
+			end 
+			else begin
+				if (cyclecounter < 254) begin
+					cyclecounter <= cyclecounter + 1;
+				end
+			end
+				
 
 			out1 <= (phot & mask1) != 0;
 			out2 <= (phot & mask2) != 0;
@@ -71,41 +104,26 @@ module LED_4(
 
 			resethist1<=resethist;
 			resethist2<=resethist1;
+			
+			
 			if (resethist2) begin
 				for (j=0; j<NBINS-1; j=j+1) begin
 					histo[j] <= 0; 
 				end
+				
+				for (k = 0; k < 64; k = k + 1) begin
+					ipihist[k] <= 0;
+				end
 			end
 			else begin
+				
 				for (j=0; j<NBINS-1; j=j+1) begin
 					histo[j] <= histo[j] + phot[j]; 
 				end
-//				if (phot[0+phaseoffset]) histo[0]<=histo[0]+1;
-//				if (phot[1+phaseoffset]) histo[1]<=histo[1]+1;
-//				if (phot[2+phaseoffset]) histo[2]<=histo[2]+1;
-//				if (phot[3+phaseoffset]) histo[3]<=histo[3]+1;
 			end
 			
 		end		
 	end
 	
-	/*
-	//for LEDs
-	reg [1:0] ledi;
-	integer fastcounter=0;
-	always@(posedge clkin) begin
-		fastcounter<=fastcounter+1;
-		if (fastcounter[25]) begin			
-			fastcounter<=0;
-			ledi<=ledi+2'b01;
-			case (ledi)
-			0:	begin led <= 4'b0001; end
-			1:	begin led <= 4'b0010; end
-			2:	begin led <= 4'b0100; end
-			3:	begin led <= 4'b1000; end
-			endcase
-		end
-	end
-	*/
 	
 endmodule
