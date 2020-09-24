@@ -72,7 +72,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=13; // this is the firmware version
+			data[0]=14; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs
@@ -188,6 +188,15 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			pll_clk_src = 0;
 			state = UPDATEPLL;
 		end
+		
+		else if (readdata == 14) begin // set veto counter
+			byteswanted=1; if (bytesread<byteswanted) state=READMORE;
+			else begin
+				cyclesToVeto=extradata[0];
+				state=READ;
+			end
+		end
+		
 		else state=READ; // if we got some other command, just ignore it
 	end
 	

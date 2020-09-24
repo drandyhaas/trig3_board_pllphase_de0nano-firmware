@@ -12,7 +12,7 @@ module LED_4(
 	input [NBINS-1:0] mask1,
 	input [NBINS-1:0] mask2,
 	input [7:0] cyclesToVeto,
-	output integer ipihist[64], //70 Mhz / 64 = ~1.1 MHz
+	output integer ipihist[64] //70 Mhz / 64 = ~1.1 MHz
 	);
 	
 	//TODO: rewrite using bit shift operations 
