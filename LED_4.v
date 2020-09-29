@@ -38,9 +38,8 @@ module LED_4(
 	reg out2;assign coax_out[3]=out2; // B6 // the out2
 	
 	
-	
 	assign coax_out[4]=clkin; // F9 // the input clock that can also have its phase adjusted
-	assign coax_out[5]=clk_lvds; // E7 // the clk for lvds that can also have its phase adjusted
+	assign coax_out[5]=clk_lvds; // unassigned // the clk for lvds that can also have its phase adjusted
 	
 	
 	assign led[0]=pmt1;
@@ -57,9 +56,11 @@ module LED_4(
 	reg [7:0] cyclecounter;
 	reg wasphot;
 	
-	reg inveto; assign coax_out[6] = inveto; // check pin planner; whether new photons will be vetoed
-	reg collision; assign coax_out[7] = collision; // check pin planner; two photons arrived within veto window
-	
+	reg inveto; assign coax_out[6] = inveto; // p9; whether new photons will be vetoed
+	reg collision; assign coax_out[7] = collision; // n11; two photons arrived within veto window
+   reg anyphot; assign coax_out[8] = anyphot; //p15
+	reg cycletoggle; assign coax_out[9] = cycletoggle; //e7
+
 	always@(posedge clkin) begin
 		if (passthrough) begin
 			out1 <= pmt1;
@@ -100,6 +101,10 @@ module LED_4(
 
 			out1 <= (phot & mask1) != 0;
 			out2 <= (phot & mask2) != 0;
+			anyphot <= phot != 0;
+			
+			cycletoggle <= !cycletoggle;
+			
 			lvds_last = lvds_rx;
 
 			resethist1<=resethist;
