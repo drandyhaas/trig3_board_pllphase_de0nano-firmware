@@ -1,6 +1,6 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_clk_phase,
-	mask1, mask2, passthrough, h, ipihist, resethist, vetopmtlast, cyclesToVeto);
+	mask1, mask2, passthrough, h, ipihist, resethist, vetopmtlast, cyclesToVeto, useClockAsInput);
 	
 	//phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
 	
@@ -22,6 +22,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg passthrough=0;
 	output reg vetopmtlast=1;
 	output reg[7:0] cyclesToVeto = 0;
+	output reg useClockAsInput = 0;
 	
 	input integer h[8];
 	input integer ipihist[64];
@@ -195,6 +196,11 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 				cyclesToVeto=extradata[0];
 				state=READ;
 			end
+		end
+		
+		else if (readdata==15) begin //toggle using clock as a pmt input
+			useClockAsInput = ~useClockAsInput;
+			state=READ;
 		end
 		
 		else state=READ; // if we got some other command, just ignore it
