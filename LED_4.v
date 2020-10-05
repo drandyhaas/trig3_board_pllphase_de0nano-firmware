@@ -18,7 +18,7 @@ module LED_4(
 	
 	// for testing logic
 	
-	
+	wire pmt1;
 	//assign pmt1 = pmt1test; // pmt test input
 	assign pmt1 = coax_in[3] ||coax_in[8]; // pmt input (LVDS) || (single-ended)
 	
