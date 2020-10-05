@@ -28,8 +28,8 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	input integer ipihist[64];
 	output reg resethist=0;
 	
-	integer pllclock_counter=0;
-	integer scanclk_cycles=0;
+	//integer pllclock_counter=0;
+	//integer scanclk_cycles=0;
 	// output reg[2:0] phasecounterselect; // Dynamic phase shift counter Select. 000:all 001:M 010:C0 011:C1 100:C2 101:C3 110:C4. Registered in the rising edge of scanclk.
 	// output reg phaseupdown=1; // Dynamic phase shift direction; 1:UP, 0:DOWN. Registered in the PLL on the rising edge of scanclk.
 	// output reg phasestep=0;
@@ -44,11 +44,13 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 
 		
 	integer ioCount, ioCountToSend;
-	reg[7:0] data[544];//for writing out data in WRITE1,2
+	reg[7:0] data[288];//for writing out data in WRITE1,2 //72* 4 = 288
 	reg[7:0] q; //loop counter
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
+	parameter version = 15;
+	
 	always @(posedge clk) begin
 	case (state)
 	READ: begin		  
@@ -73,7 +75,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=14; // this is the firmware version
+			data[0]=version; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs
@@ -136,7 +138,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 		else if (readdata==10) begin //send out histo
-			ioCountToSend = 544;
+			ioCountToSend = 288 ;
 			data[0]=h[0][7:0];
 			data[1]=h[0][15:8];
 			data[2]=h[0][23:16];

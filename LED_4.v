@@ -60,7 +60,9 @@ module LED_4(
 				phot = lvds_rx;
 			end
 			if (cyclecounter < cyclesToVeto) begin
+				collision = (phot != 0);
 				phot = 0;
+				inveto <= 1;				
 			end
 			
 			
@@ -77,7 +79,7 @@ module LED_4(
 			end 
 			else begin
 				if (cyclecounter < 254) begin
-					cyclecounter <= cyclecounter + 1;
+					cyclecounter <= cyclecounter + 1'b1;
 				end
 			end
 				
@@ -96,33 +98,33 @@ module LED_4(
 			lastphot <= phot;
 			if (resethist2) begin
 				if (j >= NBINS) begin
-					j = 0;
-					resethist2 = 0;
+					j <= 0;
+					resethist2 <= 0;
 				end
 				else begin
 					histo[j] <= 0;
-					j <= j+1;
+					j <= j+1'b1;
 				end
 				
 			end
 			else begin				
-				histo[0] <= histo[0] + phot[0];
-				histo[1] <= histo[1] + phot[1];
-				histo[2] <= histo[2] + phot[2];
-				histo[3] <= histo[3] + phot[3];
-				histo[4] <= histo[4] + phot[4];
-				histo[5] <= histo[5] + phot[5];
-				histo[6] <= histo[6] + phot[6];
-				histo[7] <= histo[7] + phot[7];
+				histo[0] <= histo[0] + lastphot[0];
+				histo[1] <= histo[1] + lastphot[1];
+				histo[2] <= histo[2] + lastphot[2];
+				histo[3] <= histo[3] + lastphot[3];
+				histo[4] <= histo[4] + lastphot[4];
+				histo[5] <= histo[5] + lastphot[5];
+				histo[6] <= histo[6] + lastphot[6];
+				histo[7] <= histo[7] + lastphot[7];
 			end
 			if (resetipi) begin
 				if (k >= 64) begin
-					k = 0;
-					resetipi = 0;
+					k <= 0;
+					resetipi <= 0;
 				end
 				else begin
 					ipihist[k] <= 0;
-					k <= k+1;
+					k <= k+1'b1;
 				end				
 			end		
 		end		
