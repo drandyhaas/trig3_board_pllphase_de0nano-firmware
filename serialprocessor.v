@@ -49,6 +49,8 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
+	parameter version = 15;
+	
 	always @(posedge clk) begin
 	case (state)
 	READ: begin		  
@@ -73,7 +75,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
    SOLVING: begin
 		if (readdata==0) begin // send the firmware version				
 			ioCountToSend = 1;
-			data[0]=14; // this is the firmware version
+			data[0]=version; // this is the firmware version
 			state=WRITE1;				
 		end
 		else if (readdata==1) begin //wait for next byte: number of 20ns ticks to remain dead for after firing outputs

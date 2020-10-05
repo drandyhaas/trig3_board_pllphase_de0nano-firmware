@@ -54,12 +54,12 @@ module LED_4(
 	reg [7:0] k;
 	
 	reg [7:0] cyclecounter;
-	reg wasphot;
+	reg wasphot = 0;
 	
-	reg inveto; assign coax_out[6] = inveto; // p9; whether new photons will be vetoed
-	reg collision; assign coax_out[7] = collision; // n11; two photons arrived within veto window
-   reg anyphot; assign coax_out[8] = anyphot; //p15
-	reg cycletoggle; assign coax_out[9] = cycletoggle; //e7
+	reg inveto = 0; assign coax_out[6] = inveto; // p9; whether new photons will be vetoed
+	reg collision = 0; assign coax_out[7] = collision; // n11; two photons arrived within veto window
+   reg anyphot = 0; assign coax_out[8] = anyphot; //p15
+	reg cycletoggle = 0; assign coax_out[9] = cycletoggle; //e7
 
 	always@(posedge clkin) begin
 		if (passthrough) begin
