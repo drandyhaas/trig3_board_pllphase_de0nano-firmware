@@ -1077,21 +1077,21 @@ refer to the applicable agreement for further details.
 		(pt 248 32)
 		(output)
 		(text "coax_out[15..0]" (rect 0 0 76 12)(font "Arial" ))
-		(text "coax_out[15..0]" (rect 163 27 227 39)(font "Arial" ))
+		(text "coax_out[15..0]" (rect 163 27 239 39)(font "Arial" ))
 		(line (pt 248 32)(pt 232 32)(line_width 3))
 	)
 	(port
 		(pt 248 48)
 		(output)
 		(text "histo[0..7][31..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "histo[0..7][31..0]" (rect 159 43 227 55)(font "Arial" ))
+		(text "histo[0..7][31..0]" (rect 159 43 240 55)(font "Arial" ))
 		(line (pt 248 48)(pt 232 48)(line_width 3))
 	)
 	(port
 		(pt 248 64)
 		(output)
 		(text "ipihist[0..63][31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "ipihist[0..63][31..0]" (rect 150 59 227 71)(font "Arial" ))
+		(text "ipihist[0..63][31..0]" (rect 150 59 242 71)(font "Arial" ))
 		(line (pt 248 64)(pt 232 64)(line_width 3))
 	)
 	(parameter
@@ -1517,6 +1517,10 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1128 1048)
 	(pt 904 504)
+)
+(connector
+	(pt 352 368)
+	(pt 904 456)
 )
 (junction (pt 472 704))
 (junction (pt -240 168))
