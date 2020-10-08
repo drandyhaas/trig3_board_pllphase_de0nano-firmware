@@ -120,7 +120,6 @@ set_location_assignment PIN_J13 -to active_clock
 set_location_assignment PIN_P11 -to clockbad0
 set_location_assignment PIN_D8 -to clockbad1
 set_global_assignment -name VERILOG_FILE pll_setter.v
-set_location_assignment PIN_P9 -to coax_out[6]
 set_location_assignment PIN_E7 -to coax_out[8]
 set_location_assignment PIN_C16 -to coax_out[9]
 set_global_assignment -name VERILOG_FILE test_pulse.v
@@ -135,4 +134,7 @@ set_global_assignment -name QIP_FILE ddio_in_mhg.qip
 set_global_assignment -name QIP_FILE ddio_out_mhg.qip
 set_global_assignment -name QIP_FILE lpm_mux_mhg.qip
 set_global_assignment -name QIP_FILE mux_mhg.qip
+set_global_assignment -name BDF_FILE registerPhotonsToClock.bdf
+set_global_assignment -name BDF_FILE registerPhotonsRisingHalf.bdf
+set_location_assignment PIN_P9 -to registered_pulse
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
