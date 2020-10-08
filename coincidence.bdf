@@ -292,7 +292,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 696 48 872 64)
+	(rect 152 184 328 200)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "test_pulse" (rect 90 0 140 12)(font "Arial" ))
 	(pt 0 8)
@@ -305,7 +305,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 832 40 904 64))
+	(annotation_block (location)(rect 288 176 360 200))
 )
 (pin
 	(output)
@@ -373,6 +373,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 872 104 928 128))
 )
 (symbol
 	(rect 424 816 624 928)
@@ -1038,7 +1039,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 432 576 496 624)
+	(rect 432 568 496 616)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst9" (rect 3 37 25 54)(font "Intel Clear" ))
 	(port
@@ -1646,10 +1647,6 @@ refer to the applicable agreement for further details.
 	(pt 88 232)
 )
 (connector
-	(pt 88 200)
-	(pt 160 200)
-)
-(connector
 	(pt -16 168)
 	(pt 88 168)
 )
@@ -1781,24 +1778,8 @@ refer to the applicable agreement for further details.
 	(pt 392 392)
 )
 (connector
-	(pt 160 200)
-	(pt 432 592)
-)
-(connector
-	(pt 488 600)
-	(pt 496 600)
-)
-(connector
-	(pt 496 600)
-	(pt 536 600)
-)
-(connector
 	(pt 248 600)
 	(pt 96 168)
-)
-(connector
-	(pt 416 600)
-	(pt 432 608)
 )
 (connector
 	(pt 248 616)
@@ -1828,10 +1809,6 @@ refer to the applicable agreement for further details.
 	(text "coax_in[3]" (rect 482 552 530 569)(font "Intel Clear" ))
 	(pt 536 568)
 	(pt 472 568)
-)
-(connector
-	(pt 536 600)
-	(pt 536 584)
 )
 (connector
 	(pt 600 576)
@@ -1872,18 +1849,34 @@ refer to the applicable agreement for further details.
 	(pt 616 648)
 )
 (connector
-	(pt 160 200)
-	(pt 160 208)
+	(text "registered_pulse" (rect 757 568 836 585)(font "Intel Clear" ))
+	(pt 856 584)
+	(pt 664 584)
 )
 (connector
-	(text "test_pulse" (rect 608 552 657 569)(font "Intel Clear" ))
+	(text "<<__$DEF_ALIAS131>>" (rect 608 552 720 569)(font "Intel Clear" )(invisible))
 	(pt 600 576)
 	(pt 624 576)
 )
 (connector
-	(text "registered_pulse" (rect 757 568 836 585)(font "Intel Clear" ))
-	(pt 856 584)
-	(pt 664 584)
+	(pt 416 600)
+	(pt 432 600)
+)
+(connector
+	(pt 536 584)
+	(pt 536 592)
+)
+(connector
+	(pt 488 592)
+	(pt 496 592)
+)
+(connector
+	(pt 496 592)
+	(pt 536 592)
+)
+(connector
+	(pt 88 200)
+	(pt 432 584)
 )
 (junction (pt 472 704))
 (junction (pt -240 168))
@@ -1897,12 +1890,12 @@ refer to the applicable agreement for further details.
 (junction (pt 88 168))
 (junction (pt 160 264))
 (junction (pt 160 248))
-(junction (pt 160 200))
 (junction (pt 376 424))
 (junction (pt 376 392))
-(junction (pt 496 600))
 (junction (pt 96 168))
 (junction (pt 768 232))
 (junction (pt 600 576))
+(junction (pt 496 592))
 (text "coax_in[3]" (rect 488 520 549 539)(font "Intel Clear" (font_size 8)))
 (text "is lvds" (rect 488 536 525 555)(font "Intel Clear" (font_size 8)))
+(line (pt 88 200)(pt 160 192))
