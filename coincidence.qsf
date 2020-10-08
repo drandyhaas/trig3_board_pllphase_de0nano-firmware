@@ -112,22 +112,18 @@ set_instance_assignment -name IO_STANDARD "2.5 V" -to serial_out
 set_instance_assignment -name IO_STANDARD LVDS -to "clk80in(n)"
 set_instance_assignment -name IO_MAXIMUM_TOGGLE_RATE "0 MHz" -to enable_outputs
 set_location_assignment PIN_A8 -to clk70alt
-set_location_assignment PIN_C11 -to clk70echo
-set_location_assignment PIN_E11 -to clk70altecho
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk70echo
+set_location_assignment PIN_P15 -to clk70echo
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk70altecho
 set_location_assignment PIN_J13 -to active_clock
 set_location_assignment PIN_P11 -to clockbad0
-set_location_assignment PIN_D8 -to clockbad1
 set_global_assignment -name VERILOG_FILE pll_setter.v
 set_location_assignment PIN_E7 -to coax_out[8]
 set_location_assignment PIN_C16 -to coax_out[9]
 set_global_assignment -name VERILOG_FILE test_pulse.v
-set_location_assignment PIN_P15 -to test_pulse
-set_location_assignment PIN_F15 -to 70MHzPLL_out
+set_location_assignment PIN_C11 -to test_pulse
+set_location_assignment PIN_E11 -to 70MHzPLL_out
 set_global_assignment -name QIP_FILE pll3.qip
 set_location_assignment PIN_F9 -to 70MHz_phase_shift
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to 70MHz_phase_shift
 set_global_assignment -name VERILOG_FILE test_pulse_decimator.v
 set_location_assignment PIN_N11 -to clk_lvds
 set_global_assignment -name QIP_FILE ddio_in_mhg.qip
@@ -137,4 +133,5 @@ set_global_assignment -name QIP_FILE mux_mhg.qip
 set_global_assignment -name BDF_FILE registerPhotonsToClock.bdf
 set_global_assignment -name BDF_FILE registerPhotonsRisingHalf.bdf
 set_location_assignment PIN_P9 -to registered_pulse
+set_location_assignment PIN_D8 -to pl1_locked
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
