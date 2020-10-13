@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -16 104 152 120)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "input70MHz" (rect 5 0 62 12)(font "Arial" ))
+	(text "input70MHz" (rect 5 0 61 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -128 448 40 464)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "updatepll" (rect 5 0 49 12)(font "Arial" ))
+	(text "updatepll" (rect 5 0 48 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -128 432 40 448)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "50MHzClock" (rect 5 0 66 17)(font "Intel Clear" ))
+	(text "50MHzClock" (rect 5 0 65 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -136 480 32 496)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "pll_phase[7..0]" (rect 5 0 77 12)(font "Arial" ))
+	(text "pll_phase[7..0]" (rect 5 0 76 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -591,6 +591,38 @@ refer to the applicable agreement for further details.
 		(line (pt 8 8)(pt 24 8))
 	)
 )
+(symbol
+	(rect -176 192 -144 224)
+	(text "GND" (rect 8 16 29 26)(font "Arial" (font_size 6)))
+	(text "inst" (rect 3 21 20 33)(font "Arial" )(invisible))
+	(port
+		(pt 16 0)
+		(output)
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 18 0 23 12)(font "Courier New" (bold))(invisible))
+		(line (pt 16 8)(pt 16 0))
+	)
+	(drawing
+		(line (pt 8 8)(pt 16 16))
+		(line (pt 16 16)(pt 24 8))
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
+	(rect -104 248 -72 264)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst7" (rect 3 5 25 22)(font "Intel Clear" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
 (connector
 	(text "areset" (rect 336 272 365 289)(font "Intel Clear" ))
 	(pt 376 288)
@@ -789,19 +821,34 @@ refer to the applicable agreement for further details.
 	(pt 376 320)
 )
 (connector
+	(text "pcsc[2..0]" (rect 288 288 331 305)(font "Intel Clear" ))
+	(pt 280 304)
 	(pt 376 304)
-	(pt 352 304)
 	(bus)
 )
 (connector
-	(pt 336 456)
-	(pt 352 456)
-	(bus)
+	(text "pcsc[0]" (rect -152 176 -119 193)(font "Intel Clear" ))
+	(pt -160 192)
+	(pt -88 192)
 )
 (connector
-	(pt 352 304)
-	(pt 352 456)
-	(bus)
+	(pt -160 192)
+	(pt -160 144)
+)
+(connector
+	(text "pcsc[2]" (rect -136 128 -103 145)(font "Intel Clear" ))
+	(pt -160 144)
+	(pt -112 144)
+)
+(connector
+	(pt -88 264)
+	(pt -88 280)
+)
+(connector
+	(text "pcsc[1]" (rect -64 264 -31 281)(font "Intel Clear" ))
+	(pt -88 280)
+	(pt -40 280)
 )
 (junction (pt 912 272))
 (junction (pt 880 88))
+(junction (pt -160 192))
