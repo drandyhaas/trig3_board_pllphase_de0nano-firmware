@@ -15,7 +15,7 @@ module test_pulse_decimator(
 			valid <= enabletest;
 		end 
 		else begin
-			counter <= counter + 1;
+			counter <= counter + 1'b1;
 			valid <= 0;
 		end			
 	end

@@ -32,15 +32,37 @@
 //refer to the applicable agreement for further details.
 
 module pll1 (
+	areset,
 	inclk0,
+	phasecounterselect,
+	phasestep,
+	phaseupdown,
+	scanclk,
 	c0,
 	c1,
-	locked);
+	locked,
+	phasedone);
 
+	input	  areset;
 	input	  inclk0;
+	input	[2:0]  phasecounterselect;
+	input	  phasestep;
+	input	  phaseupdown;
+	input	  scanclk;
 	output	  c0;
 	output	  c1;
 	output	  locked;
+	output	  phasedone;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_off
+`endif
+	tri0	  areset;
+	tri0	[2:0]  phasecounterselect;
+	tri0	  phasestep;
+	tri0	  phaseupdown;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_on
+`endif
 
 endmodule
 
@@ -90,6 +112,8 @@ endmodule
 // Retrieval info: PRIVATE: LVDS_MODE_DATA_RATE_DIRTY NUMERIC "0"
 // Retrieval info: PRIVATE: LVDS_PHASE_SHIFT_UNIT0 STRING "deg"
 // Retrieval info: PRIVATE: LVDS_PHASE_SHIFT_UNIT1 STRING "ps"
+// Retrieval info: PRIVATE: MANUAL_PHASE_SHIFT_STEP_EDIT STRING "1.00000000"
+// Retrieval info: PRIVATE: MANUAL_PHASE_SHIFT_STEP_UNIT STRING "ps"
 // Retrieval info: PRIVATE: MIG_DEVICE_SPEED_GRADE STRING "Any"
 // Retrieval info: PRIVATE: MIRROR_CLK0 STRING "0"
 // Retrieval info: PRIVATE: MIRROR_CLK1 STRING "0"
@@ -103,14 +127,14 @@ endmodule
 // Retrieval info: PRIVATE: OUTPUT_FREQ_UNIT0 STRING "MHz"
 // Retrieval info: PRIVATE: OUTPUT_FREQ_UNIT1 STRING "MHz"
 // Retrieval info: PRIVATE: PHASE_RECONFIG_FEATURE_ENABLED STRING "1"
-// Retrieval info: PRIVATE: PHASE_RECONFIG_INPUTS_CHECK STRING "0"
+// Retrieval info: PRIVATE: PHASE_RECONFIG_INPUTS_CHECK STRING "1"
 // Retrieval info: PRIVATE: PHASE_SHIFT0 STRING "0.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT1 STRING "0.00000000"
-// Retrieval info: PRIVATE: PHASE_SHIFT_STEP_ENABLED_CHECK STRING "0"
+// Retrieval info: PRIVATE: PHASE_SHIFT_STEP_ENABLED_CHECK STRING "1"
 // Retrieval info: PRIVATE: PHASE_SHIFT_UNIT0 STRING "deg"
 // Retrieval info: PRIVATE: PHASE_SHIFT_UNIT1 STRING "ps"
 // Retrieval info: PRIVATE: PLL_ADVANCED_PARAM_CHECK STRING "0"
-// Retrieval info: PRIVATE: PLL_ARESET_CHECK STRING "0"
+// Retrieval info: PRIVATE: PLL_ARESET_CHECK STRING "1"
 // Retrieval info: PRIVATE: PLL_AUTOPLL_CHECK NUMERIC "1"
 // Retrieval info: PRIVATE: PLL_ENHPLL_CHECK NUMERIC "0"
 // Retrieval info: PRIVATE: PLL_FASTPLL_CHECK NUMERIC "0"
@@ -157,7 +181,7 @@ endmodule
 // Retrieval info: CONSTANT: OPERATION_MODE STRING "NO_COMPENSATION"
 // Retrieval info: CONSTANT: PLL_TYPE STRING "AUTO"
 // Retrieval info: CONSTANT: PORT_ACTIVECLOCK STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_ARESET STRING "PORT_UNUSED"
+// Retrieval info: CONSTANT: PORT_ARESET STRING "PORT_USED"
 // Retrieval info: CONSTANT: PORT_CLKBAD0 STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_CLKBAD1 STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_CLKLOSS STRING "PORT_UNUSED"
@@ -168,13 +192,13 @@ endmodule
 // Retrieval info: CONSTANT: PORT_INCLK1 STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_LOCKED STRING "PORT_USED"
 // Retrieval info: CONSTANT: PORT_PFDENA STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_PHASECOUNTERSELECT STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_PHASEDONE STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_PHASESTEP STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_PHASEUPDOWN STRING "PORT_UNUSED"
+// Retrieval info: CONSTANT: PORT_PHASECOUNTERSELECT STRING "PORT_USED"
+// Retrieval info: CONSTANT: PORT_PHASEDONE STRING "PORT_USED"
+// Retrieval info: CONSTANT: PORT_PHASESTEP STRING "PORT_USED"
+// Retrieval info: CONSTANT: PORT_PHASEUPDOWN STRING "PORT_USED"
 // Retrieval info: CONSTANT: PORT_PLLENA STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_SCANACLR STRING "PORT_UNUSED"
-// Retrieval info: CONSTANT: PORT_SCANCLK STRING "PORT_UNUSED"
+// Retrieval info: CONSTANT: PORT_SCANCLK STRING "PORT_USED"
 // Retrieval info: CONSTANT: PORT_SCANCLKENA STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_SCANDATA STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_SCANDATAOUT STRING "PORT_UNUSED"
@@ -198,17 +222,32 @@ endmodule
 // Retrieval info: CONSTANT: PORT_extclk2 STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: PORT_extclk3 STRING "PORT_UNUSED"
 // Retrieval info: CONSTANT: SELF_RESET_ON_LOSS_LOCK STRING "OFF"
+// Retrieval info: CONSTANT: VCO_FREQUENCY_CONTROL STRING "MANUAL_PHASE"
+// Retrieval info: CONSTANT: VCO_PHASE_SHIFT_STEP NUMERIC "1"
 // Retrieval info: CONSTANT: WIDTH_CLOCK NUMERIC "5"
+// Retrieval info: CONSTANT: WIDTH_PHASECOUNTERSELECT NUMERIC "3"
 // Retrieval info: USED_PORT: @clk 0 0 5 0 OUTPUT_CLK_EXT VCC "@clk[4..0]"
+// Retrieval info: USED_PORT: areset 0 0 0 0 INPUT GND "areset"
 // Retrieval info: USED_PORT: c0 0 0 0 0 OUTPUT_CLK_EXT VCC "c0"
 // Retrieval info: USED_PORT: c1 0 0 0 0 OUTPUT_CLK_EXT VCC "c1"
 // Retrieval info: USED_PORT: inclk0 0 0 0 0 INPUT_CLK_EXT GND "inclk0"
 // Retrieval info: USED_PORT: locked 0 0 0 0 OUTPUT GND "locked"
+// Retrieval info: USED_PORT: phasecounterselect 0 0 3 0 INPUT GND "phasecounterselect[2..0]"
+// Retrieval info: USED_PORT: phasedone 0 0 0 0 OUTPUT GND "phasedone"
+// Retrieval info: USED_PORT: phasestep 0 0 0 0 INPUT GND "phasestep"
+// Retrieval info: USED_PORT: phaseupdown 0 0 0 0 INPUT GND "phaseupdown"
+// Retrieval info: USED_PORT: scanclk 0 0 0 0 INPUT_CLK_EXT VCC "scanclk"
+// Retrieval info: CONNECT: @areset 0 0 0 0 areset 0 0 0 0
 // Retrieval info: CONNECT: @inclk 0 0 1 1 GND 0 0 0 0
 // Retrieval info: CONNECT: @inclk 0 0 1 0 inclk0 0 0 0 0
+// Retrieval info: CONNECT: @phasecounterselect 0 0 3 0 phasecounterselect 0 0 3 0
+// Retrieval info: CONNECT: @phasestep 0 0 0 0 phasestep 0 0 0 0
+// Retrieval info: CONNECT: @phaseupdown 0 0 0 0 phaseupdown 0 0 0 0
+// Retrieval info: CONNECT: @scanclk 0 0 0 0 scanclk 0 0 0 0
 // Retrieval info: CONNECT: c0 0 0 0 0 @clk 0 0 1 0
 // Retrieval info: CONNECT: c1 0 0 0 0 @clk 0 0 1 1
 // Retrieval info: CONNECT: locked 0 0 0 0 @locked 0 0 0 0
+// Retrieval info: CONNECT: phasedone 0 0 0 0 @phasedone 0 0 0 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL pll1.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL pll1.ppf TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL pll1.inc FALSE
