@@ -7,7 +7,7 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 	input phase_done;
 	
 	output reg areset = 0;
-   output reg[2:0] phasecounterselect = 0; // Dynamic phase shift counter Select. 000:all 001:M 010:C0 011:C1 100:C2 101:C3 110:C4. Registered in the rising edge of scanclk.
+   output reg[2:0] phasecounterselect = 3'b010; // Dynamic phase shift counter Select. 000:all 001:M 010:C0 011:C1 100:C2 101:C3 110:C4. Registered in the rising edge of scanclk.
 	output reg phaseupdown=1; // Dynamic phase shift direction; 1:UP, 0:DOWN. Registered in the PLL on the rising edge of scanclk.
 	output reg phasestep=0;
 	output reg scanclk=0;
@@ -38,10 +38,10 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 			end
 		end
 		ARESET: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
-			areset = 1;
+			areset = 1'b1;
 			pllclock_counter=pllclock_counter+1;
 			if (pllclock_counter[3]) begin
-				areset = 0;
+				areset = 1'b0;
 				pllclock_counter=0;
 				if (pll_clksrc_setting) begin
 					clkswitch = 1;
