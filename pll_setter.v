@@ -15,7 +15,7 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 	
 	
 	localparam WAIT=0, ARESET=1, CLKSWITCH=2, PHASESTEP=3, ONEPHASE=4;
-	integer state=WAIT;
+	reg[7:0] state=WAIT;
 	
 	integer pll_phase_setting;
 	integer phasecounter;

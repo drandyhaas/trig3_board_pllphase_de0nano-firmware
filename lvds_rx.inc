@@ -15,6 +15,7 @@
 
 FUNCTION lvds_rx 
 (
+	rx_data_reset,
 	rx_in[0..0],
 	rx_inclock
 )

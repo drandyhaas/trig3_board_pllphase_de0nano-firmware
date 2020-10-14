@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 320 24 488 40)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "photon" (rect 5 0 39 12)(font "Arial" ))
+	(text "photon" (rect 5 0 38 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 320 56 488 72)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock_in" (rect 5 0 44 17)(font "Intel Clear" ))
+	(text "clock_in" (rect 5 0 43 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -53,7 +53,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 552 24 756 40)
+	(rect 800 224 1004 240)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_ddr_registered" (rect 90 0 198 12)(font "Arial" ))
 	(pt 0 8)
@@ -230,18 +230,6 @@ refer to the applicable agreement for further details.
 	(pt 272 320)
 )
 (connector
-	(pt 592 160)
-	(pt 624 160)
-)
-(connector
-	(pt 624 160)
-	(pt 624 224)
-)
-(connector
-	(pt 624 224)
-	(pt 672 224)
-)
-(connector
 	(pt 592 288)
 	(pt 624 288)
 )
@@ -263,7 +251,18 @@ refer to the applicable agreement for further details.
 	(pt 672 312)
 )
 (connector
-	(text "photon_ddr_registered" (rect 760 216 867 233)(font "Intel Clear" ))
+	(pt 672 224)
+	(pt 624 224)
+)
+(connector
 	(pt 752 232)
 	(pt 800 232)
+)
+(connector
+	(pt 592 160)
+	(pt 624 160)
+)
+(connector
+	(pt 624 160)
+	(pt 624 224)
 )

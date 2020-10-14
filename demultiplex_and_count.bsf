@@ -1,0 +1,133 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 280 224)
+	(text "demultiplex_and_count" (rect 5 0 94 12)(font "Arial" ))
+	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "read_clk" (rect 0 0 34 12)(font "Arial" ))
+		(text "read_clk" (rect 21 27 55 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 1))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "lvds_in[NBINS-1..0]" (rect 0 0 77 12)(font "Arial" ))
+		(text "lvds_in[NBINS-1..0]" (rect 21 43 98 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "pmt" (rect 0 0 15 12)(font "Arial" ))
+		(text "pmt" (rect 21 59 36 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "passthrough" (rect 0 0 48 12)(font "Arial" ))
+		(text "passthrough" (rect 21 75 69 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 0 96)
+		(input)
+		(text "resethist" (rect 0 0 33 12)(font "Arial" ))
+		(text "resethist" (rect 21 91 54 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "vetopmtlast" (rect 0 0 46 12)(font "Arial" ))
+		(text "vetopmtlast" (rect 21 107 67 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "mask1[NBINS-1..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "mask1[NBINS-1..0]" (rect 21 123 96 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(input)
+		(text "mask2[NBINS-1..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "mask2[NBINS-1..0]" (rect 21 139 97 151)(font "Arial" ))
+		(line (pt 0 144)(pt 16 144)(line_width 3))
+	)
+	(port
+		(pt 0 160)
+		(input)
+		(text "cyclesToVeto[7..0]" (rect 0 0 76 12)(font "Arial" ))
+		(text "cyclesToVeto[7..0]" (rect 21 155 97 167)(font "Arial" ))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
+	)
+	(port
+		(pt 264 32)
+		(output)
+		(text "photon_detection[1..0]" (rect 0 0 84 12)(font "Arial" ))
+		(text "photon_detection[1..0]" (rect 159 27 243 39)(font "Arial" ))
+		(line (pt 264 32)(pt 248 32)(line_width 3))
+	)
+	(port
+		(pt 264 48)
+		(output)
+		(text "histo[0..7][31..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "histo[0..7][31..0]" (rect 182 43 243 55)(font "Arial" ))
+		(line (pt 264 48)(pt 248 48)(line_width 3))
+	)
+	(port
+		(pt 264 64)
+		(output)
+		(text "ipihist[0..63][31..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "ipihist[0..63][31..0]" (rect 175 59 243 71)(font "Arial" ))
+		(line (pt 264 64)(pt 248 64)(line_width 3))
+	)
+	(port
+		(pt 264 80)
+		(output)
+		(text "inveto" (rect 0 0 23 12)(font "Arial" ))
+		(text "inveto" (rect 220 75 243 87)(font "Arial" ))
+		(line (pt 264 80)(pt 248 80)(line_width 1))
+	)
+	(port
+		(pt 264 96)
+		(output)
+		(text "collision" (rect 0 0 28 12)(font "Arial" ))
+		(text "collision" (rect 215 91 243 103)(font "Arial" ))
+		(line (pt 264 96)(pt 248 96)(line_width 1))
+	)
+	(parameter
+		"NBINS"
+		"8"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 248 192)(line_width 1))
+	)
+	(annotation_block (parameter)(rect 280 -64 380 16))
+)

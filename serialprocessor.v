@@ -15,7 +15,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg enable_outputs=0;//set low to enable outputs
 	reg [7:0] extradata[10];//to store command extra data, like arguemnts (up to 10 bytes)
 	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5,  UPDATEPLL=8;
-	integer state=READ;
+	reg[7:0] state=READ;
 	integer bytesread, byteswanted;
 	output reg[7:0] mask1 = 8'b00001111;
 	output reg[7:0] mask2 = 8'b11110000;
@@ -49,7 +49,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
-	parameter version = 8'd17;
+	parameter version = 8'd20;
 	
 	always @(posedge clk) begin
 	case (state)
@@ -172,7 +172,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			data[30]=h[7][23:16];
 			data[31]=h[7][31:24];
 			
-			for (q = 0; q < 64; q = q+1) begin
+			for (q = 0; q < 64; q = q+8'd1) begin
 				data[32 + q*4] = ipihist[q][7:0];
 				data[q*4 + 33] = ipihist[q][15:8];
 				data[q*4 + 34] = ipihist[q][23:16];
