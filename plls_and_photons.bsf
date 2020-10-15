@@ -100,20 +100,6 @@ refer to the applicable agreement for further details.
 		(text "clk_lvds_reg" (rect 177 91 251 110)(font "Intel Clear" (font_size 8)))
 		(line (pt 272 96)(pt 256 96))
 	)
-	(port
-		(pt 272 112)
-		(output)
-		(text "photon_registered" (rect 0 0 108 19)(font "Intel Clear" (font_size 8)))
-		(text "photon_registered" (rect 143 107 251 126)(font "Intel Clear" (font_size 8)))
-		(line (pt 272 112)(pt 256 112))
-	)
-	(port
-		(pt 272 128)
-		(output)
-		(text "photon_rx[7..0]" (rect 0 0 89 19)(font "Intel Clear" (font_size 8)))
-		(text "photon_rx[7..0]" (rect 162 123 251 142)(font "Intel Clear" (font_size 8)))
-		(line (pt 272 128)(pt 256 128)(line_width 3))
-	)
 	(drawing
 		(rectangle (rect 16 16 256 144))
 	)
