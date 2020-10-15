@@ -489,35 +489,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 616 312 824 408)
-	(text "registerPhotonsFullWidth" (rect 5 0 153 19)(font "Intel Clear" (font_size 8)))
-	(text "rpfw" (rect 8 75 29 92)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock_in" (rect 0 0 47 19)(font "Intel Clear" (font_size 8)))
-		(text "clock_in" (rect 21 27 68 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "photon" (rect 0 0 41 19)(font "Intel Clear" (font_size 8)))
-		(text "photon" (rect 21 43 62 62)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "registered_photon" (rect 0 0 108 19)(font "Intel Clear" (font_size 8)))
-		(text "registered_photon" (rect 79 27 187 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 208 32)(pt 192 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 80))
-	)
-)
-(symbol
 	(rect 632 480 904 640)
 	(text "plls_and_photons" (rect 5 0 110 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 139 24 156)(font "Intel Clear" ))
@@ -792,33 +763,13 @@ refer to the applicable agreement for further details.
 	(pt 1184 1080)
 )
 (connector
-	(text "enabletestpulse" (rect 568 560 644 577)(font "Intel Clear" ))
-	(pt 632 576)
-	(pt 560 576)
-)
-(connector
 	(pt 904 544)
 	(pt 944 544)
-)
-(connector
-	(text "read_clk" (rect 560 328 601 345)(font "Intel Clear" ))
-	(pt 616 344)
-	(pt 552 344)
 )
 (connector
 	(text "pmt_in" (rect 580 576 613 593)(font "Intel Clear" ))
 	(pt 568 592)
 	(pt 632 592)
-)
-(connector
-	(text "pmt_in" (rect 560 344 593 361)(font "Intel Clear" ))
-	(pt 616 360)
-	(pt 552 360)
-)
-(connector
-	(text "pmt_reg_to_read_clk" (rect 832 328 934 345)(font "Intel Clear" ))
-	(pt 824 344)
-	(pt 880 344)
 )
 (connector
 	(text "cyclesToVeto[7..0]" (rect 1136 1048 1223 1065)(font "Intel Clear" ))
