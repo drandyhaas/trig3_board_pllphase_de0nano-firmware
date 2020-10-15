@@ -71,23 +71,6 @@ refer to the applicable agreement for further details.
 	(annotation_block (location)(rect 352 440 408 464))
 )
 (pin
-	(input)
-	(rect 384 584 568 600)
-	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
-	(text "pv16_differential" (rect 5 0 88 12)(font "Arial" ))
-	(pt 184 8)
-	(drawing
-		(line (pt 100 12)(pt 125 12))
-		(line (pt 100 4)(pt 125 4))
-		(line (pt 129 8)(pt 184 8))
-		(line (pt 100 12)(pt 100 4))
-		(line (pt 125 4)(pt 129 8))
-		(line (pt 125 12)(pt 129 8))
-	)
-	(text "VCC" (rect 144 7 164 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 320 600 384 624))
-)
-(pin
 	(output)
 	(rect 1616 824 1792 840)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -765,11 +748,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 904 544)
 	(pt 944 544)
-)
-(connector
-	(text "pmt_in" (rect 580 576 613 593)(font "Intel Clear" ))
-	(pt 568 592)
-	(pt 632 592)
 )
 (connector
 	(text "cyclesToVeto[7..0]" (rect 1136 1048 1223 1065)(font "Intel Clear" ))
