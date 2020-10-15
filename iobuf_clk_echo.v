@@ -33,7 +33,7 @@
 //refer to the applicable agreement for further details.
 
 
-//altiobuf_out CBX_AUTO_BLACKBOX="ALL" DEVICE_FAMILY="Cyclone IV E" ENABLE_BUS_HOLD="FALSE" LEFT_SHIFT_SERIES_TERMINATION_CONTROL="FALSE" NUMBER_OF_CHANNELS=1 OPEN_DRAIN_OUTPUT="FALSE" PSEUDO_DIFFERENTIAL_MODE="FALSE" USE_DIFFERENTIAL_MODE="FALSE" USE_OE="FALSE" USE_TERMINATION_CONTROL="FALSE" datain dataout
+//altiobuf_out CBX_AUTO_BLACKBOX="ALL" DEVICE_FAMILY="Cyclone IV E" ENABLE_BUS_HOLD="FALSE" LEFT_SHIFT_SERIES_TERMINATION_CONTROL="FALSE" NUMBER_OF_CHANNELS=1 OPEN_DRAIN_OUTPUT="FALSE" PSEUDO_DIFFERENTIAL_MODE="FALSE" USE_DIFFERENTIAL_MODE="FALSE" USE_OE="TRUE" USE_TERMINATION_CONTROL="FALSE" datain dataout oe
 //VERSION_BEGIN 18.1 cbx_altiobuf_out 2018:09:12:13:04:24:SJ cbx_mgl 2018:09:12:13:10:36:SJ cbx_stratixiii 2018:09:12:13:04:24:SJ cbx_stratixv 2018:09:12:13:04:24:SJ  VERSION_END
 // synthesis VERILOG_INPUT_VERSION VERILOG_2001
 // altera message_off 10463
@@ -43,12 +43,21 @@
 //synopsys translate_off
 `timescale 1 ps / 1 ps
 //synopsys translate_on
-module  iobuf_clk_echo_iobuf_out_40t
+module  iobuf_clk_echo_iobuf_out_d5t
 	( 
 	datain,
-	dataout) ;
+	dataout,
+	oe) ;
 	input   [0:0]  datain;
 	output   [0:0]  dataout;
+	input   [0:0]  oe;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_off
+`endif
+	tri1   [0:0]  oe;
+`ifndef ALTERA_RESERVED_QIS
+// synopsys translate_on
+`endif
 
 	wire  [0:0]   wire_obufa_o;
 	wire  [0:0]  oe_w;
@@ -78,8 +87,8 @@ module  iobuf_clk_echo_iobuf_out_40t
 		obufa_0.lpm_type = "cycloneive_io_obuf";
 	assign
 		dataout = wire_obufa_o,
-		oe_w = 1'b1;
-endmodule //iobuf_clk_echo_iobuf_out_40t
+		oe_w = oe;
+endmodule //iobuf_clk_echo_iobuf_out_d5t
 //VALID FILE
 
 
@@ -88,16 +97,19 @@ endmodule //iobuf_clk_echo_iobuf_out_40t
 // synopsys translate_on
 module iobuf_clk_echo (
 	datain,
+	oe,
 	dataout);
 
 	input	[0:0]  datain;
+	input	[0:0]  oe;
 	output	[0:0]  dataout;
 
 	wire [0:0] sub_wire0;
 	wire [0:0] dataout = sub_wire0[0:0];
 
-	iobuf_clk_echo_iobuf_out_40t	iobuf_clk_echo_iobuf_out_40t_component (
+	iobuf_clk_echo_iobuf_out_d5t	iobuf_clk_echo_iobuf_out_d5t_component (
 				.datain (datain),
+				.oe (oe),
 				.dataout (sub_wire0));
 
 endmodule
@@ -115,11 +127,13 @@ endmodule
 // Retrieval info: CONSTANT: open_drain_output STRING "FALSE"
 // Retrieval info: CONSTANT: pseudo_differential_mode STRING "FALSE"
 // Retrieval info: CONSTANT: use_differential_mode STRING "FALSE"
-// Retrieval info: CONSTANT: use_oe STRING "FALSE"
+// Retrieval info: CONSTANT: use_oe STRING "TRUE"
 // Retrieval info: CONSTANT: use_termination_control STRING "FALSE"
 // Retrieval info: USED_PORT: datain 0 0 1 0 INPUT NODEFVAL "datain[0..0]"
 // Retrieval info: USED_PORT: dataout 0 0 1 0 OUTPUT NODEFVAL "dataout[0..0]"
+// Retrieval info: USED_PORT: oe 0 0 1 0 INPUT NODEFVAL "oe[0..0]"
 // Retrieval info: CONNECT: @datain 0 0 1 0 datain 0 0 1 0
+// Retrieval info: CONNECT: @oe 0 0 1 0 oe 0 0 1 0
 // Retrieval info: CONNECT: dataout 0 0 1 0 @dataout 0 0 1 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL iobuf_clk_echo.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL iobuf_clk_echo.inc TRUE

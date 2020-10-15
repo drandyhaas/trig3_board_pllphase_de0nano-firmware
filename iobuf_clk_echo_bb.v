@@ -33,9 +33,11 @@
 
 module iobuf_clk_echo (
 	datain,
+	oe,
 	dataout)/* synthesis synthesis_clearbox = 1 */;
 
 	input	[0:0]  datain;
+	input	[0:0]  oe;
 	output	[0:0]  dataout;
 
 endmodule
@@ -53,11 +55,13 @@ endmodule
 // Retrieval info: CONSTANT: open_drain_output STRING "FALSE"
 // Retrieval info: CONSTANT: pseudo_differential_mode STRING "FALSE"
 // Retrieval info: CONSTANT: use_differential_mode STRING "FALSE"
-// Retrieval info: CONSTANT: use_oe STRING "FALSE"
+// Retrieval info: CONSTANT: use_oe STRING "TRUE"
 // Retrieval info: CONSTANT: use_termination_control STRING "FALSE"
 // Retrieval info: USED_PORT: datain 0 0 1 0 INPUT NODEFVAL "datain[0..0]"
 // Retrieval info: USED_PORT: dataout 0 0 1 0 OUTPUT NODEFVAL "dataout[0..0]"
+// Retrieval info: USED_PORT: oe 0 0 1 0 INPUT NODEFVAL "oe[0..0]"
 // Retrieval info: CONNECT: @datain 0 0 1 0 datain 0 0 1 0
+// Retrieval info: CONNECT: @oe 0 0 1 0 oe 0 0 1 0
 // Retrieval info: CONNECT: dataout 0 0 1 0 @dataout 0 0 1 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL iobuf_clk_echo.v TRUE
 // Retrieval info: GEN_FILE: TYPE_NORMAL iobuf_clk_echo.inc TRUE

@@ -15,7 +15,8 @@
 
 FUNCTION iobuf_clk_echo 
 (
-	datain[0..0]
+	datain[0..0],
+	oe[0..0]
 )
 
 RETURNS (
