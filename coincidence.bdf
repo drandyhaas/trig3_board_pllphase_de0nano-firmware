@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 400 448 576 464)
+	(rect 256 448 432 464)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "clk80in" (rect 9 0 43 12)(font "Arial" ))
 	(pt 176 8)
@@ -68,7 +68,7 @@ refer to the applicable agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 352 440 408 464))
+	(annotation_block (location)(rect 208 440 264 464))
 )
 (pin
 	(output)
@@ -833,12 +833,16 @@ refer to the applicable agreement for further details.
 	(pt 1040 528)
 )
 (connector
-	(pt 576 456)
-	(pt 592 456)
-)
-(connector
 	(pt 592 360)
 	(pt 712 360)
+)
+(connector
+	(pt 712 328)
+	(pt 1104 920)
+)
+(connector
+	(pt 1008 360)
+	(pt 944 360)
 )
 (connector
 	(pt 592 360)
@@ -849,12 +853,8 @@ refer to the applicable agreement for further details.
 	(pt 592 512)
 )
 (connector
-	(pt 712 328)
-	(pt 1104 920)
-)
-(connector
-	(pt 1008 360)
-	(pt 944 360)
+	(pt 432 456)
+	(pt 592 456)
 )
 (junction (pt 1128 920))
 (junction (pt 1128 840))
