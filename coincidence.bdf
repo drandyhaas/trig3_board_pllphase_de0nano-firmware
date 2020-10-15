@@ -106,7 +106,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 616 448 792 464)
+	(rect 688 448 864 464)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "clk70echo" (rect 90 0 139 12)(font "Arial" ))
 	(pt 0 8)
@@ -119,7 +119,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 744 440 808 464))
+	(annotation_block (location)(rect 816 440 880 464))
 )
 (pin
 	(output)
@@ -695,14 +695,6 @@ refer to the applicable agreement for further details.
 	(pt 632 512)
 )
 (connector
-	(pt 576 456)
-	(pt 592 456)
-)
-(connector
-	(pt 592 456)
-	(pt 616 456)
-)
-(connector
 	(pt 592 456)
 	(pt 592 512)
 )
@@ -806,6 +798,14 @@ refer to the applicable agreement for further details.
 	(text "read_clk" (rect 970 512 1011 529)(font "Intel Clear" ))
 	(pt 904 528)
 	(pt 1040 528)
+)
+(connector
+	(pt 576 456)
+	(pt 592 456)
+)
+(connector
+	(pt 592 456)
+	(pt 688 456)
 )
 (junction (pt 1128 920))
 (junction (pt 1128 840))
