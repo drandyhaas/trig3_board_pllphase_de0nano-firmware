@@ -74,7 +74,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 384 584 568 600)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
-	(text "pv16_differential" (rect 5 0 89 12)(font "Arial" ))
+	(text "pv16_differential" (rect 5 0 88 12)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -120,23 +120,6 @@ refer to the applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 	(annotation_block (location)(rect 1352 936 1408 960))
-)
-(pin
-	(output)
-	(rect 616 448 792 464)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "clk70echo" (rect 90 0 139 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 744 440 808 464))
 )
 (pin
 	(output)
@@ -889,10 +872,6 @@ refer to the applicable agreement for further details.
 )
 (connector
 	(pt 592 456)
-	(pt 616 456)
-)
-(connector
-	(pt 592 456)
 	(pt 592 512)
 )
 (connector
@@ -1122,5 +1101,4 @@ refer to the applicable agreement for further details.
 (junction (pt 1128 920))
 (junction (pt 1128 840))
 (junction (pt 872 704))
-(junction (pt 592 456))
 (junction (pt 440 704))
