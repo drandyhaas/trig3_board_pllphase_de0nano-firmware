@@ -136,11 +136,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1152 520 1216 544))
+	(annotation_block (location)(rect 1192 480 1256 504))
 )
 (pin
 	(output)
-	(rect 920 504 1096 520)
+	(rect 912 472 1088 488)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "pl1_locked" (rect 90 0 143 17)(font "Intel Clear" ))
 	(pt 0 8)
@@ -153,7 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1008 480 1072 504))
+	(annotation_block (location)(rect 1000 448 1064 472))
 )
 (pin
 	(output)
@@ -170,11 +170,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 976 552 1040 576))
+	(annotation_block (location)(rect 1136 536 1200 560))
 )
 (pin
 	(output)
-	(rect 1056 584 1239 600)
+	(rect 1056 608 1239 624)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_registered" (rect 90 0 177 12)(font "Arial" ))
 	(pt 0 8)
@@ -187,7 +187,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1239 600 1295 624))
+	(annotation_block (location)(rect 1232 608 1288 632))
 )
 (pin
 	(output)
@@ -225,9 +225,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 920 648 1096 664)
+	(rect 1096 568 1272 584)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "any_photon_sr" (rect 90 0 163 12)(font "Arial" ))
+	(text "clk_lvds_reg" (rect 90 0 152 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -238,6 +238,24 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1272 584 1328 608))
+)
+(pin
+	(output)
+	(rect 928 552 1104 568)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "clk_lvds" (rect 90 0 131 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1064 552 1128 576))
 )
 (symbol
 	(rect 424 816 624 928)
@@ -973,10 +991,6 @@ refer to the applicable agreement for further details.
 	(pt 560 576)
 )
 (connector
-	(pt 904 512)
-	(pt 920 512)
-)
-(connector
 	(pt 904 544)
 	(pt 944 544)
 )
@@ -1137,16 +1151,8 @@ refer to the applicable agreement for further details.
 	(pt 912 584)
 )
 (connector
-	(pt 1048 592)
-	(pt 1048 584)
-)
-(connector
 	(pt 904 592)
 	(pt 912 592)
-)
-(connector
-	(pt 1056 592)
-	(pt 1048 592)
 )
 (connector
 	(pt 912 584)
@@ -1157,8 +1163,28 @@ refer to the applicable agreement for further details.
 	(pt 920 640)
 )
 (connector
-	(pt 904 656)
-	(pt 920 656)
+	(pt 904 560)
+	(pt 928 560)
+)
+(connector
+	(pt 912 512)
+	(pt 912 480)
+)
+(connector
+	(pt 904 512)
+	(pt 912 512)
+)
+(connector
+	(pt 1048 584)
+	(pt 1048 616)
+)
+(connector
+	(pt 1048 616)
+	(pt 1056 616)
+)
+(connector
+	(pt 904 576)
+	(pt 1096 576)
 )
 (junction (pt 1128 920))
 (junction (pt 1128 840))
