@@ -228,6 +228,22 @@ refer to the applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 1112 752 1288 768)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "lvds_reset" (rect 90 0 141 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 1256 408 1320 456)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
@@ -1058,10 +1074,6 @@ refer to the applicable agreement for further details.
 	(pt 1016 736)
 )
 (connector
-	(pt 1016 736)
-	(pt 1024 736)
-)
-(connector
 	(text "locked" (rect 856 744 887 761)(font "Intel Clear" ))
 	(pt 936 760)
 	(pt 848 760)
@@ -1192,6 +1204,5 @@ refer to the applicable agreement for further details.
 )
 (junction (pt -160 192))
 (junction (pt 912 736))
-(junction (pt 1016 736))
 (junction (pt 824 632))
 (junction (pt 1104 632))
