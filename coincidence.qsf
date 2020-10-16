@@ -116,4 +116,6 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to photon_detection
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to pl1_locked
 set_location_assignment PIN_C11 -to any_photon
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to any_photon
+set_global_assignment -name QIP_FILE shift_mhg.qip
+set_location_assignment PIN_N11 -to any_photon_sr
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

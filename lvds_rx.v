@@ -37,12 +37,10 @@
 `timescale 1 ps / 1 ps
 // synopsys translate_on
 module lvds_rx (
-	rx_data_reset,
 	rx_in,
 	rx_inclock,
 	rx_out);
 
-	input	  rx_data_reset;
 	input	[0:0]  rx_in;
 	input	  rx_inclock;
 	output	[7:0]  rx_out;
@@ -51,7 +49,6 @@ module lvds_rx (
 	wire [7:0] rx_out = sub_wire0[7:0];
 
 	altlvds_rx	ALTLVDS_RX_component (
-				.rx_data_reset (rx_data_reset),
 				.rx_in (rx_in),
 				.rx_inclock (rx_inclock),
 				.rx_out (sub_wire0),
@@ -69,6 +66,7 @@ module lvds_rx (
 				.rx_coreclk (1'b1),
 				.rx_data_align (1'b0),
 				.rx_data_align_reset (1'b0),
+				.rx_data_reset (1'b0),
 				.rx_deskew (1'b0),
 				.rx_divfwdclk (),
 				.rx_dpa_lock_reset (1'b0),
@@ -217,8 +215,6 @@ endmodule
 // Retrieval info: CONSTANT: USE_EXTERNAL_PLL STRING "ON"
 // Retrieval info: CONSTANT: USE_NO_PHASE_SHIFT STRING "ON"
 // Retrieval info: CONSTANT: X_ON_BITSLIP STRING "ON"
-// Retrieval info: USED_PORT: rx_data_reset 0 0 0 0 INPUT NODEFVAL "rx_data_reset"
-// Retrieval info: CONNECT: @rx_data_reset 0 0 0 0 rx_data_reset 0 0 0 0
 // Retrieval info: USED_PORT: rx_in 0 0 1 0 INPUT NODEFVAL "rx_in[0..0]"
 // Retrieval info: CONNECT: @rx_in 0 0 1 0 rx_in 0 0 1 0
 // Retrieval info: USED_PORT: rx_inclock 0 0 0 0 INPUT NODEFVAL "rx_inclock"

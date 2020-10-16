@@ -122,7 +122,7 @@ module pll4lvds (
 		altpll_component.clk2_divide_by = 1,
 		altpll_component.clk2_duty_cycle = 50,
 		altpll_component.clk2_multiply_by = 4,
-		altpll_component.clk2_phase_shift = "-223",
+		altpll_component.clk2_phase_shift = "223",
 		altpll_component.inclk0_input_frequency = 14285,
 		altpll_component.intended_device_family = "Cyclone IV E",
 		altpll_component.lpm_hint = "CBX_MODULE_PREFIX=pll4lvds",
@@ -247,7 +247,7 @@ endmodule
 // Retrieval info: PRIVATE: PHASE_RECONFIG_INPUTS_CHECK STRING "0"
 // Retrieval info: PRIVATE: PHASE_SHIFT0 STRING "0.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT1 STRING "0.00000000"
-// Retrieval info: PRIVATE: PHASE_SHIFT2 STRING "-22.50000000"
+// Retrieval info: PRIVATE: PHASE_SHIFT2 STRING "22.50000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT_STEP_ENABLED_CHECK STRING "0"
 // Retrieval info: PRIVATE: PHASE_SHIFT_UNIT0 STRING "deg"
 // Retrieval info: PRIVATE: PHASE_SHIFT_UNIT1 STRING "deg"
@@ -300,7 +300,7 @@ endmodule
 // Retrieval info: CONSTANT: CLK2_DIVIDE_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "50"
 // Retrieval info: CONSTANT: CLK2_MULTIPLY_BY NUMERIC "4"
-// Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "-223"
+// Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "223"
 // Retrieval info: CONSTANT: INCLK0_INPUT_FREQUENCY NUMERIC "14285"
 // Retrieval info: CONSTANT: INTENDED_DEVICE_FAMILY STRING "Cyclone IV E"
 // Retrieval info: CONSTANT: LPM_TYPE STRING "altpll"

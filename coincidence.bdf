@@ -223,6 +223,22 @@ refer to the applicable agreement for further details.
 	)
 	(annotation_block (location)(rect 1096 648 1160 672))
 )
+(pin
+	(output)
+	(rect 920 648 1096 664)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "any_photon_sr" (rect 90 0 163 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 424 816 624 928)
 	(text "async_receiver" (rect 5 0 81 12)(font "Arial" ))
@@ -647,9 +663,9 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 632 480 904 672)
+	(rect 632 480 904 704)
 	(text "plls_and_photons" (rect 5 0 110 19)(font "Intel Clear" (font_size 8)))
-	(text "inst" (rect 8 171 24 188)(font "Intel Clear" ))
+	(text "inst" (rect 8 203 24 220)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -755,8 +771,15 @@ refer to the applicable agreement for further details.
 		(text "anyphoton" (rect 189 155 251 174)(font "Intel Clear" (font_size 8)))
 		(line (pt 272 160)(pt 256 160))
 	)
+	(port
+		(pt 272 176)
+		(output)
+		(text "anyshiftregphot" (rect 0 0 93 19)(font "Intel Clear" (font_size 8)))
+		(text "anyshiftregphot" (rect 158 171 251 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 272 176)(pt 256 176))
+	)
 	(drawing
-		(rectangle (rect 16 16 256 176))
+		(rectangle (rect 16 16 256 208))
 	)
 )
 (connector
@@ -1132,6 +1155,10 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 904 640)
 	(pt 920 640)
+)
+(connector
+	(pt 904 656)
+	(pt 920 656)
 )
 (junction (pt 1128 920))
 (junction (pt 1128 840))
