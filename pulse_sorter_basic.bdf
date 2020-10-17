@@ -84,7 +84,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 368 120 664 216)
+	(rect 368 112 664 208)
 	(text "edge_coincidence_pulse" (rect 5 0 148 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 75 24 92)(font "Intel Clear" ))
 	(port
@@ -181,18 +181,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (connector
-	(pt 320 152)
-	(pt 368 152)
-)
-(connector
-	(pt 320 152)
-	(pt 320 184)
-)
-(connector
-	(pt 320 184)
-	(pt 368 184)
-)
-(connector
 	(pt 264 184)
 	(pt 296 184)
 )
@@ -217,14 +205,6 @@ refer to the applicable agreement for further details.
 	(pt 296 312)
 )
 (connector
-	(pt 368 168)
-	(pt 352 168)
-)
-(connector
-	(pt 352 168)
-	(pt 352 240)
-)
-(connector
 	(pt 368 296)
 	(pt 256 296)
 )
@@ -240,7 +220,43 @@ refer to the applicable agreement for further details.
 	(pt 256 240)
 	(pt 240 240)
 )
-(junction (pt 320 184))
+(connector
+	(pt 656 152)
+	(pt 656 144)
+)
+(connector
+	(pt 664 152)
+	(pt 656 152)
+)
+(connector
+	(pt 656 144)
+	(pt 664 144)
+)
+(connector
+	(pt 320 144)
+	(pt 368 144)
+)
+(connector
+	(pt 320 176)
+	(pt 368 176)
+)
+(connector
+	(pt 352 160)
+	(pt 368 160)
+)
+(connector
+	(pt 352 240)
+	(pt 352 160)
+)
+(connector
+	(pt 320 144)
+	(pt 320 176)
+)
+(connector
+	(pt 320 176)
+	(pt 320 184)
+)
 (junction (pt 296 184))
 (junction (pt 296 280))
 (junction (pt 256 240))
+(junction (pt 320 176))

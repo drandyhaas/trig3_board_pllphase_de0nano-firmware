@@ -49,7 +49,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
-	parameter version = 8'd20;
+	parameter version = 8'd21;
 	
 	always @(posedge clk) begin
 	case (state)
