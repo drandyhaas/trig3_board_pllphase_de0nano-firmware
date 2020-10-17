@@ -208,7 +208,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 944 616 1120 632)
+	(rect 944 584 1120 600)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "any_photon" (rect 90 0 147 12)(font "Arial" ))
 	(pt 0 8)
@@ -221,7 +221,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1120 632 1176 656))
+	(annotation_block (location)(rect 1040 600 1096 624))
 )
 (symbol
 	(rect 424 816 624 928)
@@ -843,6 +843,10 @@ refer to the applicable agreement for further details.
 	(pt 1408 368)
 	(pt 1416 368)
 	(bus)
+)
+(connector
+	(pt 904 592)
+	(pt 944 592)
 )
 (junction (pt 1128 840))
 (junction (pt 872 704))
