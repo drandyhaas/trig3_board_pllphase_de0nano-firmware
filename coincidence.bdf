@@ -921,14 +921,9 @@ refer to the applicable agreement for further details.
 	(pt 1232 920)
 )
 (connector
-	(text "enable_outputs,enable_outputs,enable_outputs" (rect 926 320 1153 337)(font "Intel Clear" ))
-	(pt 1000 336)
+	(text "gnd,gnd,gnd" (rect 1070 312 1127 329)(font "Intel Clear" ))
 	(pt 1160 336)
-	(bus)
-)
-(connector
-	(pt 1000 336)
-	(pt 1000 344)
+	(pt 1048 336)
 	(bus)
 )
 (junction (pt 1128 840))

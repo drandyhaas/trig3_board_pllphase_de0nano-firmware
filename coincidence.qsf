@@ -83,7 +83,6 @@ set_global_assignment -name QIP_FILE pll1.qip
 set_global_assignment -name QIP_FILE lvds_rx.qip
 set_location_assignment PIN_T9 -to "clk80in(n)"
 set_instance_assignment -name IO_STANDARD "2.5 V" -to serial_out
-set_instance_assignment -name IO_STANDARD LVDS -to "clk80in(n)"
 set_instance_assignment -name IO_MAXIMUM_TOGGLE_RATE "0 MHz" -to enable_outputs
 set_global_assignment -name VERILOG_FILE pll_setter.v
 set_global_assignment -name VERILOG_FILE test_pulse.v
