@@ -107,12 +107,6 @@ set_location_assignment PIN_P16 -to "pv16_differential(n)"
 set_location_assignment PIN_B6 -to photon_detection[1]
 set_location_assignment PIN_A6 -to photon_detection[0]
 set_location_assignment PIN_E7 -to photon_unregistered
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to 70MHzPLL_out
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to photon_unregistered
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to photon_detection[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to photon_detection[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to photon_detection
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to pl1_locked
 set_location_assignment PIN_P9 -to any_photon
 set_global_assignment -name QIP_FILE shift_mhg.qip
 set_global_assignment -name BDF_FILE edge_arrival_backup.bdf
@@ -121,9 +115,7 @@ set_global_assignment -name BDF_FILE pulse_sorter_basic.bdf
 set_global_assignment -name QIP_FILE plltp.qip
 set_location_assignment PIN_N11 -to inclk_v1_v2[1]
 set_location_assignment PIN_F9 -to inclk_v1_v2[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to inclk_v1_v2[0]
 set_location_assignment PIN_C11 -to inclk_v1_v2[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to inclk_v1_v2[2]
 set_global_assignment -name AUTO_MERGE_PLLS OFF
 set_global_assignment -name QIP_FILE iobufclks.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
