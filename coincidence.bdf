@@ -597,43 +597,6 @@ refer to the applicable agreement for further details.
 		(rectangle (rect 16 16 264 144))
 	)
 )
-(symbol
-	(rect 1160 256 1392 408)
-	(text "iobufclks" (rect 92 0 152 16)(font "Arial" (font_size 10)))
-	(text "inst3" (rect 8 136 30 153)(font "Intel Clear" ))
-	(port
-		(pt 0 112)
-		(input)
-		(text "datain[2..0]" (rect 0 0 62 14)(font "Arial" (font_size 8)))
-		(text "datain[2..0]" (rect 4 98 66 112)(font "Arial" (font_size 8)))
-		(line (pt 0 112)(pt 100 112)(line_width 3))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "oe[2..0]" (rect 0 0 42 14)(font "Arial" (font_size 8)))
-		(text "oe[2..0]" (rect 4 66 46 80)(font "Arial" (font_size 8)))
-		(line (pt 0 80)(pt 105 80)(line_width 3))
-	)
-	(port
-		(pt 232 112)
-		(output)
-		(text "dataout[2..0]" (rect 0 0 70 14)(font "Arial" (font_size 8)))
-		(text "dataout[2..0]" (rect 169 98 239 112)(font "Arial" (font_size 8)))
-		(line (pt 232 112)(pt 131 112)(line_width 3))
-	)
-	(drawing
-		(text "output enable port" (rect 153 133 241 145)(font "Arial" ))
-		(line (pt 100 96)(pt 100 128))
-		(line (pt 100 96)(pt 132 112))
-		(line (pt 100 128)(pt 132 112))
-		(line (pt 105 80)(pt 105 97)(line_width 3))
-		(line (pt 0 0)(pt 234 0))
-		(line (pt 234 0)(pt 234 154))
-		(line (pt 0 154)(pt 234 154))
-		(line (pt 0 0)(pt 0 154))
-	)
-)
 (connector
 	(pt 624 848)
 	(pt 768 848)
@@ -859,11 +822,6 @@ refer to the applicable agreement for further details.
 	(pt 440 792)
 )
 (connector
-	(pt 904 512)
-	(pt 912 512)
-	(bus)
-)
-(connector
 	(pt 904 528)
 	(pt 1088 528)
 )
@@ -877,53 +835,13 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 912 576)
-	(pt 912 584)
-)
-(connector
-	(pt 904 576)
-	(pt 912 576)
-)
-(connector
-	(pt 912 584)
-	(pt 1240 584)
-)
-(connector
-	(pt 912 592)
-	(pt 912 624)
-)
-(connector
-	(pt 904 592)
-	(pt 912 592)
-)
-(connector
-	(pt 912 624)
-	(pt 944 624)
-)
-(connector
-	(pt 1392 368)
-	(pt 1416 368)
-	(bus)
-)
-(connector
-	(pt 912 368)
-	(pt 1160 368)
-	(bus)
-)
-(connector
-	(pt 912 368)
-	(pt 912 512)
-	(bus)
-)
-(connector
 	(text "enable_outputs" (rect 1158 904 1232 921)(font "Intel Clear" ))
 	(pt 1128 920)
 	(pt 1232 920)
 )
 (connector
-	(text "gnd,gnd,gnd" (rect 1070 312 1127 329)(font "Intel Clear" ))
-	(pt 1160 336)
-	(pt 1048 336)
+	(pt 1408 368)
+	(pt 1416 368)
 	(bus)
 )
 (junction (pt 1128 840))
