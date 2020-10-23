@@ -88,6 +88,23 @@ refer to the applicable agreement for further details.
 	(annotation_block (location)(rect 320 600 384 624))
 )
 (pin
+	(input)
+	(rect 240 496 408 512)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "clkin_cmos" (rect 5 0 61 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 184 512 240 536))
+)
+(pin
 	(output)
 	(rect 1616 824 1792 840)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
@@ -136,7 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1256 512 1320 536))
+	(annotation_block (location)(rect 1256 472 1320 496))
 )
 (pin
 	(output)
@@ -153,11 +170,11 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1112 512 1176 536))
+	(annotation_block (location)(rect 1112 472 1176 496))
 )
 (pin
 	(output)
-	(rect 1240 576 1435 592)
+	(rect 1296 568 1491 584)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_unregistered" (rect 90 0 189 12)(font "Arial" ))
 	(pt 0 8)
@@ -170,7 +187,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1432 568 1496 592))
+	(annotation_block (location)(rect 1488 560 1552 584))
 )
 (pin
 	(output)
@@ -191,7 +208,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1416 360 1598 376)
+	(rect 1008 360 1190 376)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "inclk_v1_v2[2..0]" (rect 90 0 176 12)(font "Arial" ))
 	(pt 0 8)
@@ -204,7 +221,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1616 360 1680 416))
+	(annotation_block (location)(rect 1208 360 1272 416))
 )
 (pin
 	(output)
@@ -623,10 +640,6 @@ refer to the applicable agreement for further details.
 	(pt 1568 848)
 )
 (connector
-	(pt 1336 704)
-	(pt 1336 832)
-)
-(connector
 	(pt 1568 832)
 	(pt 1616 832)
 )
@@ -696,10 +709,6 @@ refer to the applicable agreement for further details.
 	(pt 872 840)
 )
 (connector
-	(pt 872 704)
-	(pt 872 840)
-)
-(connector
 	(pt 1104 840)
 	(pt 1128 840)
 )
@@ -712,16 +721,8 @@ refer to the applicable agreement for further details.
 	(pt 440 792)
 )
 (connector
-	(pt 872 704)
-	(pt 1336 704)
-)
-(connector
 	(pt 440 704)
 	(pt 872 704)
-)
-(connector
-	(pt 576 456)
-	(pt 592 456)
 )
 (connector
 	(text "updatepll" (rect 1136 920 1182 937)(font "Intel Clear" ))
@@ -775,14 +776,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1096 520)
 	(pt 1088 520)
-)
-(connector
-	(pt 592 512)
-	(pt 624 512)
-)
-(connector
-	(pt 592 456)
-	(pt 592 512)
 )
 (connector
 	(pt 440 528)
@@ -840,13 +833,55 @@ refer to the applicable agreement for further details.
 	(pt 1232 920)
 )
 (connector
-	(pt 1408 368)
-	(pt 1416 368)
+	(pt 904 592)
+	(pt 944 592)
+)
+(connector
+	(pt 624 512)
+	(pt 616 512)
+)
+(connector
+	(pt 576 456)
+	(pt 616 456)
+)
+(connector
+	(pt 616 456)
+	(pt 616 512)
+)
+(connector
+	(pt 1336 832)
+	(pt 1336 688)
+)
+(connector
+	(pt 872 688)
+	(pt 1336 688)
+)
+(connector
+	(pt 872 688)
+	(pt 872 704)
+)
+(connector
+	(pt 872 704)
+	(pt 872 840)
+)
+(connector
+	(pt 904 512)
+	(pt 936 512)
 	(bus)
 )
 (connector
-	(pt 904 592)
-	(pt 944 592)
+	(pt 936 512)
+	(pt 936 368)
+	(bus)
+)
+(connector
+	(pt 936 368)
+	(pt 1008 368)
+	(bus)
+)
+(connector
+	(pt 904 576)
+	(pt 1296 576)
 )
 (junction (pt 1128 840))
 (junction (pt 872 704))
