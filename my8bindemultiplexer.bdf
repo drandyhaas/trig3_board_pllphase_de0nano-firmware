@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 176 64 344 80)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock" (rect 5 0 31 12)(font "Arial" ))
+	(text "clock" (rect 5 0 30 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 48 264 216 280)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "photon" (rect 5 0 39 12)(font "Arial" ))
+	(text "photon" (rect 5 0 38 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 176 128 344 144)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock2x" (rect 5 0 41 17)(font "Intel Clear" ))
+	(text "clock2x" (rect 5 0 40 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -69,9 +69,41 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 176 160 344 176)
+	(rect 184 392 352 408)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "clock4x" (rect 5 0 41 17)(font "Intel Clear" ))
+	(text "clock4x" (rect 5 0 40 17)(font "Intel Clear" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 168 448 336 464)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "clock4xN" (rect 5 0 52 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 264 176 432 192)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "clock2xN" (rect 5 0 52 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -97,56 +129,6 @@ refer to the applicable agreement for further details.
 		(line (pt 78 4)(pt 82 8))
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
-	)
-)
-(symbol
-	(rect 392 272 440 304)
-	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
-	(text "inst2" (rect 3 21 25 38)(font "Intel Clear" ))
-	(port
-		(pt 0 16)
-		(input)
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 13 16))
-	)
-	(port
-		(pt 48 16)
-		(output)
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(line (pt 39 16)(pt 48 16))
-	)
-	(drawing
-		(line (pt 13 25)(pt 13 7))
-		(line (pt 13 7)(pt 31 16))
-		(line (pt 13 25)(pt 31 16))
-		(circle (rect 31 12 39 20))
-	)
-)
-(symbol
-	(rect 384 144 432 176)
-	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
-	(text "inst3" (rect 3 21 25 38)(font "Intel Clear" ))
-	(port
-		(pt 0 16)
-		(input)
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 13 16))
-	)
-	(port
-		(pt 48 16)
-		(output)
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(line (pt 39 16)(pt 48 16))
-	)
-	(drawing
-		(line (pt 13 25)(pt 13 7))
-		(line (pt 13 7)(pt 31 16))
-		(line (pt 13 25)(pt 31 16))
-		(circle (rect 31 12 39 20))
 	)
 )
 (symbol
@@ -345,7 +327,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 664 512 728 560)
+	(rect 640 728 704 776)
 	(text "AND3" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst10" (rect 3 37 31 54)(font "Intel Clear" ))
 	(port
@@ -672,7 +654,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 376 392 424 424)
+	(rect 384 80 432 112)
 	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
 	(text "inst_not" (rect 3 21 41 33)(font "Arial" ))
 	(port
@@ -774,149 +756,55 @@ refer to the applicable agreement for further details.
 		(arc (pt 31 36)(pt 31 12)(rect 19 12 44 37))
 	)
 )
-(connector
-	(pt 664 144)
-	(pt 624 144)
+(symbol
+	(rect 400 384 448 416)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst" (rect 3 21 20 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
 )
-(connector
-	(pt 664 216)
-	(pt 624 216)
-)
-(connector
-	(pt 624 72)
-	(pt 624 144)
-)
-(connector
-	(pt 664 280)
-	(pt 624 280)
-)
-(connector
-	(pt 624 144)
-	(pt 624 216)
-)
-(connector
-	(pt 624 216)
-	(pt 624 280)
-)
-(connector
-	(pt 664 344)
-	(pt 512 344)
-)
-(connector
-	(pt 664 464)
-	(pt 512 464)
-)
-(connector
-	(pt 664 528)
-	(pt 512 528)
-)
-(connector
-	(pt 512 408)
-	(pt 512 464)
-)
-(connector
-	(pt 512 464)
-	(pt 512 528)
-)
-(connector
-	(pt 488 80)
-	(pt 488 136)
-)
-(connector
-	(pt 664 152)
-	(pt 560 152)
-)
-(connector
-	(pt 664 352)
-	(pt 560 352)
-)
-(connector
-	(pt 560 80)
-	(pt 560 152)
-)
-(connector
-	(pt 664 416)
-	(pt 560 416)
-)
-(connector
-	(pt 560 152)
-	(pt 560 352)
-)
-(connector
-	(pt 560 352)
-	(pt 560 416)
-)
-(connector
-	(pt 664 224)
-	(pt 456 224)
-)
-(connector
-	(pt 664 472)
-	(pt 456 472)
-)
-(connector
-	(pt 664 536)
-	(pt 456 536)
-)
-(connector
-	(pt 456 472)
-	(pt 456 536)
-)
-(connector
-	(pt 664 232)
-	(pt 592 232)
-)
-(connector
-	(pt 664 360)
-	(pt 592 360)
-)
-(connector
-	(pt 592 88)
-	(pt 592 232)
-)
-(connector
-	(pt 664 480)
-	(pt 592 480)
-)
-(connector
-	(pt 592 360)
-	(pt 592 480)
-)
-(connector
-	(pt 664 296)
-	(pt 528 296)
-)
-(connector
-	(pt 664 424)
-	(pt 528 424)
-)
-(connector
-	(pt 664 544)
-	(pt 528 544)
-)
-(connector
-	(pt 528 296)
-	(pt 528 424)
-)
-(connector
-	(pt 528 424)
-	(pt 528 544)
-)
-(connector
-	(pt 488 80)
-	(pt 560 80)
-)
-(connector
-	(pt 560 80)
-	(pt 648 80)
-)
-(connector
-	(pt 592 88)
-	(pt 648 88)
-)
-(connector
-	(pt 624 72)
-	(pt 648 72)
+(symbol
+	(rect 480 120 528 152)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst1" (rect 3 21 25 38)(font "Intel Clear" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7))
+		(line (pt 13 7)(pt 31 16))
+		(line (pt 13 25)(pt 31 16))
+		(circle (rect 31 12 39 20))
+	)
 )
 (connector
 	(text "photon" (rect 856 288 889 305)(font "Intel Clear" ))
@@ -1079,111 +967,6 @@ refer to the applicable agreement for further details.
 	(pt 800 472)
 )
 (connector
-	(pt 728 536)
-	(pt 728 808)
-)
-(connector
-	(pt 728 808)
-	(pt 896 808)
-)
-(connector
-	(pt 344 336)
-	(pt 592 336)
-)
-(connector
-	(pt 592 232)
-	(pt 592 336)
-)
-(connector
-	(pt 592 336)
-	(pt 592 360)
-)
-(connector
-	(pt 368 72)
-	(pt 368 408)
-)
-(connector
-	(pt 368 408)
-	(pt 376 408)
-)
-(connector
-	(pt 344 72)
-	(pt 368 72)
-)
-(connector
-	(text "clock" (rect 403 56 427 73)(font "Intel Clear" ))
-	(pt 368 72)
-	(pt 624 72)
-)
-(connector
-	(pt 512 344)
-	(pt 512 408)
-)
-(connector
-	(pt 424 408)
-	(pt 512 408)
-)
-(connector
-	(pt 512 408)
-	(pt 664 408)
-)
-(connector
-	(pt 360 288)
-	(pt 392 288)
-)
-(connector
-	(pt 360 136)
-	(pt 360 288)
-)
-(connector
-	(pt 344 136)
-	(pt 360 136)
-)
-(connector
-	(pt 360 136)
-	(pt 488 136)
-)
-(connector
-	(pt 440 288)
-	(pt 456 288)
-)
-(connector
-	(pt 456 288)
-	(pt 664 288)
-)
-(connector
-	(pt 456 224)
-	(pt 456 288)
-)
-(connector
-	(pt 456 288)
-	(pt 456 472)
-)
-(connector
-	(pt 344 160)
-	(pt 384 160)
-)
-(connector
-	(pt 344 160)
-	(pt 344 168)
-)
-(connector
-	(pt 344 168)
-	(pt 344 336)
-)
-(connector
-	(pt 528 160)
-	(pt 528 296)
-)
-(connector
-	(pt 432 160)
-	(pt 528 160)
-)
-(connector
-	(pt 528 160)
-	(pt 664 160)
-)
-(connector
 	(text "photon" (rect 224 256 257 273)(font "Intel Clear" ))
 	(pt 216 272)
 	(pt 272 272)
@@ -1242,22 +1025,198 @@ refer to the applicable agreement for further details.
 	(pt 1192 808)
 	(pt 1264 808)
 )
-(junction (pt 624 72))
-(junction (pt 624 144))
-(junction (pt 624 216))
+(connector
+	(pt 368 72)
+	(pt 368 96)
+)
+(connector
+	(pt 368 96)
+	(pt 384 96)
+)
+(connector
+	(pt 344 72)
+	(pt 368 72)
+)
+(connector
+	(text "clock" (rect 403 56 427 73)(font "Intel Clear" ))
+	(pt 368 72)
+	(pt 480 72)
+)
+(connector
+	(text "clockN" (rect 456 80 487 97)(font "Intel Clear" ))
+	(pt 432 96)
+	(pt 504 96)
+)
+(connector
+	(text "clock" (rect 611 120 635 137)(font "Intel Clear" ))
+	(pt 664 144)
+	(pt 624 144)
+)
+(connector
+	(text "clock2N" (rect 545 216 582 233)(font "Intel Clear" ))
+	(pt 624 224)
+	(pt 664 224)
+)
+(connector
+	(text "clock" (rect 554 264 578 281)(font "Intel Clear" ))
+	(pt 664 280)
+	(pt 624 280)
+)
+(connector
+	(text "clockN" (rect 549 336 580 353)(font "Intel Clear" ))
+	(pt 624 344)
+	(pt 664 344)
+)
+(connector
+	(text "clockN" (rect 582 392 613 409)(font "Intel Clear" ))
+	(pt 624 408)
+	(pt 664 408)
+)
+(connector
+	(text "clock2" (rect 586 408 616 425)(font "Intel Clear" ))
+	(pt 624 416)
+	(pt 664 416)
+)
+(connector
+	(text "clock4N" (rect 576 424 613 441)(font "Intel Clear" ))
+	(pt 624 424)
+	(pt 664 424)
+)
+(connector
+	(text "clockN" (rect 582 448 613 465)(font "Intel Clear" ))
+	(pt 624 464)
+	(pt 664 464)
+)
+(connector
+	(text "clock" (rect 605 56 629 73)(font "Intel Clear" ))
+	(pt 648 72)
+	(pt 568 72)
+)
+(connector
+	(text "clock2" (rect 595 64 625 81)(font "Intel Clear" ))
+	(pt 648 80)
+	(pt 576 80)
+)
+(connector
+	(text "clock4" (rect 610 72 640 89)(font "Intel Clear" ))
+	(pt 648 88)
+	(pt 592 88)
+)
+(connector
+	(text "clock2" (rect 607 136 637 153)(font "Intel Clear" ))
+	(pt 664 152)
+	(pt 576 152)
+)
+(connector
+	(text "clock4N" (rect 594 144 631 161)(font "Intel Clear" ))
+	(pt 664 160)
+	(pt 576 160)
+)
+(connector
+	(text "clock4" (rect 547 224 577 241)(font "Intel Clear" ))
+	(pt 664 232)
+	(pt 576 232)
+)
+(connector
+	(text "clock2N" (rect 549 280 586 297)(font "Intel Clear" ))
+	(pt 664 288)
+	(pt 584 288)
+)
+(connector
+	(pt 656 296)
+	(pt 656 304)
+)
+(connector
+	(pt 664 296)
+	(pt 656 296)
+)
+(connector
+	(text "clock4N" (rect 540 296 577 313)(font "Intel Clear" ))
+	(pt 656 304)
+	(pt 576 304)
+)
+(connector
+	(text "clock2" (rect 547 344 577 361)(font "Intel Clear" ))
+	(pt 664 352)
+	(pt 576 352)
+)
+(connector
+	(pt 656 360)
+	(pt 656 368)
+)
+(connector
+	(pt 664 360)
+	(pt 656 360)
+)
+(connector
+	(text "clock4" (rect 551 360 581 377)(font "Intel Clear" ))
+	(pt 656 368)
+	(pt 584 368)
+)
+(connector
+	(text "clock4" (rect 588 472 618 489)(font "Intel Clear" ))
+	(pt 624 480)
+	(pt 664 480)
+)
+(connector
+	(text "clock2N" (rect 577 464 614 481)(font "Intel Clear" ))
+	(pt 664 472)
+	(pt 624 472)
+)
+(connector
+	(text "clock" (rect 570 200 594 217)(font "Intel Clear" ))
+	(pt 664 216)
+	(pt 584 216)
+)
+(connector
+	(text "clock2" (rect 423 120 453 137)(font "Intel Clear" ))
+	(pt 344 136)
+	(pt 480 136)
+)
+(connector
+	(pt 704 808)
+	(pt 704 752)
+)
+(connector
+	(pt 896 808)
+	(pt 704 808)
+)
+(connector
+	(text "clockN" (rect 567 728 598 745)(font "Intel Clear" ))
+	(pt 600 744)
+	(pt 640 744)
+)
+(connector
+	(text "clock2N" (rect 563 744 600 761)(font "Intel Clear" ))
+	(pt 600 752)
+	(pt 640 752)
+)
+(connector
+	(text "clock4N" (rect 566 760 603 777)(font "Intel Clear" ))
+	(pt 600 760)
+	(pt 640 760)
+)
+(connector
+	(pt 528 136)
+	(pt 528 184)
+)
+(connector
+	(text "clock2N" (rect 519 168 556 185)(font "Intel Clear" ))
+	(pt 528 184)
+	(pt 552 184)
+)
+(connector
+	(text "clock4" (rect 360 360 390 377)(font "Intel Clear" ))
+	(pt 352 400)
+	(pt 400 400)
+)
+(connector
+	(pt 448 400)
+	(pt 448 456)
+)
+(connector
+	(text "clock4N" (rect 482 440 519 457)(font "Intel Clear" ))
+	(pt 448 456)
+	(pt 512 456)
+)
 (junction (pt 368 72))
-(junction (pt 512 408))
-(junction (pt 512 464))
-(junction (pt 560 80))
-(junction (pt 560 152))
-(junction (pt 560 352))
-(junction (pt 360 136))
-(junction (pt 456 288))
-(junction (pt 456 472))
-(junction (pt 592 232))
-(junction (pt 592 360))
-(junction (pt 528 296))
-(junction (pt 528 424))
-(junction (pt 592 336))
-(junction (pt 344 168))
-(junction (pt 528 160))

@@ -72,7 +72,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 384 584 568 600)
+	(rect 176 592 360 608)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
 	(text "pv16_differential" (rect 5 0 88 12)(font "Arial" ))
 	(pt 184 8)
@@ -85,7 +85,7 @@ refer to the applicable agreement for further details.
 		(line (pt 125 12)(pt 129 8))
 	)
 	(text "VCC" (rect 144 7 164 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 320 600 384 624))
+	(annotation_block (location)(rect 112 608 176 632))
 )
 (pin
 	(input)
@@ -103,6 +103,22 @@ refer to the applicable agreement for further details.
 	)
 	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
 	(annotation_block (location)(rect 184 512 240 536))
+)
+(pin
+	(input)
+	(rect 216 640 408 656)
+	(text "INPUT" (rect 149 0 177 10)(font "Arial" (font_size 6)))
+	(text "lvds_second_input" (rect 5 0 98 12)(font "Arial" ))
+	(pt 192 8)
+	(drawing
+		(line (pt 108 12)(pt 133 12))
+		(line (pt 108 4)(pt 133 4))
+		(line (pt 137 8)(pt 192 8))
+		(line (pt 108 12)(pt 108 4))
+		(line (pt 133 4)(pt 137 8))
+		(line (pt 133 12)(pt 137 8))
+	)
+	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
 )
 (pin
 	(output)
@@ -174,7 +190,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1032 624 1227 640)
+	(rect 528 672 723 688)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_unregistered" (rect 90 0 189 12)(font "Arial" ))
 	(pt 0 8)
@@ -187,7 +203,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1096 640 1160 664))
+	(annotation_block (location)(rect 592 688 656 712))
 )
 (pin
 	(output)
@@ -671,21 +687,21 @@ refer to the applicable agreement for further details.
 		(pt 216 32)
 		(output)
 		(text "out[1..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "out[1..0]" (rect 161 27 195 39)(font "Arial" ))
+		(text "out[1..0]" (rect 161 27 202 39)(font "Arial" ))
 		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(port
 		(pt 216 48)
 		(output)
 		(text "histo[0..7][31..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "histo[0..7][31..0]" (rect 127 43 195 55)(font "Arial" ))
+		(text "histo[0..7][31..0]" (rect 127 43 208 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(port
 		(pt 216 64)
 		(output)
 		(text "ipihist[0..63][31..0]" (rect 0 0 92 12)(font "Arial" ))
-		(text "ipihist[0..63][31..0]" (rect 118 59 195 71)(font "Arial" ))
+		(text "ipihist[0..63][31..0]" (rect 118 59 210 71)(font "Arial" ))
 		(line (pt 216 64)(pt 200 64)(line_width 3))
 	)
 	(drawing
@@ -872,11 +888,6 @@ refer to the applicable agreement for further details.
 	(pt 552 576)
 )
 (connector
-	(text "pmt_in" (rect 572 576 605 593)(font "Intel Clear" ))
-	(pt 568 592)
-	(pt 624 592)
-)
-(connector
 	(pt 440 528)
 	(pt 440 704)
 )
@@ -895,14 +906,6 @@ refer to the applicable agreement for further details.
 )
 (connector
 	(pt 624 512)
-	(pt 616 512)
-)
-(connector
-	(pt 576 456)
-	(pt 616 456)
-)
-(connector
-	(pt 616 456)
 	(pt 616 512)
 )
 (connector
@@ -957,18 +960,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 912 656)
 	(pt 904 656)
-)
-(connector
-	(pt 904 592)
-	(pt 952 592)
-)
-(connector
-	(pt 952 592)
-	(pt 952 632)
-)
-(connector
-	(pt 952 632)
-	(pt 1032 632)
 )
 (connector
 	(pt 904 576)
@@ -1071,6 +1062,44 @@ refer to the applicable agreement for further details.
 	(pt 1208 664)
 	(pt 1160 664)
 )
+(connector
+	(pt 616 456)
+	(pt 616 512)
+)
+(connector
+	(pt 576 456)
+	(pt 616 456)
+)
+(connector
+	(pt 368 592)
+	(pt 368 600)
+)
+(connector
+	(text "pmt_in" (rect 364 584 397 601)(font "Intel Clear" ))
+	(pt 368 600)
+	(pt 360 600)
+)
+(connector
+	(pt 624 592)
+	(pt 488 592)
+)
+(connector
+	(pt 488 592)
+	(pt 488 648)
+)
+(connector
+	(pt 528 648)
+	(pt 528 680)
+)
+(connector
+	(pt 408 648)
+	(pt 488 648)
+)
+(connector
+	(pt 488 648)
+	(pt 528 648)
+)
 (junction (pt 872 704))
 (junction (pt 440 704))
 (junction (pt 1088 528))
+(junction (pt 488 648))
