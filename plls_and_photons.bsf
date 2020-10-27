@@ -110,8 +110,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 280 128)
 		(output)
-		(text "any_photon" (rect 0 0 69 19)(font "Intel Clear" (font_size 8)))
-		(text "any_photon" (rect 190 123 259 142)(font "Intel Clear" (font_size 8)))
+		(text "reg_photon" (rect 0 0 67 19)(font "Intel Clear" (font_size 8)))
+		(text "reg_photon" (rect 192 123 259 142)(font "Intel Clear" (font_size 8)))
 		(line (pt 280 128)(pt 264 128))
 	)
 	(drawing
