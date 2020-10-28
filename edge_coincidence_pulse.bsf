@@ -20,9 +20,9 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 312 112)
+	(rect 16 16 280 144)
 	(text "edge_coincidence_pulse" (rect 5 0 148 19)(font "Intel Clear" (font_size 8)))
-	(text "inst" (rect 8 75 24 92)(font "Intel Clear" ))
+	(text "inst" (rect 8 107 24 124)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -45,13 +45,20 @@ refer to the applicable agreement for further details.
 		(line (pt 0 64)(pt 16 64))
 	)
 	(port
-		(pt 296 32)
+		(pt 0 80)
+		(input)
+		(text "resetN" (rect 0 0 38 19)(font "Intel Clear" (font_size 8)))
+		(text "resetN" (rect 21 75 59 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 264 32)
 		(output)
-		(text "photon_arrived_prev_clock_cycle" (rect 0 0 198 19)(font "Intel Clear" (font_size 8)))
-		(text "photon_arrived_prev_clock_cycle" (rect 77 27 275 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 296 32)(pt 280 32))
+		(text "photon_arrived_2cycles_ago" (rect 0 0 169 19)(font "Intel Clear" (font_size 8)))
+		(text "photon_arrived_2cycles_ago" (rect 74 27 243 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 32)(pt 248 32))
 	)
 	(drawing
-		(rectangle (rect 16 16 280 80))
+		(rectangle (rect 16 16 248 112))
 	)
 )

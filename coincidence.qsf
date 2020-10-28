@@ -95,7 +95,6 @@ set_global_assignment -name QIP_FILE lpm_mux_mhg.qip
 set_global_assignment -name QIP_FILE mux_mhg.qip
 set_global_assignment -name BDF_FILE registerPhotonsToClock.bdf
 set_global_assignment -name BDF_FILE registerPhotonsRisingHalf.bdf
-set_location_assignment PIN_D8 -to pl1_locked
 set_global_assignment -name BDF_FILE plls_and_photons.bdf
 set_global_assignment -name QIP_FILE pll4lvds.qip
 set_global_assignment -name VERILOG_FILE demultiplex_and_count.v
@@ -106,7 +105,6 @@ set_location_assignment PIN_P16 -to "pv16_differential(n)"
 set_location_assignment PIN_B6 -to photon_detection[1]
 set_location_assignment PIN_A6 -to photon_detection[0]
 set_location_assignment PIN_E7 -to photon_unregistered
-set_location_assignment PIN_P9 -to any_photon
 set_global_assignment -name QIP_FILE shift_mhg.qip
 set_global_assignment -name BDF_FILE edge_arrival_backup.bdf
 set_global_assignment -name BDF_FILE edge_coincidence_pulse.bdf
@@ -126,10 +124,7 @@ set_instance_assignment -name SLEW_RATE 0 -to inclk_v1_v2[0]
 set_instance_assignment -name SLEW_RATE 0 -to photon_detection[1]
 set_instance_assignment -name SLEW_RATE 0 -to photon_detection[0]
 set_instance_assignment -name SLEW_RATE 0 -to photon_unregistered
-set_instance_assignment -name SLEW_RATE 0 -to pl1_locked
-set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to any_photon
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to 70MHzPLL_out
-set_instance_assignment -name SLEW_RATE 0 -to any_photon
 set_instance_assignment -name SLEW_RATE 0 -to 70MHzPLL_out
 set_location_assignment PIN_A8 -to clkin_cmos
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to clkin_cmos
@@ -139,4 +134,11 @@ set_global_assignment -name VERILOG_FILE mycounter.v
 set_location_assignment PIN_K15 -to lvds_second_input
 set_instance_assignment -name IO_STANDARD LVDS -to lvds_second_input
 set_location_assignment PIN_K16 -to "lvds_second_input(n)"
+set_global_assignment -name BDF_FILE photon_sorter.bdf
+set_global_assignment -name VERILOG_FILE registered_clocks_to_bins.v
+set_location_assignment PIN_D8 -to photon_during_2x_high
+set_instance_assignment -name SLEW_RATE 0 -to photon_during_2x_high
+set_location_assignment PIN_P9 -to photon_during_4x_high
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to photon_during_4x_high
+set_instance_assignment -name SLEW_RATE 0 -to photon_during_4x_high
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
