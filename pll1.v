@@ -137,11 +137,11 @@ module pll1 (
 		altpll_component.clk1_divide_by = 1,
 		altpll_component.clk1_duty_cycle = 50,
 		altpll_component.clk1_multiply_by = 1,
-		altpll_component.clk1_phase_shift = "1786",
+		altpll_component.clk1_phase_shift = "7143",
 		altpll_component.clk2_divide_by = 1,
 		altpll_component.clk2_duty_cycle = 50,
 		altpll_component.clk2_multiply_by = 1,
-		altpll_component.clk2_phase_shift = "8929",
+		altpll_component.clk2_phase_shift = "0",
 		altpll_component.clk3_divide_by = 10,
 		altpll_component.clk3_duty_cycle = 10,
 		altpll_component.clk3_multiply_by = 1,
@@ -283,8 +283,8 @@ endmodule
 // Retrieval info: PRIVATE: PHASE_RECONFIG_FEATURE_ENABLED STRING "1"
 // Retrieval info: PRIVATE: PHASE_RECONFIG_INPUTS_CHECK STRING "1"
 // Retrieval info: PRIVATE: PHASE_SHIFT0 STRING "0.00000000"
-// Retrieval info: PRIVATE: PHASE_SHIFT1 STRING "45.00000000"
-// Retrieval info: PRIVATE: PHASE_SHIFT2 STRING "225.00000000"
+// Retrieval info: PRIVATE: PHASE_SHIFT1 STRING "180.00000000"
+// Retrieval info: PRIVATE: PHASE_SHIFT2 STRING "0.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT3 STRING "0.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT_STEP_ENABLED_CHECK STRING "1"
 // Retrieval info: PRIVATE: PHASE_SHIFT_UNIT0 STRING "deg"
@@ -338,11 +338,11 @@ endmodule
 // Retrieval info: CONSTANT: CLK1_DIVIDE_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK1_DUTY_CYCLE NUMERIC "50"
 // Retrieval info: CONSTANT: CLK1_MULTIPLY_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK1_PHASE_SHIFT STRING "1786"
+// Retrieval info: CONSTANT: CLK1_PHASE_SHIFT STRING "7143"
 // Retrieval info: CONSTANT: CLK2_DIVIDE_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "50"
 // Retrieval info: CONSTANT: CLK2_MULTIPLY_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "8929"
+// Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "0"
 // Retrieval info: CONSTANT: CLK3_DIVIDE_BY NUMERIC "10"
 // Retrieval info: CONSTANT: CLK3_DUTY_CYCLE NUMERIC "10"
 // Retrieval info: CONSTANT: CLK3_MULTIPLY_BY NUMERIC "1"
