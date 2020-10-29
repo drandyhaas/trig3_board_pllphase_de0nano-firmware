@@ -21,6 +21,5 @@ FUNCTION plltp
 
 RETURNS (
 	c0,
-	c1,
 	locked
 );
