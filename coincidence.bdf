@@ -191,7 +191,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 920 616 1105 632)
+	(rect 920 640 1105 656)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "decimated_photon" (rect 90 0 179 12)(font "Arial" ))
 	(pt 0 8)
@@ -204,7 +204,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1105 632 1169 656))
+	(annotation_block (location)(rect 1105 656 1169 680))
 )
 (pin
 	(output)
@@ -262,6 +262,23 @@ refer to the applicable agreement for further details.
 	(rect 952 352 1128 368)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "laser_clock" (rect 90 0 145 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+	(annotation_block (location)(rect 1128 368 1192 392))
+)
+(pin
+	(output)
+	(rect 912 656 1090 672)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "and_results[1..0]" (rect 90 0 172 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -714,6 +731,13 @@ refer to the applicable agreement for further details.
 		(text "photon_unregistered" (rect 121 139 243 158)(font "Intel Clear" (font_size 8)))
 		(line (pt 264 144)(pt 248 144))
 	)
+	(port
+		(pt 264 160)
+		(output)
+		(text "andresults[1..0]" (rect 0 0 92 19)(font "Intel Clear" (font_size 8)))
+		(text "andresults[1..0]" (rect 151 155 243 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 160)(pt 248 160)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 248 176))
 	)
@@ -921,10 +945,6 @@ refer to the applicable agreement for further details.
 	(pt 360 600)
 )
 (connector
-	(pt 408 648)
-	(pt 488 648)
-)
-(connector
 	(pt 1256 520)
 	(pt 1088 520)
 )
@@ -1031,10 +1051,6 @@ refer to the applicable agreement for further details.
 	(pt 904 416)
 )
 (connector
-	(pt 920 624)
-	(pt 888 624)
-)
-(connector
 	(pt 904 592)
 	(pt 888 592)
 )
@@ -1084,6 +1100,32 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 952 528)
 	(pt 1128 528)
+)
+(connector
+	(pt 408 648)
+	(pt 488 648)
+)
+(connector
+	(pt 912 624)
+	(pt 912 648)
+)
+(connector
+	(pt 912 648)
+	(pt 920 648)
+)
+(connector
+	(pt 888 624)
+	(pt 912 624)
+)
+(connector
+	(pt 888 640)
+	(pt 888 664)
+	(bus)
+)
+(connector
+	(pt 888 664)
+	(pt 912 664)
+	(bus)
 )
 (junction (pt 872 704))
 (junction (pt 440 704))

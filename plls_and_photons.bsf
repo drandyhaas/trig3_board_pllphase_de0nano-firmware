@@ -121,6 +121,13 @@ refer to the applicable agreement for further details.
 		(text "photon_unregistered" (rect 121 139 243 158)(font "Intel Clear" (font_size 8)))
 		(line (pt 264 144)(pt 248 144))
 	)
+	(port
+		(pt 264 160)
+		(output)
+		(text "andresults[1..0]" (rect 0 0 92 19)(font "Intel Clear" (font_size 8)))
+		(text "andresults[1..0]" (rect 151 155 243 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 264 160)(pt 248 160)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 248 176))
 	)
