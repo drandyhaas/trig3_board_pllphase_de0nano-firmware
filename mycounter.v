@@ -1,8 +1,9 @@
 module mycounter(
 	input clkin,
-	input [7:0] buffer,
-	input [7:0] mask1,
-	input [7:0] mask2,
+	input [1:0] buffer,
+	//input [7:0] buffer,
+	//input [7:0] mask1,
+	//input [7:0] mask2,
 	output reg [1:0] out,
 	input resethist, 
 	output integer histo[8], 
@@ -26,8 +27,8 @@ module mycounter(
 		//<= --> parallel execution (simultaneous update at the end of the clock cycle)
 		// = --> serial execution
 		
-		out[0] <= !lastphot && ((mask1 & buffer) != 0);
-		out[1] <= !lastphot && ((mask2 & buffer) != 0);
+		out[0] <= buffer[0];
+		out[1] <= buffer[1];
 		
 		anyphot <= buffer != 0;
 		lastphot <= buffer != 0 && vetopmtlast;
@@ -58,13 +59,7 @@ module mycounter(
 		end
 		else begin				
 			histo[0] <= histo[0] + buffer[0];
-			histo[1] <= histo[1] + buffer[1];
-			histo[2] <= histo[2] + buffer[2];
-			histo[3] <= histo[3] + buffer[3];
-			histo[4] <= histo[4] + buffer[4];
-			histo[5] <= histo[5] + buffer[5];
-			histo[6] <= histo[6] + buffer[6];
-			histo[7] <= histo[7] + buffer[7];
+			histo[1] <= histo[1] + buffer[1];			
 		end
 		if (resetipi) begin
 			if (k >= 64) begin
