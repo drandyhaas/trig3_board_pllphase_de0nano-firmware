@@ -974,15 +974,6 @@ refer to the applicable agreement for further details.
 	(pt -128 672)
 )
 (connector
-	(pt -128 592)
-	(pt -128 672)
-)
-(connector
-	(text "testpulse" (rect -104 576 -61 593)(font "Intel Clear" ))
-	(pt -128 592)
-	(pt 160 592)
-)
-(connector
 	(pt 240 592)
 	(pt 240 600)
 )
@@ -990,5 +981,18 @@ refer to the applicable agreement for further details.
 	(pt 240 600)
 	(pt 224 600)
 )
+(connector
+	(pt -128 672)
+	(pt -128 592)
+)
+(connector
+	(pt -168 592)
+	(pt -128 592)
+)
+(connector
+	(pt -128 592)
+	(pt 160 592)
+)
 (junction (pt -160 192))
 (junction (pt -160 168))
+(junction (pt -128 592))
