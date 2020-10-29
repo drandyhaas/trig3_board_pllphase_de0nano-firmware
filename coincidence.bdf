@@ -208,23 +208,6 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 904 568 1080 584)
-	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "in_phase" (rect 90 0 133 12)(font "Arial" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-	(annotation_block (location)(rect 1080 584 1144 608))
-)
-(pin
-	(output)
 	(rect 904 584 1080 600)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "out_of_phase" (rect 90 0 154 17)(font "Intel Clear" ))
@@ -289,6 +272,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
+	(annotation_block (location)(rect 1090 672 1154 696))
 )
 (symbol
 	(rect 424 816 624 928)
@@ -1053,10 +1037,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 904 592)
 	(pt 888 592)
-)
-(connector
-	(pt 904 576)
-	(pt 888 576)
 )
 (connector
 	(pt 1088 520)
