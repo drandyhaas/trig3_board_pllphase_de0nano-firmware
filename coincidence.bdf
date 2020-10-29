@@ -187,7 +187,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 976 632 1040 656))
+	(annotation_block (location)(rect 1032 632 1096 656))
 )
 (pin
 	(output)
@@ -238,7 +238,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1168 464 1232 488))
+	(annotation_block (location)(rect 1320 448 1384 472))
 )
 (pin
 	(output)
@@ -255,7 +255,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1048 656 1104 680))
+	(annotation_block (location)(rect 1128 632 1184 656))
 )
 (symbol
 	(rect 424 816 624 928)
@@ -611,6 +611,56 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
+	(rect 56 984 224 1064)
+	(text "test_pulse_decimator" (rect 5 0 110 12)(font "Arial" ))
+	(text "inst5" (rect 8 64 30 81)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk1x" (rect 0 0 25 12)(font "Arial" ))
+		(text "clk1x" (rect 21 27 46 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "enabletest" (rect 0 0 50 12)(font "Arial" ))
+		(text "enabletest" (rect 21 43 71 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "testvalid" (rect 0 0 42 12)(font "Arial" ))
+		(text "testvalid" (rect 112 27 154 39)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32))
+	)
+	(parameter
+		"pulseEvery"
+		"10"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 152 64))
+	)
+	(annotation_block (parameter)(rect 224 944 400 984))
+)
+(symbol
+	(rect 8 1008 40 1024)
+	(text "VCC" (rect 7 0 27 10)(font "Arial" (font_size 6)))
+	(text "inst6" (rect 3 5 25 22)(font "Intel Clear" )(invisible))
+	(port
+		(pt 16 16)
+		(output)
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(text "1" (rect 19 7 24 19)(font "Courier New" (bold))(invisible))
+		(line (pt 16 16)(pt 16 8))
+	)
+	(drawing
+		(line (pt 8 8)(pt 24 8))
+	)
+)
+(symbol
 	(rect 624 480 912 672)
 	(text "plls_and_photons" (rect 5 0 110 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 171 24 188)(font "Intel Clear" ))
@@ -659,8 +709,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 288 32)
 		(output)
-		(text "more_clocks[0..2]" (rect 0 0 103 19)(font "Intel Clear" (font_size 8)))
-		(text "more_clocks[0..2]" (rect 164 27 267 46)(font "Intel Clear" (font_size 8)))
+		(text "more_clocks[2..0]" (rect 0 0 103 19)(font "Intel Clear" (font_size 8)))
+		(text "more_clocks[2..0]" (rect 164 27 267 46)(font "Intel Clear" (font_size 8)))
 		(line (pt 288 32)(pt 272 32)(line_width 3))
 	)
 	(port
@@ -714,6 +764,38 @@ refer to the applicable agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 272 176))
+	)
+)
+(symbol
+	(rect 488 584 552 632)
+	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
+	(text "inst7" (rect 3 37 25 54)(font "Intel Clear" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(text "IN1" (rect 2 7 19 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 14 16))
+	)
+	(port
+		(pt 0 32)
+		(input)
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(text "IN2" (rect 2 23 19 35)(font "Courier New" (bold))(invisible))
+		(line (pt 0 32)(pt 14 32))
+	)
+	(port
+		(pt 64 24)
+		(output)
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 48 15 65 27)(font "Courier New" (bold))(invisible))
+		(line (pt 42 24)(pt 64 24))
+	)
+	(drawing
+		(line (pt 14 12)(pt 30 12))
+		(line (pt 14 37)(pt 31 37))
+		(line (pt 14 12)(pt 14 37))
+		(arc (pt 31 37)(pt 30 12)(rect 18 12 43 37))
 	)
 )
 (connector
@@ -930,11 +1012,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 936 368)
-	(pt 1008 368)
-	(bus)
-)
-(connector
 	(pt 1088 560)
 	(pt 1216 560)
 )
@@ -1023,18 +1100,6 @@ refer to the applicable agreement for further details.
 	(pt 360 600)
 )
 (connector
-	(pt 624 592)
-	(pt 488 592)
-)
-(connector
-	(pt 488 592)
-	(pt 488 648)
-)
-(connector
-	(pt 408 648)
-	(pt 488 648)
-)
-(connector
 	(pt 912 512)
 	(pt 936 512)
 	(bus)
@@ -1083,6 +1148,61 @@ refer to the applicable agreement for further details.
 	(pt 1008 576)
 	(pt 912 576)
 	(bus)
+)
+(connector
+	(pt 56 1032)
+	(pt 24 1032)
+)
+(connector
+	(pt 24 1032)
+	(pt 24 1024)
+)
+(connector
+	(pt 56 1016)
+	(pt 48 1016)
+)
+(connector
+	(pt 48 1016)
+	(pt 48 928)
+)
+(connector
+	(text "more_clocks[0]" (rect 24 912 97 929)(font "Intel Clear" ))
+	(pt 16 928)
+	(pt 48 928)
+)
+(connector
+	(text "more_clocks[2..0]" (rect 942 352 1025 369)(font "Intel Clear" ))
+	(pt 936 368)
+	(pt 1008 368)
+	(bus)
+)
+(connector
+	(pt 488 600)
+	(pt 408 600)
+)
+(connector
+	(pt 408 600)
+	(pt 408 648)
+)
+(connector
+	(pt 488 616)
+	(pt 224 616)
+)
+(connector
+	(pt 224 616)
+	(pt 224 1016)
+)
+(connector
+	(pt 552 608)
+	(pt 592 608)
+)
+(connector
+	(pt 624 592)
+	(pt 592 592)
+)
+(connector
+	(pt 592 592)
+	(pt 592 608)
 )
 (junction (pt 872 704))
 (junction (pt 440 704))
