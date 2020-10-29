@@ -103,7 +103,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -824 400 -656 416)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "use_pll_test" (rect 5 0 65 12)(font "Arial" ))
+	(text "use_pll_test" (rect 5 0 64 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -752,56 +752,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -304 560 -240 640)
-	(text "DFF" (rect 1 0 19 10)(font "Arial" (font_size 6)))
-	(text "inst5" (rect 3 68 25 85)(font "Intel Clear" ))
-	(port
-		(pt 32 80)
-		(input)
-		(text "CLRN" (rect 21 59 44 71)(font "Courier New" (bold)))
-		(text "CLRN" (rect 21 58 44 70)(font "Courier New" (bold)))
-		(line (pt 32 80)(pt 32 76))
-	)
-	(port
-		(pt 0 40)
-		(input)
-		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
-		(text "CLK" (rect 3 29 20 41)(font "Courier New" (bold))(invisible))
-		(line (pt 0 40)(pt 12 40))
-	)
-	(port
-		(pt 0 24)
-		(input)
-		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
-		(text "D" (rect 14 20 19 32)(font "Courier New" (bold)))
-		(line (pt 0 24)(pt 12 24))
-	)
-	(port
-		(pt 32 0)
-		(input)
-		(text "PRN" (rect 24 13 41 25)(font "Courier New" (bold)))
-		(text "PRN" (rect 24 11 41 23)(font "Courier New" (bold)))
-		(line (pt 32 4)(pt 32 0))
-	)
-	(port
-		(pt 64 24)
-		(output)
-		(text "Q" (rect 45 20 50 32)(font "Courier New" (bold)))
-		(text "Q" (rect 43 20 48 32)(font "Courier New" (bold)))
-		(line (pt 52 24)(pt 64 24))
-	)
-	(drawing
-		(line (pt 12 12)(pt 52 12))
-		(line (pt 12 68)(pt 52 68))
-		(line (pt 52 68)(pt 52 12))
-		(line (pt 12 68)(pt 12 12))
-		(line (pt 19 40)(pt 12 47))
-		(line (pt 12 32)(pt 20 40))
-		(circle (rect 28 4 36 12))
-		(circle (rect 28 68 36 76))
-	)
-)
-(symbol
 	(rect -480 352 -416 400)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst9" (rect 3 37 25 54)(font "Intel Clear" ))
@@ -1009,6 +959,35 @@ refer to the applicable agreement for further details.
 		(line (pt 287 112)(pt 239 112))
 	)
 )
+(symbol
+	(rect -304 552 -128 648)
+	(text "debounce2to1" (rect 5 0 91 19)(font "Intel Clear" (font_size 8)))
+	(text "inst5" (rect 8 75 30 92)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "signal" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "signal" (rect 21 27 55 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clock" (rect 0 0 29 19)(font "Intel Clear" (font_size 8)))
+		(text "clock" (rect 21 43 50 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 176 32)
+		(output)
+		(text "debounce2to1" (rect 0 0 86 19)(font "Intel Clear" (font_size 8)))
+		(text "debounce2to1" (rect 69 27 155 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 176 32)(pt 160 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 160 80))
+	)
+)
 (connector
 	(text "areset" (rect 336 272 365 289)(font "Intel Clear" ))
 	(pt 376 288)
@@ -1205,15 +1184,6 @@ refer to the applicable agreement for further details.
 	(pt 704 72)
 )
 (connector
-	(pt -208 656)
-	(pt -208 648)
-)
-(connector
-	(text "decimate" (rect -200 640 -157 657)(font "Intel Clear" ))
-	(pt -56 656)
-	(pt -208 656)
-)
-(connector
 	(pt 8 656)
 	(pt 56 656)
 )
@@ -1229,10 +1199,6 @@ refer to the applicable agreement for further details.
 	(text "testpulse" (rect 616 88 659 105)(font "Intel Clear" ))
 	(pt 608 104)
 	(pt 672 104)
-)
-(connector
-	(pt -104 672)
-	(pt -128 672)
 )
 (connector
 	(pt 240 592)
@@ -1261,19 +1227,7 @@ refer to the applicable agreement for further details.
 	(pt 152 592)
 )
 (connector
-	(pt -128 584)
-	(pt -128 672)
-)
-(connector
 	(pt 152 592)
-	(pt 152 584)
-)
-(connector
-	(pt -240 584)
-	(pt -128 584)
-)
-(connector
-	(pt -128 584)
 	(pt 152 584)
 )
 (connector
@@ -1335,7 +1289,28 @@ refer to the applicable agreement for further details.
 	(pt 608 88)
 	(pt 688 88)
 )
+(connector
+	(pt -104 672)
+	(pt -120 672)
+)
+(connector
+	(pt -120 584)
+	(pt -120 672)
+)
+(connector
+	(pt -128 584)
+	(pt -120 584)
+)
+(connector
+	(pt -120 584)
+	(pt 152 584)
+)
+(connector
+	(text "decimate" (rect -200 656 -157 673)(font "Intel Clear" ))
+	(pt -208 656)
+	(pt -56 656)
+)
 (junction (pt -160 192))
 (junction (pt -160 168))
-(junction (pt -128 584))
 (junction (pt -568 408))
+(junction (pt -120 584))
