@@ -85,7 +85,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect -536 504 -368 520)
+	(rect -656 480 -488 496)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
 	(text "photon_in" (rect 5 0 52 12)(font "Arial" ))
 	(pt 168 8)
@@ -1112,14 +1112,6 @@ refer to the applicable agreement for further details.
 	(pt -320 584)
 )
 (connector
-	(pt -368 512)
-	(pt -320 512)
-)
-(connector
-	(pt -320 512)
-	(pt -320 584)
-)
-(connector
 	(pt 160 592)
 	(pt 152 592)
 )
@@ -1138,6 +1130,15 @@ refer to the applicable agreement for further details.
 (connector
 	(pt -128 584)
 	(pt 152 584)
+)
+(connector
+	(pt -320 584)
+	(pt -320 488)
+)
+(connector
+	(text "testpulse" (rect -400 472 -357 489)(font "Intel Clear" ))
+	(pt -320 488)
+	(pt -408 488)
 )
 (junction (pt -160 192))
 (junction (pt -160 168))
