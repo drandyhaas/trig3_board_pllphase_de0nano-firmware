@@ -1296,16 +1296,6 @@ refer to the applicable agreement for further details.
 	(pt 464 712)
 )
 (connector
-	(text "ad1" (rect 791 472 808 489)(font "Intel Clear" ))
-	(pt 848 488)
-	(pt 768 488)
-)
-(connector
-	(text "ad2" (rect 801 584 818 601)(font "Intel Clear" ))
-	(pt 848 600)
-	(pt 776 600)
-)
-(connector
 	(text "t" (rect 528 485 545 488)(font "Intel Clear" )(vertical))
 	(pt 544 488)
 	(pt 544 504)
@@ -1314,16 +1304,6 @@ refer to the applicable agreement for further details.
 	(text "true" (rect 571 488 589 505)(font "Intel Clear" ))
 	(pt 544 504)
 	(pt 608 504)
-)
-(connector
-	(text "true" (rect 793 456 811 473)(font "Intel Clear" ))
-	(pt 848 472)
-	(pt 768 472)
-)
-(connector
-	(text "true" (rect 811 568 829 585)(font "Intel Clear" ))
-	(pt 848 584)
-	(pt 776 584)
 )
 (connector
 	(text "d2,d1" (rect 840 176 865 193)(font "Intel Clear" ))
@@ -1341,6 +1321,26 @@ refer to the applicable agreement for further details.
 	(pt 824 720)
 	(pt 952 720)
 	(bus)
+)
+(connector
+	(text "valid1" (rect 793 456 822 473)(font "Intel Clear" ))
+	(pt 848 472)
+	(pt 768 472)
+)
+(connector
+	(text "photon" (rect 791 472 824 489)(font "Intel Clear" ))
+	(pt 848 488)
+	(pt 768 488)
+)
+(connector
+	(text "valid2" (rect 811 568 840 585)(font "Intel Clear" ))
+	(pt 848 584)
+	(pt 776 584)
+)
+(connector
+	(text "photon" (rect 801 584 834 601)(font "Intel Clear" ))
+	(pt 848 600)
+	(pt 776 600)
 )
 (junction (pt -160 192))
 (junction (pt -160 168))
