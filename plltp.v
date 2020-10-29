@@ -120,7 +120,7 @@ module plltp (
 		altpll_component.clk1_multiply_by = 1,
 		altpll_component.clk1_phase_shift = "0",
 		altpll_component.clk2_divide_by = 1,
-		altpll_component.clk2_duty_cycle = 13,
+		altpll_component.clk2_duty_cycle = 25,
 		altpll_component.clk2_multiply_by = 1,
 		altpll_component.clk2_phase_shift = "0",
 		altpll_component.inclk0_input_frequency = 14285,
@@ -200,7 +200,7 @@ endmodule
 // Retrieval info: PRIVATE: DIV_FACTOR2 NUMERIC "1"
 // Retrieval info: PRIVATE: DUTY_CYCLE0 STRING "9.00000000"
 // Retrieval info: PRIVATE: DUTY_CYCLE1 STRING "50.00000000"
-// Retrieval info: PRIVATE: DUTY_CYCLE2 STRING "13.00000000"
+// Retrieval info: PRIVATE: DUTY_CYCLE2 STRING "25.00000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE0 STRING "7.000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE1 STRING "70.000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE2 STRING "70.000000"
@@ -298,7 +298,7 @@ endmodule
 // Retrieval info: CONSTANT: CLK1_MULTIPLY_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK1_PHASE_SHIFT STRING "0"
 // Retrieval info: CONSTANT: CLK2_DIVIDE_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "13"
+// Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "25"
 // Retrieval info: CONSTANT: CLK2_MULTIPLY_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "0"
 // Retrieval info: CONSTANT: INCLK0_INPUT_FREQUENCY NUMERIC "14285"
