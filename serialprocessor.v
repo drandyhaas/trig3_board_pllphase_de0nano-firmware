@@ -24,7 +24,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] cyclesToVeto = 0;
 	output reg useClockAsInput = 0;
 	
-	input integer h[8];
+	input integer h[32];
 	input integer ipihist[64];
 	output reg resethist=0;
 	
@@ -49,7 +49,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
-	parameter version = 8'd22;
+	parameter version = 8'd23;
 	
 	always @(posedge clk) begin
 	case (state)
@@ -138,45 +138,45 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 		else if (readdata==10) begin //send out histo
-			ioCountToSend = 288 ;
-			data[0]=h[0][7:0];
-			data[1]=h[0][15:8];
-			data[2]=h[0][23:16];
-			data[3]=h[0][31:24];
-			data[4]=h[1][7:0];
-			data[5]=h[1][15:8];
-			data[6]=h[1][23:16];
-			data[7]=h[1][31:24];
-			data[8]=h[2][7:0];
-			data[9]=h[2][15:8];
-			data[10]=h[2][23:16];
-			data[11]=h[2][31:24];
-			data[12]=h[3][7:0];
-			data[13]=h[3][15:8];
-			data[14]=h[3][23:16];
-			data[15]=h[3][31:24];
-			data[16]=h[4][7:0];
-			data[17]=h[4][15:8];
-			data[18]=h[4][23:16];
-			data[19]=h[4][31:24];
-			data[20]=h[5][7:0];
-			data[21]=h[5][15:8];
-			data[22]=h[5][23:16];
-			data[23]=h[5][31:24];
-			data[24]=h[6][7:0];
-			data[25]=h[6][15:8];
-			data[26]=h[6][23:16];
-			data[27]=h[6][31:24];
-			data[28]=h[7][7:0];
-			data[29]=h[7][15:8];
-			data[30]=h[7][23:16];
-			data[31]=h[7][31:24];
+			ioCountToSend = 128 ; //32*4
+//			data[0]=h[0][7:0];
+//			data[1]=h[0][15:8];
+//			data[2]=h[0][23:16];
+//			data[3]=h[0][31:24];
+//			data[4]=h[1][7:0];
+//			data[5]=h[1][15:8];
+//			data[6]=h[1][23:16];
+//			data[7]=h[1][31:24];
+//			data[8]=h[2][7:0];
+//			data[9]=h[2][15:8];
+//			data[10]=h[2][23:16];
+//			data[11]=h[2][31:24];
+//			data[12]=h[3][7:0];
+//			data[13]=h[3][15:8];
+//			data[14]=h[3][23:16];
+//			data[15]=h[3][31:24];
+//			data[16]=h[4][7:0];
+//			data[17]=h[4][15:8];
+//			data[18]=h[4][23:16];
+//			data[19]=h[4][31:24];
+//			data[20]=h[5][7:0];
+//			data[21]=h[5][15:8];
+//			data[22]=h[5][23:16];
+//			data[23]=h[5][31:24];
+//			data[24]=h[6][7:0];
+//			data[25]=h[6][15:8];
+//			data[26]=h[6][23:16];
+//			data[27]=h[6][31:24];
+//			data[28]=h[7][7:0];
+//			data[29]=h[7][15:8];
+//			data[30]=h[7][23:16];
+//			data[31]=h[7][31:24];
 			
-			for (q = 0; q < 64; q = q+8'd1) begin
-				data[32 + q*4] = ipihist[q][7:0];
-				data[q*4 + 33] = ipihist[q][15:8];
-				data[q*4 + 34] = ipihist[q][23:16];
-				data[q*4 + 35] = ipihist[q][31:24];				
+			for (q = 0; q < 32; q = q+8'd1) begin
+				data[q*4] = h[q][7:0];
+				data[q*4 + 1] = h[q][15:8];
+				data[q*4 + 2] = h[q][23:16];
+				data[q*4 + 3] = h[q][31:24];				
 			end
 			state=WRITE1;	
 			resethist=1;
