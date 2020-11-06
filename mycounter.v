@@ -1,12 +1,9 @@
 module mycounter(
 	input clkin,
 	input [1:0] buffer,
-	//input [7:0] buffer,
-	//input [7:0] mask1,
-	//input [7:0] mask2,
 	output reg [1:0] out,
 	input resethist, 
-	output integer histo[8], 
+	output integer histo[2], 
 	output integer ipihist[64], //70 Mhz / 64 = ~1.1 MHz
 	input vetopmtlast
 	);
@@ -44,18 +41,12 @@ module mycounter(
 			end
 		end
 			
-		resethist2 <= (resethist2 || resethist);
+		resethist2 <= resethist;
 		resetipi <= (resetipi || resethist);
 
 		if (resethist2) begin
-			if (j >= 8) begin
-				j <= 0;
-				resethist2 <= 0;
-			end
-			else begin
-				histo[j] <= 0;
-				j <= j+1'b1;
-			end			
+			histo[0] <= 0;
+			histo[1] <= 0;			
 		end
 		else begin				
 			histo[0] <= histo[0] + buffer[0];

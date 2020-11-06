@@ -13,7 +13,7 @@ module pll_sweeper(clk, phase_done, areset, phasecounterselect,phaseupdown, phas
 	reg [3:0] pll_setting = 0;
 	
 	integer waitcounter = 0;
-	localparam waitmax = 5000000; //5E6/50MHz = 0.1s
+	localparam waitmax = 12500000; //1.25E7/50MHz = 0.25s
 	
 	localparam WAIT=8'd0, ARESET=8'd1, CLKSWITCH=8'd2, PHASESTEP=8'd3, ONEPHASE=8'd4;
 	reg[7:0] state=WAIT;

@@ -59,7 +59,7 @@ module quad_counter_with_pll_step(
 		hist[30] = p3[2];
 		hist[31] = p3[3];
 		
-		resethist2 <= (resethist2 || resethist);
+		resethist2 <= resethist;
 		if (resethist2) begin
 			c0[0] <= 0;
 			c0[1] <= 0;

@@ -1,6 +1,6 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_clk_phase,
-	mask1, mask2, passthrough, h, ipihist, resethist, vetopmtlast, cyclesToVeto, useClockAsInput);
+	mask1, mask2, passthrough, h, h_out, resethist, vetopmtlast, cyclesToVeto, useClockAsInput);
 	
 	//phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
 	
@@ -25,7 +25,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg useClockAsInput = 0;
 	
 	input integer h[32];
-	input integer ipihist[64];
+	input integer h_out[2];
 	output reg resethist=0;
 	
 	//integer pllclock_counter=0;
@@ -44,7 +44,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 
 		
 	integer ioCount, ioCountToSend;
-	reg[7:0] data[288];//for writing out data in WRITE1,2 //72* 4 = 288
+	reg[7:0] data[136];//for writing out data in WRITE1,2 //32* 4 + 8 = 136
 	reg[7:0] q; //loop counter
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
@@ -138,15 +138,15 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 		else if (readdata==10) begin //send out histo
-			ioCountToSend = 128 ; //32*4
-//			data[0]=h[0][7:0];
-//			data[1]=h[0][15:8];
-//			data[2]=h[0][23:16];
-//			data[3]=h[0][31:24];
-//			data[4]=h[1][7:0];
-//			data[5]=h[1][15:8];
-//			data[6]=h[1][23:16];
-//			data[7]=h[1][31:24];
+			ioCountToSend = 136 ; //32*4 + 8
+			data[128]=h_out[0][7:0];
+			data[129]=h_out[0][15:8];
+			data[130]=h_out[0][23:16];
+			data[131]=h_out[0][31:24];
+			data[132]=h_out[1][7:0];
+			data[133]=h_out[1][15:8];
+			data[134]=h_out[1][23:16];
+			data[135]=h_out[1][31:24];
 //			data[8]=h[2][7:0];
 //			data[9]=h[2][15:8];
 //			data[10]=h[2][23:16];
@@ -178,6 +178,8 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 				data[q*4 + 2] = h[q][23:16];
 				data[q*4 + 3] = h[q][31:24];				
 			end
+			
+			
 			state=WRITE1;	
 			resethist=1;
 		end

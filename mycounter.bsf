@@ -61,8 +61,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 216 48)
 		(output)
-		(text "histo[0..7][31..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "histo[0..7][31..0]" (rect 134 43 195 55)(font "Arial" ))
+		(text "histo[0..1][31..0]" (rect 0 0 60 12)(font "Arial" ))
+		(text "histo[0..1][31..0]" (rect 135 43 195 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(port

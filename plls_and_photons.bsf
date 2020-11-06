@@ -156,6 +156,13 @@ refer to the applicable agreement for further details.
 		(text "hist[0..31][31..0]" (rect 160 171 259 190)(font "Intel Clear" (font_size 8)))
 		(line (pt 280 176)(pt 264 176)(line_width 3))
 	)
+	(port
+		(pt 280 192)
+		(output)
+		(text "h_out[0..1][31..0]" (rect 0 0 102 19)(font "Intel Clear" (font_size 8)))
+		(text "h_out[0..1][31..0]" (rect 157 187 259 206)(font "Intel Clear" (font_size 8)))
+		(line (pt 280 192)(pt 264 192)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 264 208))
 	)
