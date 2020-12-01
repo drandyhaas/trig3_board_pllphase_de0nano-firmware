@@ -89,7 +89,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 320 536 512 552)
+	(rect 168 536 360 552)
 	(text "INPUT" (rect 149 0 177 10)(font "Arial" (font_size 6)))
 	(text "lvds_second_input" (rect 5 0 97 12)(font "Arial" ))
 	(pt 192 8)
@@ -102,7 +102,7 @@ refer to the applicable agreement for further details.
 		(line (pt 133 12)(pt 137 8))
 	)
 	(text "VCC" (rect 152 7 172 17)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 256 528 320 552))
+	(annotation_block (location)(rect 104 528 168 552))
 )
 (pin
 	(output)
@@ -894,14 +894,6 @@ refer to the applicable agreement for further details.
 	(pt 560 608)
 )
 (connector
-	(pt 488 544)
-	(pt 512 544)
-)
-(connector
-	(pt 512 544)
-	(pt 624 544)
-)
-(connector
 	(pt 624 576)
 	(pt 520 576)
 )
@@ -1068,6 +1060,9 @@ refer to the applicable agreement for further details.
 	(pt 872 920)
 	(bus)
 )
+(connector
+	(pt 360 544)
+	(pt 624 544)
+)
 (junction (pt 872 704))
 (junction (pt 440 704))
-(junction (pt 512 544))
