@@ -894,7 +894,7 @@ refer to the applicable agreement for further details.
 		(pt 192 32)
 		(output)
 		(text "clk_aligned_pulse" (rect 0 0 86 12)(font "Arial" ))
-		(text "clk_aligned_pulse" (rect 99 27 171 39)(font "Arial" ))
+		(text "clk_aligned_pulse" (rect 99 27 185 39)(font "Arial" ))
 		(line (pt 192 32)(pt 176 32))
 	)
 	(drawing
@@ -930,7 +930,7 @@ refer to the applicable agreement for further details.
 		(pt 192 32)
 		(output)
 		(text "clk_aligned_pulse" (rect 0 0 86 12)(font "Arial" ))
-		(text "clk_aligned_pulse" (rect 99 27 171 39)(font "Arial" ))
+		(text "clk_aligned_pulse" (rect 99 27 185 39)(font "Arial" ))
 		(line (pt 192 32)(pt 176 32))
 	)
 	(drawing
@@ -1378,11 +1378,6 @@ refer to the applicable agreement for further details.
 	(pt 776 584)
 )
 (connector
-	(text "photon" (rect 801 584 834 601)(font "Intel Clear" ))
-	(pt 848 600)
-	(pt 776 600)
-)
-(connector
 	(pt 880 360)
 	(pt 888 360)
 )
@@ -1576,16 +1571,6 @@ refer to the applicable agreement for further details.
 	(pt 816 320)
 )
 (connector
-	(text "not_ps_clk" (rect 791 488 842 505)(font "Intel Clear" ))
-	(pt 848 504)
-	(pt 768 504)
-)
-(connector
-	(text "ps_clk" (rect 798 600 828 617)(font "Intel Clear" ))
-	(pt 848 616)
-	(pt 776 616)
-)
-(connector
 	(text "d1_a" (rect 1070 456 1093 473)(font "Intel Clear" ))
 	(pt 1040 472)
 	(pt 1120 472)
@@ -1624,6 +1609,29 @@ refer to the applicable agreement for further details.
 	(text "true" (rect 1112 552 1130 569)(font "Intel Clear" ))
 	(pt 1128 568)
 	(pt 1104 568)
+)
+(connector
+	(text "clk" (rect 799 488 813 505)(font "Intel Clear" ))
+	(pt 848 504)
+	(pt 768 504)
+)
+(connector
+	(text "clk" (rect 782 608 796 625)(font "Intel Clear" ))
+	(pt 848 616)
+	(pt 776 616)
+)
+(connector
+	(pt 840 600)
+	(pt 840 592)
+)
+(connector
+	(pt 848 600)
+	(pt 840 600)
+)
+(connector
+	(text "photon" (rect 713 576 746 593)(font "Intel Clear" ))
+	(pt 840 592)
+	(pt 688 592)
 )
 (junction (pt 240 648))
 (junction (pt -392 264))
