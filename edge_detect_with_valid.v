@@ -13,20 +13,15 @@ module edge_detect
    );
 
   reg valid_held = 0;
-  always @(posedge valid or posedge pulse)
+  always @(posedge clk or posedge pulse)
     if (pulse)
       valid_held <= valid;// && !notvalid_held;
     else
       valid_held <= 0;
-
-  reg[1:0] valid_shift = 0;
-  
-  always @(posedge valid)
-	valid_shift <= {valid_shift,valid_held};
-		
+  		
   reg [1:0] pulse_shift = 0;
   always @(posedge clk)
-	pulse_shift <= {pulse_shift,valid_shift == 2'b01};
+	pulse_shift <= {pulse_shift,valid_held};
   
   assign clk_aligned_pulse = pulse_shift == 2'b01;
 endmodule
