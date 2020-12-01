@@ -8,7 +8,6 @@ module quad_counter_with_pll_step(
 	);
 	
 	
-	reg [5:0] j = 0;
 	reg resethist2;
 
 	integer  c0[4];

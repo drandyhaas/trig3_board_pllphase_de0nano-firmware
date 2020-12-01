@@ -9,14 +9,12 @@ module mycounter(
 	);
 	
 	
-	reg [7:0] j = 0;
 	reg [7:0] k = 0;
 	
 	reg [7:0] cyclecounter;
 	reg resetipi;
 	reg resethist2;
 	reg anyphot;
-	reg lastphot;
 	
 	always@(posedge clkin) begin
 							
@@ -28,7 +26,7 @@ module mycounter(
 		out[1] <= buffer[1];
 		
 		anyphot <= buffer != 0;
-		lastphot <= buffer != 0 && vetopmtlast;
+		//lastphot <= buffer != 0 && vetopmtlast;
 		if (anyphot) begin
 			if (cyclecounter < 64) begin
 				ipihist[cyclecounter] <= ipihist[cyclecounter] + 1;				

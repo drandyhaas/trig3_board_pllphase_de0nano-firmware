@@ -1,0 +1,9 @@
+set_global_assignment -name IP_TOOL_NAME "ALTIOBUF"
+set_global_assignment -name IP_TOOL_VERSION "18.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{Cyclone IV E}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "out2.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "out2.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "out2_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "out2_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "out2.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "out2.cmp"]

@@ -12,7 +12,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg txStart;
 	output reg[7:0] txData;
 	output reg[7:0] readdata;//first byte we got
-	output reg enable_outputs=0;//set low to enable outputs
+	output reg enable_outputs = 0;//set low to enable outputs
 	reg [7:0] extradata[10];//to store command extra data, like arguemnts (up to 10 bytes)
 	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5,  UPDATEPLL=8;
 	reg[7:0] state=READ;
@@ -49,7 +49,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
-	parameter version = 8'd23;
+	parameter[7:0] version = 8'd23;
 	
 	always @(posedge clk) begin
 	case (state)

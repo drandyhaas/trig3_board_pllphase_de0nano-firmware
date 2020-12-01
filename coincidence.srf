@@ -1,0 +1,2 @@
+{ "" "" "" "Primitive \"VCC\" of instance \"inst7\" not used" {  } {  } 0 275008 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance." {  } {  } 0 18236 "" 0 0 "Design Software" 0 -1 0 ""}

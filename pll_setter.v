@@ -30,65 +30,65 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 		WAIT: begin		  
 			
 			if (update) begin
-				pll_phase_setting = pll_phase;
-				pll_clksrc_setting = pll_clksrc;
-				phasecounter = 0;
-				pllclock_counter = 0;
-				state = ARESET;
+				pll_phase_setting <= pll_phase;
+				pll_clksrc_setting <= pll_clksrc;
+				phasecounter <= 0;
+				pllclock_counter <= 0;
+				state <= ARESET;
 			end
 		end
 		ARESET: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
-			areset = 1'b1;
-			pllclock_counter=pllclock_counter+1;
+			areset <= 1'b1;
+			pllclock_counter<=pllclock_counter+1;
 			if (pllclock_counter[3]) begin
-				areset = 1'b0;
-				pllclock_counter=0;
+				areset <= 1'b0;
+				pllclock_counter<=0;
 				if (pll_clksrc_setting) begin
-					clkswitch = 1;
-					state=CLKSWITCH;
+					clkswitch <= 1;
+					state<=CLKSWITCH;
 				end
-				else state = PHASESTEP;
+				else state <= PHASESTEP;
 			end
 		end
 		CLKSWITCH: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
-			pllclock_counter=pllclock_counter+1;
+			pllclock_counter<=pllclock_counter+1;
 			if (pllclock_counter[3]) begin
-				clkswitch = 0;
-				pllclock_counter=0;
-				state=PHASESTEP;
+				clkswitch <= 0;
+				pllclock_counter<=0;
+				state<=PHASESTEP;
 			end
 		end
 		
 		PHASESTEP: begin //repeat the single phase step pll_phase times
 			if (phasecounter <= pll_phase_setting) begin
-				phasecounterselect=3'b000; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
-				phaseupdown=1'b1; // up
-				scanclk=1'b0; // start low
-				phasestep=1'b1; // assert!
-				pllclock_counter=0;
-				scanclk_cycles=0;
-				state = ONEPHASE;
+				phasecounterselect<=3'b000; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
+				phaseupdown<=1'b1; // up
+				scanclk<=1'b0; // start low
+				phasestep<=1'b1; // assert!
+				pllclock_counter<=0;
+				scanclk_cycles<=0;
+				state <= ONEPHASE;
 			end
 		   else begin
-				state = WAIT;
+				state <= WAIT;
 			end
 		end
 		
 		ONEPHASE: begin // to step the clock phase, you have to toggle scanclk a few times
-			pllclock_counter=pllclock_counter+1;
+			pllclock_counter<=pllclock_counter+1;
 			if (pllclock_counter[4]) begin
-				scanclk = ~scanclk;
-				pllclock_counter=0;
-				scanclk_cycles=scanclk_cycles+1;
-				if (scanclk_cycles>5) phasestep=1'b0; // deassert! Q: why 1'b0 and not 0 ?
+				scanclk <= ~scanclk;
+				pllclock_counter<=0;
+				scanclk_cycles<=scanclk_cycles+1;
+				if (scanclk_cycles>5) phasestep<=1'b0; // deassert! Q: why 1'b0 and not 0 ?
 				
 				if (scanclk_cycles>7 && phase_done) begin
-					phasecounter = phasecounter+1;
-					state=PHASESTEP;
+					phasecounter <= phasecounter+1;
+					state<=PHASESTEP;
 				end
 				
 				if (scanclk_cycles > 107) begin
-					state=PHASESTEP; //give up
+					state<=PHASESTEP; //give up
 				end
 			end
 		end
