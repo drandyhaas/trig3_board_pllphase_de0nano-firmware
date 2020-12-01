@@ -27,6 +27,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	input integer h[32];
 	input integer h_out[2];
 	output reg resethist=0;
+	reg resethist_int = 0;
 	
 	//integer pllclock_counter=0;
 	//integer scanclk_cycles=0;
@@ -49,16 +50,20 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg[7:0] deadticks=10; // dead for 200 ns
 	output reg[7:0] firingticks=9; // 50 ns wide pulse
 
+	integer h_out_reg[2];
+	
 	parameter[7:0] version = 8'd23;
 	
 	always @(posedge clk) begin
+	h_out_reg <= h_out;
+	resethist <= resethist_int;
 	case (state)
 	READ: begin		  
 		txStart<=0;
 		bytesread<=0;
 		byteswanted<=0;
       ioCount = 0;
-		resethist=0;
+		resethist_int <=0;
 		updatepll = 0;
       if (rxReady) begin
 			readdata = rxData;
@@ -139,14 +144,14 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 
 		else if (readdata==10) begin //send out histo
 			ioCountToSend = 136 ; //32*4 + 8
-			data[128]=h_out[0][7:0];
-			data[129]=h_out[0][15:8];
-			data[130]=h_out[0][23:16];
-			data[131]=h_out[0][31:24];
-			data[132]=h_out[1][7:0];
-			data[133]=h_out[1][15:8];
-			data[134]=h_out[1][23:16];
-			data[135]=h_out[1][31:24];
+			data[128]=h_out_reg[0][7:0];
+			data[129]=h_out_reg[0][15:8];
+			data[130]=h_out_reg[0][23:16];
+			data[131]=h_out_reg[0][31:24];
+			data[132]=h_out_reg[1][7:0];
+			data[133]=h_out_reg[1][15:8];
+			data[134]=h_out_reg[1][23:16];
+			data[135]=h_out_reg[1][31:24];
 //			data[8]=h[2][7:0];
 //			data[9]=h[2][15:8];
 //			data[10]=h[2][23:16];
@@ -181,7 +186,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			
 			
 			state=WRITE1;	
-			resethist=1;
+			resethist_int <= 1'b1;
 		end
 		else if (readdata==11) begin //toggle vetopmtlast
 			vetopmtlast = ~vetopmtlast;

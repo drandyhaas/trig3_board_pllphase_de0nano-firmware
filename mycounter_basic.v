@@ -8,6 +8,7 @@ module mycounter_basic(
 	reg[1:0] buff2;
 	
 	reg resethist2;
+	reg resethist3;
 	
 	always@(posedge clkin) begin
 							
@@ -19,8 +20,9 @@ module mycounter_basic(
 		
 			
 		resethist2 <= resethist;
+		resethist3 <= resethist2;
 
-		if (resethist2) begin
+		if (resethist3) begin
 			histo[0] <= 0;
 			histo[1] <= 0;			
 		end
