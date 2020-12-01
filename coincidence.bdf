@@ -140,7 +140,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1008 456 1213 472)
+	(rect 960 536 1165 552)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_detection[1..0]" (rect 90 0 199 12)(font "Arial" ))
 	(pt 0 8)
@@ -153,7 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1216 456 1272 504))
+	(annotation_block (location)(rect 1168 536 1224 584))
 )
 (pin
 	(output)
@@ -909,11 +909,6 @@ refer to the applicable agreement for further details.
 	(pt 1336 688)
 )
 (connector
-	(pt 904 544)
-	(pt 1008 544)
-	(bus)
-)
-(connector
 	(text "pll_phase[7..0]" (rect 528 608 598 625)(font "Intel Clear" ))
 	(pt 624 624)
 	(pt 520 624)
@@ -952,11 +947,6 @@ refer to the applicable agreement for further details.
 	(text "enabletestpulse" (rect 480 544 556 561)(font "Intel Clear" ))
 	(pt 624 560)
 	(pt 472 560)
-)
-(connector
-	(pt 1008 464)
-	(pt 1008 544)
-	(bus)
 )
 (connector
 	(text "resethist" (rect 504 624 544 641)(font "Intel Clear" ))
@@ -1098,6 +1088,11 @@ refer to the applicable agreement for further details.
 	(text "oe,oe" (rect 1352 592 1377 609)(font "Intel Clear" ))
 	(pt 1392 608)
 	(pt 1344 608)
+	(bus)
+)
+(connector
+	(pt 904 544)
+	(pt 960 544)
 	(bus)
 )
 (junction (pt 872 704))
