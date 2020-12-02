@@ -133,13 +133,13 @@ module pll1 (
 		altpll_component.clk0_divide_by = 1,
 		altpll_component.clk0_duty_cycle = 50,
 		altpll_component.clk0_multiply_by = 1,
-		altpll_component.clk0_phase_shift = "0",
+		altpll_component.clk0_phase_shift = "-992",
 		altpll_component.clk1_divide_by = 1,
-		altpll_component.clk1_duty_cycle = 50,
+		altpll_component.clk1_duty_cycle = 43,
 		altpll_component.clk1_multiply_by = 1,
 		altpll_component.clk1_phase_shift = "0",
 		altpll_component.clk2_divide_by = 1,
-		altpll_component.clk2_duty_cycle = 50,
+		altpll_component.clk2_duty_cycle = 43,
 		altpll_component.clk2_multiply_by = 1,
 		altpll_component.clk2_phase_shift = "7143",
 		altpll_component.clk3_divide_by = 1,
@@ -226,8 +226,8 @@ endmodule
 // Retrieval info: PRIVATE: DIV_FACTOR2 NUMERIC "1"
 // Retrieval info: PRIVATE: DIV_FACTOR3 NUMERIC "1"
 // Retrieval info: PRIVATE: DUTY_CYCLE0 STRING "50.00000000"
-// Retrieval info: PRIVATE: DUTY_CYCLE1 STRING "50.00000000"
-// Retrieval info: PRIVATE: DUTY_CYCLE2 STRING "50.00000000"
+// Retrieval info: PRIVATE: DUTY_CYCLE1 STRING "43.00000000"
+// Retrieval info: PRIVATE: DUTY_CYCLE2 STRING "43.00000000"
 // Retrieval info: PRIVATE: DUTY_CYCLE3 STRING "50.00000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE0 STRING "70.000000"
 // Retrieval info: PRIVATE: EFF_OUTPUT_FREQ_VALUE1 STRING "70.000000"
@@ -282,7 +282,7 @@ endmodule
 // Retrieval info: PRIVATE: OUTPUT_FREQ_UNIT3 STRING "MHz"
 // Retrieval info: PRIVATE: PHASE_RECONFIG_FEATURE_ENABLED STRING "1"
 // Retrieval info: PRIVATE: PHASE_RECONFIG_INPUTS_CHECK STRING "1"
-// Retrieval info: PRIVATE: PHASE_SHIFT0 STRING "0.00000000"
+// Retrieval info: PRIVATE: PHASE_SHIFT0 STRING "-25.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT1 STRING "0.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT2 STRING "180.00000000"
 // Retrieval info: PRIVATE: PHASE_SHIFT3 STRING "180.00000000"
@@ -334,13 +334,13 @@ endmodule
 // Retrieval info: CONSTANT: CLK0_DIVIDE_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK0_DUTY_CYCLE NUMERIC "50"
 // Retrieval info: CONSTANT: CLK0_MULTIPLY_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK0_PHASE_SHIFT STRING "0"
+// Retrieval info: CONSTANT: CLK0_PHASE_SHIFT STRING "-992"
 // Retrieval info: CONSTANT: CLK1_DIVIDE_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK1_DUTY_CYCLE NUMERIC "50"
+// Retrieval info: CONSTANT: CLK1_DUTY_CYCLE NUMERIC "43"
 // Retrieval info: CONSTANT: CLK1_MULTIPLY_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK1_PHASE_SHIFT STRING "0"
 // Retrieval info: CONSTANT: CLK2_DIVIDE_BY NUMERIC "1"
-// Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "50"
+// Retrieval info: CONSTANT: CLK2_DUTY_CYCLE NUMERIC "43"
 // Retrieval info: CONSTANT: CLK2_MULTIPLY_BY NUMERIC "1"
 // Retrieval info: CONSTANT: CLK2_PHASE_SHIFT STRING "7143"
 // Retrieval info: CONSTANT: CLK3_DIVIDE_BY NUMERIC "1"
