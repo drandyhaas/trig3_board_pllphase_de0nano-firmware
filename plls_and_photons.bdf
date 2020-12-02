@@ -117,7 +117,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect -680 384 -496 400)
+	(rect -696 352 -512 368)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
 	(text "use_external_test" (rect 5 0 92 12)(font "Arial" ))
 	(pt 184 8)
@@ -1472,10 +1472,6 @@ refer to the applicable agreement for further details.
 	(pt 800 920)
 )
 (connector
-	(pt 680 952)
-	(pt 800 952)
-)
-(connector
 	(text "clk" (rect 792 488 806 505)(font "Intel Clear" ))
 	(pt 848 504)
 	(pt 784 504)
@@ -1518,24 +1514,12 @@ refer to the applicable agreement for further details.
 	(pt -392 264)
 )
 (connector
-	(pt -496 392)
-	(pt -472 392)
-)
-(connector
 	(pt -472 424)
 	(pt -704 424)
 )
 (connector
 	(pt -704 424)
 	(pt -704 264)
-)
-(connector
-	(pt -344 392)
-	(pt -296 392)
-)
-(connector
-	(pt -296 392)
-	(pt -296 352)
 )
 (connector
 	(text "50MHz" (rect -536 392 -503 409)(font "Intel Clear" ))
@@ -1553,10 +1537,52 @@ refer to the applicable agreement for further details.
 	(pt 552 968)
 )
 (connector
+	(pt -480 392)
+	(pt -480 360)
+)
+(connector
+	(pt -472 392)
+	(pt -480 392)
+)
+(connector
+	(pt -512 360)
+	(pt -480 360)
+)
+(connector
+	(pt -480 360)
+	(pt -296 360)
+)
+(connector
+	(pt -296 360)
+	(pt -296 352)
+)
+(connector
+	(pt 512 952)
+	(pt 512 912)
+)
+(connector
 	(pt 408 952)
+	(pt 512 952)
+)
+(connector
+	(pt 512 952)
 	(pt 552 952)
+)
+(connector
+	(pt 512 912)
+	(pt 688 912)
+)
+(connector
+	(pt 688 912)
+	(pt 688 952)
+)
+(connector
+	(pt 688 952)
+	(pt 800 952)
 )
 (junction (pt 240 648))
 (junction (pt -392 264))
 (junction (pt -384 88))
 (junction (pt -704 264))
+(junction (pt -480 360))
+(junction (pt 512 952))
