@@ -942,11 +942,6 @@ refer to the applicable agreement for further details.
 	(pt 440 792)
 )
 (connector
-	(text "enabletestpulse" (rect 480 544 556 561)(font "Intel Clear" ))
-	(pt 624 560)
-	(pt 472 560)
-)
-(connector
 	(text "resethist" (rect 504 624 544 641)(font "Intel Clear" ))
 	(pt 496 640)
 	(pt 624 640)
@@ -1129,8 +1124,26 @@ refer to the applicable agreement for further details.
 	(pt 904 624)
 	(bus)
 )
+(connector
+	(text "enabletestpulse" (rect 472 544 548 561)(font "Intel Clear" ))
+	(pt 472 560)
+	(pt 560 560)
+)
+(connector
+	(pt 560 528)
+	(pt 560 560)
+)
+(connector
+	(pt 624 528)
+	(pt 560 528)
+)
+(connector
+	(pt 560 528)
+	(pt 544 528)
+)
 (junction (pt 872 704))
 (junction (pt 440 704))
 (junction (pt 992 528))
 (junction (pt 984 688))
 (junction (pt 904 624))
+(junction (pt 560 528))
