@@ -1741,7 +1741,7 @@ refer to the applicable agreement for further details.
 	(pt 848 520)
 )
 (connector
-	(text "ps_clk" (rect 696 600 726 617)(font "Intel Clear" ))
+	(text "not_ps_clk" (rect 624 600 675 617)(font "Intel Clear" ))
 	(pt 632 616)
 	(pt 744 616)
 )
