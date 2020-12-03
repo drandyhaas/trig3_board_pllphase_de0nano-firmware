@@ -1125,7 +1125,7 @@ refer to the applicable agreement for further details.
 	(pt 992 528)
 )
 (connector
-	(text "laser_clk" (rect 976 512 1019 529)(font "Intel Clear" ))
+	(text "laser_clk" (rect 1008 504 1051 521)(font "Intel Clear" ))
 	(pt 992 528)
 	(pt 1032 528)
 )
