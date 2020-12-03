@@ -623,9 +623,45 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 624 480 904 672)
+	(rect 1008 592 1248 688)
+	(text "fifo_70_to_50" (rect 5 0 91 19)(font "Intel Clear" (font_size 8)))
+	(text "inst6" (rect 8 75 30 92)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "h70[0..1][31..0]" (rect 0 0 93 19)(font "Intel Clear" (font_size 8)))
+		(text "h70[0..1][31..0]" (rect 21 27 114 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk70" (rect 0 0 33 19)(font "Intel Clear" (font_size 8)))
+		(text "clk70" (rect 21 43 54 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk50" (rect 0 0 33 19)(font "Intel Clear" (font_size 8)))
+		(text "clk50" (rect 21 59 54 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 240 32)
+		(output)
+		(text "h50[0..1][31..0]" (rect 0 0 93 19)(font "Intel Clear" (font_size 8)))
+		(text "h50[0..1][31..0]" (rect 126 27 219 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 32)(pt 224 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 224 80))
+	)
+)
+(symbol
+	(rect 624 480 904 704)
 	(text "plls_and_photons" (rect 5 0 110 19)(font "Intel Clear" (font_size 8)))
-	(text "inst" (rect 8 171 24 188)(font "Intel Clear" ))
+	(text "inst" (rect 8 203 24 220)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -685,9 +721,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 160)
 		(input)
-		(text "reset_hist" (rect 0 0 57 19)(font "Intel Clear" (font_size 8)))
-		(text "reset_hist" (rect 21 155 78 174)(font "Intel Clear" (font_size 8)))
+		(text "vetopmtlast" (rect 0 0 71 19)(font "Intel Clear" (font_size 8)))
+		(text "vetopmtlast" (rect 21 155 92 174)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 160)(pt 16 160))
+	)
+	(port
+		(pt 0 176)
+		(input)
+		(text "reset_hist" (rect 0 0 57 19)(font "Intel Clear" (font_size 8)))
+		(text "reset_hist" (rect 21 171 78 190)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 176)(pt 16 176))
 	)
 	(port
 		(pt 280 32)
@@ -746,43 +789,7 @@ refer to the applicable agreement for further details.
 		(line (pt 280 144)(pt 264 144)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 264 176))
-	)
-)
-(symbol
-	(rect 1008 592 1248 688)
-	(text "fifo_70_to_50" (rect 5 0 91 19)(font "Intel Clear" (font_size 8)))
-	(text "inst6" (rect 8 75 30 92)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "h70[0..1][31..0]" (rect 0 0 93 19)(font "Intel Clear" (font_size 8)))
-		(text "h70[0..1][31..0]" (rect 21 27 114 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clk70" (rect 0 0 33 19)(font "Intel Clear" (font_size 8)))
-		(text "clk70" (rect 21 43 54 62)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "clk50" (rect 0 0 33 19)(font "Intel Clear" (font_size 8)))
-		(text "clk50" (rect 21 59 54 78)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 240 32)
-		(output)
-		(text "h50[0..1][31..0]" (rect 0 0 93 19)(font "Intel Clear" (font_size 8)))
-		(text "h50[0..1][31..0]" (rect 126 27 219 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 240 32)(pt 224 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 224 80))
+		(rectangle (rect 16 16 264 208))
 	)
 )
 (connector
@@ -940,11 +947,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 440 704)
 	(pt 440 792)
-)
-(connector
-	(text "resethist" (rect 504 624 544 641)(font "Intel Clear" ))
-	(pt 496 640)
-	(pt 624 640)
 )
 (connector
 	(pt 768 848)
@@ -1128,6 +1130,16 @@ refer to the applicable agreement for further details.
 	(text "enabletestpulse" (rect 472 544 548 561)(font "Intel Clear" ))
 	(pt 472 560)
 	(pt 624 560)
+)
+(connector
+	(text "vetopmtlast" (rect 504 624 561 641)(font "Intel Clear" ))
+	(pt 496 640)
+	(pt 624 640)
+)
+(connector
+	(text "resethist" (rect 520 640 560 657)(font "Intel Clear" ))
+	(pt 624 656)
+	(pt 512 656)
 )
 (junction (pt 872 704))
 (junction (pt 440 704))
