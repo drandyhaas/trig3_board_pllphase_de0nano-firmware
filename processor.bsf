@@ -124,8 +124,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 240 160)
 		(output)
-		(text "pll_clk_phase[7..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "pll_clk_phase[7..0]" (rect 146 155 219 167)(font "Arial" ))
+		(text "pll_shifts[0..5][7..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "pll_shifts[0..5][7..0]" (rect 145 155 219 167)(font "Arial" ))
 		(line (pt 240 160)(pt 224 160)(line_width 3))
 	)
 	(port

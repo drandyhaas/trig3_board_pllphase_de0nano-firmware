@@ -75,8 +75,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 144)
 		(input)
-		(text "pll_phase[7..0]" (rect 0 0 88 19)(font "Intel Clear" (font_size 8)))
-		(text "pll_phase[7..0]" (rect 21 139 109 158)(font "Intel Clear" (font_size 8)))
+		(text "pshifts[0..5][7..0]" (rect 0 0 101 19)(font "Intel Clear" (font_size 8)))
+		(text "pshifts[0..5][7..0]" (rect 21 139 122 158)(font "Intel Clear" (font_size 8)))
 		(line (pt 0 144)(pt 16 144)(line_width 3))
 	)
 	(port

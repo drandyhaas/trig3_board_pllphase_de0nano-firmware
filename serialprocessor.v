@@ -1,5 +1,5 @@
 module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
-	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_clk_phase,
+	deadticks, firingticks, enable_outputs, updatepll, pll_clk_src, pll_shifts,
 	mask1, mask2, passthrough, h, h_out, resethist, vetopmtlast, cyclesToVeto, useClockAsInput);
 	
 	//phasecounterselect,phaseupdown,phasestep,scanclk, clkswitch,
@@ -41,7 +41,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 
 	output reg updatepll = 0;
 	output reg pll_clk_src = 0;
-	output reg[7:0] pll_clk_phase;
+	output reg[7:0] pll_shifts[0:5] = '{0,0,0,0,0,0};
 
 		
 	integer ioCount, ioCountToSend;
@@ -117,7 +117,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		else if (readdata == 5) begin // set clock phase
 			byteswanted=1; if (bytesread<byteswanted) state=READMORE;
 			else begin
-				pll_clk_phase=extradata[0];
+				pll_shifts[0]=extradata[0];
 				state=UPDATEPLL;
 			end
 		end
@@ -194,7 +194,7 @@ module processor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		end
 
 		else if (readdata==13) begin // reset PLL
-			pll_clk_phase = 0;
+			pll_shifts = '{0,0,0,0,0,0};
 			pll_clk_src = 0;
 			state = UPDATEPLL;
 		end

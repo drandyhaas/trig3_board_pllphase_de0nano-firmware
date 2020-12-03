@@ -1,9 +1,9 @@
-module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasecounterselect,phaseupdown, phasestep,scanclk, clkswitch);
+module pll_setter(clk, update, pll_clksrc, phase_shifts, phase_done, areset, phasecounterselect,phaseupdown, phasestep,scanclk, clkswitch);
 	
 	input clk;
 	input update;
 	input pll_clksrc;
-	input[7:0] pll_phase;
+	input reg [7:0] phase_shifts[0:5]; //all, clock, start1, stop1, start2, stop2 - stop1, stop2 are negative shifts, all others are positive
 	input phase_done;
 	
 	output reg areset = 0;
@@ -13,9 +13,15 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 	output reg scanclk=0;
 	output reg clkswitch=0; // No matter what, inclk0 is the default clock
 	
+	//localparam ALL=3'b000, PSCLK = 3'b010, START1 = 3'b011, STOP1 = 3'b100, START2 = 3'b101, STOP2 = 3'b110;
 	
-	localparam WAIT=0, ARESET=1, CLKSWITCH=2, PHASESTEP=3, ONEPHASE=4;
+	localparam bit [3:0] psbits[6] = '{3'b000, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110};
+	localparam bit psdir[6] = '{1'b1, 1'b1, 1'b1, 1'b0, 1'b1, 1'b0};
+	reg[3:0] psstep = 0;
+	
+	localparam WAIT=8'd0, ARESET=8'd1, CLKSWITCH=8'd2, PHASESTEP=8'd3, ONEPHASE=8'd4, SHIFTING = 8'd5;//SHIFTALL = 8'd5, SHIFTPS = 8'd6, SHIFTSTART1 = 8'd7, SHIFTSTOP1 = 8'd8, SHIFTSTART2 = 8'd9, SHIFTSTOP2 = 8'd10;
 	reg[7:0] state=WAIT;
+	reg[7:0] nextstate=WAIT;
 	
 	integer pll_phase_setting;
 	integer phasecounter;
@@ -25,18 +31,21 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 	integer pllclock_counter=0;
 	integer scanclk_cycles=0;
 	
+	reg [7:0] phase_shifts_local[0:5];
+	
 	always @(posedge clk) begin
 		case (state)
 		WAIT: begin		  
 			
 			if (update) begin
-				pll_phase_setting <= pll_phase;
+				phase_shifts_local <= phase_shifts;
 				pll_clksrc_setting <= pll_clksrc;
-				phasecounter <= 0;
 				pllclock_counter <= 0;
 				state <= ARESET;
+				psstep = 0;
 			end
 		end
+		
 		ARESET: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
 			areset <= 1'b1;
 			pllclock_counter<=pllclock_counter+1;
@@ -47,7 +56,7 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 					clkswitch <= 1;
 					state<=CLKSWITCH;
 				end
-				else state <= PHASESTEP;
+				else state <= SHIFTING;
 			end
 		end
 		CLKSWITCH: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
@@ -55,14 +64,29 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 			if (pllclock_counter[3]) begin
 				clkswitch <= 0;
 				pllclock_counter<=0;
-				state<=PHASESTEP;
+				state<=SHIFTING;
 			end
 		end
 		
+		
+		
+		SHIFTING: begin	
+			if (psstep >= 6) begin
+				state <= WAIT;
+			end 
+			else begin
+				phasecounterselect<=psbits[psstep]; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
+				phaseupdown<=psdir[psstep]; // up
+				phasecounter <= 0;
+				pll_phase_setting <= phase_shifts[psstep];
+				state <= PHASESTEP;
+			end
+		end
+		
+		
+		
 		PHASESTEP: begin //repeat the single phase step pll_phase times
-			if (phasecounter <= pll_phase_setting) begin
-				phasecounterselect<=3'b000; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
-				phaseupdown<=1'b1; // up
+			if (phasecounter <= pll_phase_setting) begin		
 				scanclk<=1'b0; // start low
 				phasestep<=1'b1; // assert!
 				pllclock_counter<=0;
@@ -70,7 +94,8 @@ module pll_setter(clk, update, pll_clksrc, pll_phase, phase_done, areset, phasec
 				state <= ONEPHASE;
 			end
 		   else begin
-				state <= WAIT;
+				psstep <= psstep + 1;
+				state <= SHIFTING;
 			end
 		end
 		
