@@ -82,9 +82,9 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 160)
 		(input)
-		(text "vetopmtlast" (rect 0 0 71 19)(font "Intel Clear" (font_size 8)))
-		(text "vetopmtlast" (rect 21 155 92 174)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 160)(pt 16 160))
+		(text "vetolast[2..0]" (rect 0 0 77 19)(font "Intel Clear" (font_size 8)))
+		(text "vetolast[2..0]" (rect 21 155 98 174)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 160)(pt 16 160)(line_width 3))
 	)
 	(port
 		(pt 0 176)

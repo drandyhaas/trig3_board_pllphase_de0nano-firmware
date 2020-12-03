@@ -117,7 +117,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect -728 480 -544 496)
+	(rect -880 320 -696 336)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
 	(text "use_external_test" (rect 5 0 92 12)(font "Arial" ))
 	(pt 184 8)
@@ -165,9 +165,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 528 512 696 528)
+	(rect 488 504 656 520)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "vetopmtlast" (rect 5 0 64 12)(font "Arial" ))
+	(text "vetolast[2..0]" (rect 5 0 71 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -954,92 +954,6 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 848 440 1016 552)
-	(text "edge_detect_with_veto" (rect 5 0 118 12)(font "Arial" ))
-	(text "inst12" (rect 8 96 36 113)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "valid" (rect 0 0 23 12)(font "Arial" ))
-		(text "valid" (rect 21 27 44 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 21 43 46 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 59 35 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "vetoLast" (rect 0 0 43 12)(font "Arial" ))
-		(text "vetoLast" (rect 21 75 64 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 168 32)
-		(output)
-		(text "pulseOut" (rect 0 0 43 12)(font "Arial" ))
-		(text "pulseOut" (rect 111 27 154 39)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 152 96))
-	)
-)
-(symbol
-	(rect 848 552 1016 664)
-	(text "edge_detect_with_veto" (rect 5 0 118 12)(font "Arial" ))
-	(text "inst13" (rect 8 96 36 113)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "valid" (rect 0 0 23 12)(font "Arial" ))
-		(text "valid" (rect 21 27 44 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
-		(text "pulse" (rect 21 43 46 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 59 35 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "vetoLast" (rect 0 0 43 12)(font "Arial" ))
-		(text "vetoLast" (rect 21 75 64 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80))
-	)
-	(port
-		(pt 168 32)
-		(output)
-		(text "pulseOut" (rect 0 0 43 12)(font "Arial" ))
-		(text "pulseOut" (rect 111 27 154 39)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 152 96))
-	)
-)
-(symbol
 	(rect -288 280 -224 328)
 	(text "AND2" (rect 1 0 25 10)(font "Arial" (font_size 6)))
 	(text "inst29" (rect 3 37 31 54)(font "Intel Clear" ))
@@ -1072,7 +986,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect -704 232 -544 312)
+	(rect -648 232 -488 312)
 	(text "mydecimator_basic" (rect 5 0 101 12)(font "Arial" ))
 	(text "inst15" (rect 8 64 36 81)(font "Intel Clear" ))
 	(port
@@ -1350,6 +1264,92 @@ refer to the applicable agreement for further details.
 		(line (pt 375 128)(pt 311 128))
 		(line (pt 375 144)(pt 311 144))
 		(line (pt 375 160)(pt 311 160))
+	)
+)
+(symbol
+	(rect 848 440 1040 552)
+	(text "edge_detect_with_veto" (rect 5 0 118 12)(font "Arial" ))
+	(text "inst12" (rect 8 96 37 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "valid" (rect 0 0 23 12)(font "Arial" ))
+		(text "valid" (rect 21 27 44 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
+		(text "pulse" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 59 35 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "vetoLast[2..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "vetoLast[2..0]" (rect 21 75 90 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "pulseOut" (rect 0 0 43 12)(font "Arial" ))
+		(text "pulseOut" (rect 135 27 178 39)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 176 96))
+	)
+)
+(symbol
+	(rect 848 552 1040 664)
+	(text "edge_detect_with_veto" (rect 5 0 118 12)(font "Arial" ))
+	(text "inst13" (rect 8 96 37 108)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "valid" (rect 0 0 23 12)(font "Arial" ))
+		(text "valid" (rect 21 27 44 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "pulse" (rect 0 0 25 12)(font "Arial" ))
+		(text "pulse" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 59 35 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "vetoLast[2..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "vetoLast[2..0]" (rect 21 75 90 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "pulseOut" (rect 0 0 43 12)(font "Arial" ))
+		(text "pulseOut" (rect 135 27 178 39)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 176 96))
 	)
 )
 (connector
@@ -1673,16 +1673,6 @@ refer to the applicable agreement for further details.
 	(pt 848 616)
 )
 (connector
-	(text "d1" (rect 1024 456 1035 473)(font "Intel Clear" ))
-	(pt 1016 472)
-	(pt 1072 472)
-)
-(connector
-	(text "d2" (rect 1052 568 1063 585)(font "Intel Clear" ))
-	(pt 1016 584)
-	(pt 1080 584)
-)
-(connector
 	(pt 744 888)
 	(pt 192 888)
 )
@@ -1749,16 +1739,8 @@ refer to the applicable agreement for further details.
 	(pt -296 408)
 )
 (connector
-	(pt -704 264)
-	(pt -704 392)
-)
-(connector
 	(pt -704 392)
 	(pt -704 552)
-)
-(connector
-	(pt -704 392)
-	(pt -424 392)
 )
 (connector
 	(pt -424 392)
@@ -1777,14 +1759,6 @@ refer to the applicable agreement for further details.
 	(pt -336 296)
 )
 (connector
-	(pt -336 296)
-	(pt -336 264)
-)
-(connector
-	(pt -544 264)
-	(pt -336 264)
-)
-(connector
 	(pt -296 312)
 	(pt -296 352)
 )
@@ -1798,31 +1772,7 @@ refer to the applicable agreement for further details.
 )
 (connector
 	(pt -528 488)
-	(pt -528 352)
-)
-(connector
-	(pt -544 488)
-	(pt -528 488)
-)
-(connector
-	(pt -528 488)
 	(pt -512 488)
-)
-(connector
-	(pt 848 632)
-	(pt 712 632)
-)
-(connector
-	(pt 712 520)
-	(pt 712 632)
-)
-(connector
-	(pt 696 520)
-	(pt 712 520)
-)
-(connector
-	(pt 712 520)
-	(pt 848 520)
 )
 (connector
 	(pt 760 272)
@@ -1900,6 +1850,81 @@ refer to the applicable agreement for further details.
 	(pt 632 616)
 	(pt 744 616)
 )
+(connector
+	(text "d2" (rect 1124 568 1135 585)(font "Intel Clear" ))
+	(pt 1040 584)
+	(pt 1152 584)
+)
+(connector
+	(text "d1" (rect 1106 456 1117 473)(font "Intel Clear" ))
+	(pt 1040 472)
+	(pt 1168 472)
+)
+(connector
+	(pt -336 296)
+	(pt -336 264)
+)
+(connector
+	(pt -336 264)
+	(pt -488 264)
+)
+(connector
+	(pt -656 392)
+	(pt -656 264)
+)
+(connector
+	(pt -704 392)
+	(pt -656 392)
+)
+(connector
+	(pt -656 392)
+	(pt -424 392)
+)
+(connector
+	(pt -704 264)
+	(pt -656 264)
+)
+(connector
+	(pt -656 264)
+	(pt -648 264)
+)
+(connector
+	(pt -528 328)
+	(pt -696 328)
+)
+(connector
+	(pt -528 328)
+	(pt -528 352)
+)
+(connector
+	(pt -528 352)
+	(pt -528 488)
+)
+(connector
+	(pt 656 520)
+	(pt 656 512)
+	(bus)
+)
+(connector
+	(pt 848 632)
+	(pt 696 632)
+	(bus)
+)
+(connector
+	(pt 696 632)
+	(pt 696 520)
+	(bus)
+)
+(connector
+	(pt 848 520)
+	(pt 696 520)
+	(bus)
+)
+(connector
+	(pt 696 520)
+	(pt 656 520)
+	(bus)
+)
 (junction (pt 240 648))
 (junction (pt -384 88))
 (junction (pt 512 952))
@@ -1907,6 +1932,7 @@ refer to the applicable agreement for further details.
 (junction (pt 744 888))
 (junction (pt -424 392))
 (junction (pt -512 488))
-(junction (pt -704 392))
-(junction (pt -528 488))
-(junction (pt 712 520))
+(junction (pt -528 352))
+(junction (pt -656 392))
+(junction (pt -656 264))
+(junction (pt 696 520))
