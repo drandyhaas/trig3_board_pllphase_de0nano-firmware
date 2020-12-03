@@ -1599,11 +1599,6 @@ refer to the applicable agreement for further details.
 	(pt 1080 584)
 )
 (connector
-	(text "clk" (rect 696 600 710 617)(font "Intel Clear" ))
-	(pt 632 616)
-	(pt 744 616)
-)
-(connector
 	(pt 744 888)
 	(pt 192 888)
 )
@@ -1622,22 +1617,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 192 984)
 	(pt 552 984)
-)
-(connector
-	(pt 848 632)
-	(pt 704 632)
-)
-(connector
-	(pt 704 632)
-	(pt 704 520)
-)
-(connector
-	(pt 848 520)
-	(pt 704 520)
-)
-(connector
-	(pt 704 520)
-	(pt 696 520)
 )
 (connector
 	(pt -408 440)
@@ -1745,13 +1724,34 @@ refer to the applicable agreement for further details.
 	(pt -528 488)
 	(pt -512 488)
 )
+(connector
+	(pt 848 632)
+	(pt 712 632)
+)
+(connector
+	(pt 712 520)
+	(pt 712 632)
+)
+(connector
+	(pt 696 520)
+	(pt 712 520)
+)
+(connector
+	(pt 712 520)
+	(pt 848 520)
+)
+(connector
+	(text "ps_clk" (rect 696 600 726 617)(font "Intel Clear" ))
+	(pt 632 616)
+	(pt 744 616)
+)
 (junction (pt 240 648))
 (junction (pt -384 88))
 (junction (pt 512 952))
 (junction (pt 744 616))
 (junction (pt 744 888))
-(junction (pt 704 520))
 (junction (pt -424 392))
 (junction (pt -512 488))
 (junction (pt -704 392))
 (junction (pt -528 488))
+(junction (pt 712 520))
