@@ -1,6 +1,6 @@
 module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	disable_line_drivers, enable_debug_outputs, updatepll, pll_clk_src, pll_shifts,
-	passthrough, h, h_out, resethist, vetopmtlast, useInternalTestPulse, useExternalTestPulse);
+	passthrough, h, h_out, resethist, vetopmtlast, useInternalTestPulse, useExternalTestPulse, ledIndicators);
 	
 	
 
@@ -39,6 +39,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg pll_clk_src = 0;
 	output reg[7:0] pll_shifts[0:5] = '{0,0,0,0,0,0};
 
+	output reg[7:0] ledIndicators;
 		
 	integer ioCount, ioCountToSend;
 	reg[7:0] data[136];//for writing out data in WRITE1,2 //32* 4 + 8 = 136
@@ -51,6 +52,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	always @(posedge clk) begin
 	h_out_reg <= h_out;
 	resethist <= resethist_int;
+	
 	case (state)
 	READ: begin		  
 		txStart<=0;
@@ -63,6 +65,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			readdata <= rxData;
 			$cast(command, rxData);
          state <= SOLVING;
+			ledIndicators <= byteswanted;
       end
 	end
 	READMORE: begin
@@ -76,9 +79,10 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		
 		case(command)
 		VERSION: begin
-			ioCountToSend <= numToSend[VERSION];
+			ioCountToSend <= 1;
 			data[0] <= version; // this is the firmware version
-			state <= WRITE1;				
+			state <= WRITE1;	
+			ledIndicators <= 255; //flash all on - should go to 0 then 1 if write is working			
 		end
 		SET_OUTPUTS: begin
 			if (bytesread<byteswanted) state <= READMORE;
@@ -94,6 +98,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 				pll_shifts <= extradata[0:5];
 				state <= UPDATEPLL;
 			end
+			ledIndicators <= ledIndicators | 8'b10000000;
 		end
 		SET_PASSTHROUGH: begin
 			if (bytesread<byteswanted) state <= READMORE;
@@ -103,7 +108,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			end
 		end
 		SEND_HISTOGRAM: begin //send out histo
-			ioCountToSend <= numToSend[SEND_HISTOGRAM] ; //32*4 + 8
+			ioCountToSend <= 136 ; //32*4 + 8
 			data[128] <= h_out_reg[0][7:0];
 			data[129] <= h_out_reg[0][15:8];
 			data[130] <= h_out_reg[0][23:16];
@@ -155,6 +160,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	UPDATEPLL: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
 		updatepll <= 1;
 		state <= READ;
+		ledIndicators <= ledIndicators | 8'b01000000;
 	end
 	
 	
@@ -166,6 +172,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
          txStart = 1;
          state = WRITE2;
 		end
+	//	ledIndicators <= ioCount + 1;
 	end
    WRITE2: begin
 		txStart = 0;
@@ -173,7 +180,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			ioCount = ioCount + 1;
          state = WRITE1;
       end
-		else state = READ;
+	//	else state = READ;
 	end
 
 	endcase

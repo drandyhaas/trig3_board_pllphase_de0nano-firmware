@@ -156,6 +156,13 @@ refer to the applicable agreement for further details.
 		(text "useExternalTestPulse" (rect 149 219 235 231)(font "Arial" ))
 		(line (pt 256 224)(pt 240 224)(line_width 1))
 	)
+	(port
+		(pt 256 240)
+		(output)
+		(text "ledIndicators[7..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "ledIndicators[7..0]" (rect 167 235 235 247)(font "Arial" ))
+		(line (pt 256 240)(pt 240 240)(line_width 3))
+	)
 	(parameter
 		"version"
 		"00010111"
