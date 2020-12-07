@@ -14,7 +14,7 @@ module mydecimator_basic(
 		//<= --> parallel execution (simultaneous update at the end of the clock cycle)
 		// = --> serial execution
 		
-		ctr <= ctr+1;
+		ctr <= ctr+1'b1;
 		valid <= ctr == 0;
 	end
 	
