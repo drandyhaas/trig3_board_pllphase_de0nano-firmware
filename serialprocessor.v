@@ -21,7 +21,6 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	
 	localparam MSGA = 8'b10000000, MSGB = 8'b01000000, MSGC = 8'b00100000, MSGD = 8'b00010000;
 	
-	
 	reg[3:0] command;
 		
 	
@@ -135,7 +134,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			data[135] <= h_out_reg[1][31:24];
 			
 			for (q = 0; q < 32; q = q+8'd1) begin
-				data[q*4] <= h[q][7:0];
+				data[q*4] <= q; //h[q][7:0]; - send q as lsbyte for testing
 				data[q*4 + 1] <= h[q][15:8];
 				data[q*4 + 2] <= h[q][23:16];
 				data[q*4 + 3] <= h[q][31:24];				
