@@ -15,7 +15,7 @@ module pll_setter(clk, update, pll_clksrc, phase_shifts, phase_done, areset, pha
 	
 	//localparam ALL=3'b000, PSCLK = 3'b010, START1 = 3'b011, STOP1 = 3'b100, START2 = 3'b101, STOP2 = 3'b110;
 	
-	localparam bit [2:0] psbits[6] = '{3'b000, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110};
+	localparam bit [2:0] psbits[6] = '{3'b000, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110}; //ALL, C0, C1, c2, C3, C4 -> PS, START1, STOP1, START2, STOP2
 	localparam bit psdir[6] = '{1'b1, 1'b1, 1'b1, 1'b0, 1'b1, 1'b0};
 	reg[3:0] psstep = 0;
 	
@@ -74,7 +74,7 @@ module pll_setter(clk, update, pll_clksrc, phase_shifts, phase_done, areset, pha
 				state <= WAIT;
 			end 
 			else begin
-				phasecounterselect<=psbits[psstep]; // all clocks - see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
+				phasecounterselect<=psbits[psstep]; //see https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyc3/cyc3_ciii51006.pdf table 5-10.
 				phaseupdown<=psdir[psstep]; // up
 				phasecounter <= 0;
 				pll_phase_setting <= phase_shifts_local[psstep];

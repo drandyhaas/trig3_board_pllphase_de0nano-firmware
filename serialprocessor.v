@@ -31,7 +31,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg useInternalTestPulse = 0;
 	output reg useExternalTestPulse = 0;
 	
-	input integer h[32];
+	input integer h[10];
 	input integer h_out[2];
 	output reg resethist=0;
 	reg resethist_int = 0;
@@ -45,7 +45,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	integer ioCount, ioCountToSend;
 	reg[7:0] data[136];//for writing out data in WRITE1,2 //32* 4 + 8 = 136
 	reg[7:0] q; //loop counter
-	
+	integer hh[32];
 	integer h_out_reg[2];
 	
 	parameter[7:0] version = 8'd23;
@@ -53,6 +53,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	always @(posedge clk) begin
 	h_out_reg <= h_out;
 	resethist <= resethist_int;
+	hh[0:9] <= h[0:9];
 	
 	case (state)
 	READ: begin		  
@@ -134,10 +135,10 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			data[135] <= h_out_reg[1][31:24];
 			
 			for (q = 0; q < 32; q = q+8'd1) begin
-				data[q*4] <= q; //h[q][7:0]; - send q as lsbyte for testing
-				data[q*4 + 1] <= h[q][15:8];
-				data[q*4 + 2] <= h[q][23:16];
-				data[q*4 + 3] <= h[q][31:24];				
+				data[q*4] <=  hh[q][7:0];
+				data[q*4 + 1] <= hh[q][15:8];
+				data[q*4 + 2] <= hh[q][23:16];
+				data[q*4 + 3] <= hh[q][31:24];				
 			end
 			
 			

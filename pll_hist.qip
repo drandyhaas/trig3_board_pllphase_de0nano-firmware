@@ -1,0 +1,10 @@
+set_global_assignment -name IP_TOOL_NAME "ALTPLL"
+set_global_assignment -name IP_TOOL_VERSION "18.1"
+set_global_assignment -name IP_GENERATED_DEVICE_FAMILY "{Cyclone IV E}"
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) "pll_hist.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist.bsf"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist_inst.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist_bb.v"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist.inc"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist.cmp"]
+set_global_assignment -name MISC_FILE [file join $::quartus(qip_path) "pll_hist.ppf"]

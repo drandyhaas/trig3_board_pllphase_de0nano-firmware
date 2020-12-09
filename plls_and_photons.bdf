@@ -167,7 +167,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -144 480 40 496)
 	(text "INPUT" (rect 141 0 169 10)(font "Arial" (font_size 6)))
-	(text "pshifts[0..5][7..0]" (rect 5 0 92 12)(font "Arial" ))
+	(text "pshifts[0..5][7..0]" (rect 5 0 91 12)(font "Arial" ))
 	(pt 184 8)
 	(drawing
 		(line (pt 100 12)(pt 125 12))
@@ -296,6 +296,22 @@ refer to the applicable agreement for further details.
 	(rect 1032 912 1212 928)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "h_out[0..1][31..0]" (rect 90 0 174 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1008 1048 1185 1064)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "histo[0..9][31..0]" (rect 90 0 171 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -1182,7 +1198,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 888 448 1064 592)
+	(rect 896 448 1072 592)
 	(text "edge_detect_dual_with_veto" (rect 5 0 144 12)(font "Arial" ))
 	(text "inst21" (rect 8 128 36 145)(font "Intel Clear" ))
 	(port
@@ -1288,46 +1304,89 @@ refer to the applicable agreement for further details.
 		(pt 288 32)
 		(output)
 		(text "areset" (rect 0 0 30 12)(font "Arial" ))
-		(text "areset" (rect 242 27 267 39)(font "Arial" ))
+		(text "areset" (rect 242 27 272 39)(font "Arial" ))
 		(line (pt 288 32)(pt 272 32))
 	)
 	(port
 		(pt 288 48)
 		(output)
 		(text "phasecounterselect[2..0]" (rect 0 0 121 12)(font "Arial" ))
-		(text "phasecounterselect[2..0]" (rect 165 43 267 55)(font "Arial" ))
+		(text "phasecounterselect[2..0]" (rect 165 43 286 55)(font "Arial" ))
 		(line (pt 288 48)(pt 272 48)(line_width 3))
 	)
 	(port
 		(pt 288 64)
 		(output)
 		(text "phaseupdown" (rect 0 0 66 12)(font "Arial" ))
-		(text "phaseupdown" (rect 212 59 267 71)(font "Arial" ))
+		(text "phaseupdown" (rect 212 59 278 71)(font "Arial" ))
 		(line (pt 288 64)(pt 272 64))
 	)
 	(port
 		(pt 288 80)
 		(output)
 		(text "phasestep" (rect 0 0 50 12)(font "Arial" ))
-		(text "phasestep" (rect 225 75 267 87)(font "Arial" ))
+		(text "phasestep" (rect 225 75 275 87)(font "Arial" ))
 		(line (pt 288 80)(pt 272 80))
 	)
 	(port
 		(pt 288 96)
 		(output)
 		(text "scanclk" (rect 0 0 37 12)(font "Arial" ))
-		(text "scanclk" (rect 236 91 267 103)(font "Arial" ))
+		(text "scanclk" (rect 236 91 273 103)(font "Arial" ))
 		(line (pt 288 96)(pt 272 96))
 	)
 	(port
 		(pt 288 112)
 		(output)
 		(text "clkswitch" (rect 0 0 44 12)(font "Arial" ))
-		(text "clkswitch" (rect 230 107 267 119)(font "Arial" ))
+		(text "clkswitch" (rect 230 107 274 119)(font "Arial" ))
 		(line (pt 288 112)(pt 272 112))
 	)
 	(drawing
 		(rectangle (rect 16 16 272 128))
+	)
+)
+(symbol
+	(rect 776 1024 1008 1152)
+	(text "makeHistogram" (rect 5 0 99 19)(font "Intel Clear" (font_size 8)))
+	(text "inst12" (rect 8 107 36 124)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "inclk" (rect 0 0 27 19)(font "Intel Clear" (font_size 8)))
+		(text "inclk" (rect 21 27 48 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "pulse" (rect 0 0 31 19)(font "Intel Clear" (font_size 8)))
+		(text "pulse" (rect 21 43 52 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "vetoLast[2..0]" (rect 0 0 81 19)(font "Intel Clear" (font_size 8)))
+		(text "vetoLast[2..0]" (rect 21 59 102 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "resethist" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "resethist" (rect 21 75 71 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 232 32)
+		(output)
+		(text "histo[0..9][31..0]" (rect 0 0 97 19)(font "Intel Clear" (font_size 8)))
+		(text "histo[0..9][31..0]" (rect 114 27 211 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 232 32)(pt 216 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 216 112))
 	)
 )
 (connector
@@ -1550,10 +1609,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 512 912)
 	(pt 688 912)
-)
-(connector
-	(pt 688 912)
-	(pt 688 952)
 )
 (connector
 	(pt 688 952)
@@ -1802,56 +1857,9 @@ refer to the applicable agreement for further details.
 	(pt -528 488)
 )
 (connector
-	(text "d1" (rect 1130 464 1141 481)(font "Intel Clear" ))
-	(pt 1064 480)
-	(pt 1192 480)
-)
-(connector
-	(text "d2" (rect 1148 480 1159 497)(font "Intel Clear" ))
-	(pt 1064 496)
-	(pt 1176 496)
-)
-(connector
-	(text "valid1" (rect 833 464 862 481)(font "Intel Clear" ))
-	(pt 888 480)
-	(pt 808 480)
-)
-(connector
-	(pt 888 560)
-	(pt 664 560)
-	(bus)
-)
-(connector
-	(text "valid2" (rect 851 480 880 497)(font "Intel Clear" ))
-	(pt 888 496)
-	(pt 816 496)
-)
-(connector
-	(text "photon" (rect 831 496 864 513)(font "Intel Clear" ))
-	(pt 888 512)
-	(pt 808 512)
-)
-(connector
-	(pt 744 544)
-	(pt 744 616)
-)
-(connector
-	(pt 744 616)
-	(pt 744 888)
-)
-(connector
-	(pt 744 544)
-	(pt 888 544)
-)
-(connector
 	(text "clk" (rect 656 600 670 617)(font "Intel Clear" ))
 	(pt 632 616)
 	(pt 744 616)
-)
-(connector
-	(text "ps_clk" (rect 816 512 846 529)(font "Intel Clear" ))
-	(pt 888 528)
-	(pt 808 528)
 )
 (connector
 	(text "areset" (rect 392 424 421 441)(font "Intel Clear" ))
@@ -1885,6 +1893,82 @@ refer to the applicable agreement for further details.
 	(pt 416 456)
 	(bus)
 )
+(connector
+	(text "d1" (rect 1138 464 1149 481)(font "Intel Clear" ))
+	(pt 1072 480)
+	(pt 1200 480)
+)
+(connector
+	(text "d2" (rect 1156 480 1167 497)(font "Intel Clear" ))
+	(pt 1072 496)
+	(pt 1184 496)
+)
+(connector
+	(pt 744 544)
+	(pt 744 616)
+)
+(connector
+	(pt 744 616)
+	(pt 744 888)
+)
+(connector
+	(text "valid1" (rect 841 464 870 481)(font "Intel Clear" ))
+	(pt 816 480)
+	(pt 896 480)
+)
+(connector
+	(text "valid2" (rect 859 480 888 497)(font "Intel Clear" ))
+	(pt 824 496)
+	(pt 896 496)
+)
+(connector
+	(text "photon" (rect 839 496 872 513)(font "Intel Clear" ))
+	(pt 816 512)
+	(pt 896 512)
+)
+(connector
+	(text "ps_clk" (rect 824 512 854 529)(font "Intel Clear" ))
+	(pt 816 528)
+	(pt 896 528)
+)
+(connector
+	(pt 744 544)
+	(pt 896 544)
+)
+(connector
+	(text "clk" (rect 744 1040 758 1057)(font "Intel Clear" ))
+	(pt 776 1056)
+	(pt 736 1056)
+)
+(connector
+	(text "photon" (rect 744 1056 777 1073)(font "Intel Clear" ))
+	(pt 776 1072)
+	(pt 736 1072)
+)
+(connector
+	(text "vetoLast[2..0]" (rect 710 544 774 561)(font "Intel Clear" ))
+	(pt 664 560)
+	(pt 896 560)
+	(bus)
+)
+(connector
+	(text "vetoLast[2..0]" (rect 718 1072 782 1089)(font "Intel Clear" ))
+	(pt 776 1088)
+	(pt 728 1088)
+	(bus)
+)
+(connector
+	(pt 688 1104)
+	(pt 776 1104)
+)
+(connector
+	(pt 688 912)
+	(pt 688 952)
+)
+(connector
+	(pt 688 952)
+	(pt 688 1104)
+)
 (junction (pt 240 648))
 (junction (pt -384 88))
 (junction (pt 512 952))
@@ -1895,3 +1979,4 @@ refer to the applicable agreement for further details.
 (junction (pt -528 352))
 (junction (pt -656 392))
 (junction (pt -656 264))
+(junction (pt 688 952))
