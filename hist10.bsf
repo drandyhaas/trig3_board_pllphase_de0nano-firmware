@@ -20,7 +20,7 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 128)
+	(rect 16 16 232 128)
 	(text "hist10" (rect 5 0 26 12)(font "Arial" ))
 	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
@@ -40,18 +40,25 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "resethist" (rect 0 0 33 12)(font "Arial" ))
-		(text "resethist" (rect 21 59 54 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 1))
+		(text "buffer2[1..0]" (rect 0 0 48 12)(font "Arial" ))
+		(text "buffer2[1..0]" (rect 21 59 69 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
-		(pt 208 32)
+		(pt 0 80)
+		(input)
+		(text "resethist" (rect 0 0 33 12)(font "Arial" ))
+		(text "resethist" (rect 21 75 54 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 1))
+	)
+	(port
+		(pt 216 32)
 		(output)
-		(text "histo[0..9][31..0]" (rect 0 0 61 12)(font "Arial" ))
-		(text "histo[0..9][31..0]" (rect 126 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
+		(text "histo[0..15][31..0]" (rect 0 0 64 12)(font "Arial" ))
+		(text "histo[0..15][31..0]" (rect 131 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 192 96)(line_width 1))
+		(rectangle (rect 16 16 200 96)(line_width 1))
 	)
 )

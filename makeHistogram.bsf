@@ -20,7 +20,7 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.2"))
 (symbol
-	(rect 16 16 248 144)
+	(rect 16 16 256 144)
 	(text "makeHistogram" (rect 5 0 99 19)(font "Intel Clear" (font_size 8)))
 	(text "inst" (rect 8 107 24 124)(font "Intel Clear" ))
 	(port
@@ -47,18 +47,25 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "resethist" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
-		(text "resethist" (rect 21 75 71 94)(font "Intel Clear" (font_size 8)))
-		(line (pt 0 80)(pt 16 80))
+		(text "det[1..0]" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "det[1..0]" (rect 21 75 71 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
-		(pt 232 32)
+		(pt 0 96)
+		(input)
+		(text "resethist" (rect 0 0 50 19)(font "Intel Clear" (font_size 8)))
+		(text "resethist" (rect 21 91 71 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 96)(pt 16 96))
+	)
+	(port
+		(pt 240 32)
 		(output)
-		(text "histo[0..9][31..0]" (rect 0 0 97 19)(font "Intel Clear" (font_size 8)))
-		(text "histo[0..9][31..0]" (rect 114 27 211 46)(font "Intel Clear" (font_size 8)))
-		(line (pt 232 32)(pt 216 32)(line_width 3))
+		(text "histo[0..15][31..0]" (rect 0 0 106 19)(font "Intel Clear" (font_size 8)))
+		(text "histo[0..15][31..0]" (rect 113 27 219 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 32)(pt 224 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 216 112))
+		(rectangle (rect 16 16 224 112))
 	)
 )

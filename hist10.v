@@ -1,8 +1,9 @@
 module hist10(
 	input clkin,
 	input [9:0] buffer,
+	input [1:0] buffer2, //first or second half of cycle detection - for debugging
 	input resethist, 
-	output integer histo[10]
+	output integer histo[16]
 	);
 	
 	reg resethist2;
@@ -23,7 +24,12 @@ module hist10(
 			histo[7] <= 0;	
 			histo[8] <= 0;	
 			histo[9] <= 0;	
-				
+			histo[10] <= 0;
+			histo[11] <= 0;
+			histo[12] <= 0;
+			histo[13] <= 0;
+			histo[14] <= 0;
+			histo[15] <= 0;
 		end
 		else begin				
 			histo[0] <= histo[0] + buffer[0];
@@ -35,7 +41,13 @@ module hist10(
 			histo[6] <= histo[6] + buffer[6];			
 			histo[7] <= histo[7] + buffer[7];			
 			histo[8] <= histo[8] + buffer[8];			
-			histo[9] <= histo[9] + buffer[9];			
+			histo[9] <= histo[9] + buffer[9];
+			histo[10] <= histo[10] + buffer2[0];
+			histo[11] <= histo[11] + buffer2[1];
+			histo[12] <= histo[12] + 1;
+			histo[13] <= 255;
+			histo[14] <= 65535;
+			histo[15] <= 65536;
 		end						
 	end
 	

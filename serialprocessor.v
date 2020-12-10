@@ -31,7 +31,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	output reg useInternalTestPulse = 0;
 	output reg useExternalTestPulse = 0;
 	
-	input integer h[10];
+	input integer h[16];
 	input integer h_out[2];
 	output reg resethist=0;
 	reg resethist_int = 0;
@@ -53,7 +53,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	always @(posedge clk) begin
 	h_out_reg <= h_out;
 	resethist <= resethist_int;
-	hh[0:9] <= h[0:9];
+	hh[0:15] <= h[0:15];
 	
 	case (state)
 	READ: begin		  

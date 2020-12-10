@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22) Path("C:/Github/trig3_board_pllphase_de0nano-firmware/output_files/") File("coincidence.jic") MfrSpec(OpMask(1) SEC_Device(MT25QL512) Child_OpMask(1 3));
+		Device PartName(EP4CE22) Path("C:/Github/trig3_board_pllphase_de0nano-firmware/output_files/") File("coincidence.jic") MfrSpec(OpMask(1) SEC_Device(EPCS64) Child_OpMask(1 3));
 
 ChainEnd;
 

@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 136 184 304 200)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "inclk" (rect 5 0 28 12)(font "Arial" ))
+	(text "inclk" (rect 5 0 27 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 728 192 896 208)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "pulse" (rect 5 0 31 12)(font "Arial" ))
+	(text "pulse" (rect 5 0 30 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 696 224 872 240)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
-	(text "vetoLast[2..0]" (rect 5 0 75 12)(font "Arial" ))
+	(text "vetoLast[2..0]" (rect 5 0 74 12)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 92 12)(pt 117 12))
@@ -69,9 +69,25 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(input)
-	(rect 904 280 1072 296)
+	(rect 856 392 1024 408)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "resethist" (rect 5 0 48 12)(font "Arial" ))
+	(text "resethist" (rect 5 0 47 12)(font "Arial" ))
+	(pt 168 8)
+	(drawing
+		(line (pt 84 12)(pt 109 12))
+		(line (pt 84 4)(pt 109 4))
+		(line (pt 113 8)(pt 168 8))
+		(line (pt 84 12)(pt 84 4))
+		(line (pt 109 4)(pt 113 8))
+		(line (pt 109 12)(pt 113 8))
+	)
+	(text "VCC" (rect 128 7 148 17)(font "Arial" (font_size 6)))
+)
+(pin
+	(input)
+	(rect 912 280 1080 296)
+	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
+	(text "det[1..0]" (rect 5 0 47 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -85,9 +101,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1416 160 1593 176)
+	(rect 1416 160 1599 176)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "histo[0..9][31..0]" (rect 90 0 171 12)(font "Arial" ))
+	(text "histo[0..15][31..0]" (rect 90 0 177 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -363,7 +379,7 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 1184 136 1392 248)
+	(rect 1184 128 1400 240)
 	(text "hist10" (rect 5 0 34 12)(font "Arial" ))
 	(text "inst4" (rect 8 96 31 108)(font "Arial" ))
 	(port
@@ -383,19 +399,26 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "resethist" (rect 0 0 42 12)(font "Arial" ))
-		(text "resethist" (rect 21 59 63 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
+		(text "buffer2[1..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "buffer2[1..0]" (rect 21 59 83 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
-		(pt 208 32)
+		(pt 0 80)
+		(input)
+		(text "resethist" (rect 0 0 42 12)(font "Arial" ))
+		(text "resethist" (rect 21 75 63 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 216 32)
 		(output)
-		(text "histo[0..9][31..0]" (rect 0 0 81 12)(font "Arial" ))
-		(text "histo[0..9][31..0]" (rect 119 27 187 39)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
+		(text "histo[0..15][31..0]" (rect 0 0 87 12)(font "Arial" ))
+		(text "histo[0..15][31..0]" (rect 122 27 195 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 192 96))
+		(rectangle (rect 16 16 200 96))
 	)
 )
 (connector
@@ -477,26 +500,61 @@ refer to the applicable agreement for further details.
 	(pt 712 216)
 )
 (connector
-	(pt 1184 288)
-	(pt 1072 288)
+	(pt 1176 288)
+	(pt 1080 288)
+	(bus)
+)
+(connector
+	(pt 1408 168)
+	(pt 1408 160)
+	(bus)
+)
+(connector
+	(pt 1416 168)
+	(pt 1408 168)
+	(bus)
+)
+(connector
+	(pt 1408 160)
+	(pt 1400 160)
+	(bus)
+)
+(connector
+	(pt 1096 184)
+	(pt 1096 176)
+	(bus)
 )
 (connector
 	(pt 1088 184)
-	(pt 1184 184)
+	(pt 1096 184)
 	(bus)
 )
 (connector
-	(pt 1184 288)
-	(pt 1184 200)
-)
-(connector
-	(text "inclk" (rect 1120 152 1142 169)(font "Intel Clear" ))
-	(pt 1184 168)
-	(pt 1112 168)
-)
-(connector
-	(pt 1392 168)
-	(pt 1416 168)
+	(pt 1096 176)
+	(pt 1184 176)
 	(bus)
+)
+(connector
+	(text "inclk" (rect 1120 144 1142 161)(font "Intel Clear" ))
+	(pt 1184 160)
+	(pt 1112 160)
+)
+(connector
+	(pt 1024 400)
+	(pt 1184 400)
+)
+(connector
+	(pt 1176 288)
+	(pt 1176 192)
+	(bus)
+)
+(connector
+	(pt 1176 192)
+	(pt 1184 192)
+	(bus)
+)
+(connector
+	(pt 1184 208)
+	(pt 1184 400)
 )
 (junction (pt 304 192))
