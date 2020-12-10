@@ -140,7 +140,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 984 344 1189 360)
+	(rect 1376 352 1581 368)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "photon_detection[1..0]" (rect 90 0 199 12)(font "Arial" ))
 	(pt 0 8)
@@ -153,7 +153,7 @@ refer to the applicable agreement for further details.
 		(line (pt 82 8)(pt 78 12))
 		(line (pt 78 12)(pt 82 8))
 	)
-	(annotation_block (location)(rect 1192 344 1248 392))
+	(annotation_block (location)(rect 1584 352 1640 400))
 )
 (pin
 	(output)
@@ -632,9 +632,45 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 888 808 1144 1080)
+	(rect 1104 328 1320 440)
+	(text "pulse_to_level_shift" (rect 5 0 104 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 30 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clkin" (rect 0 0 22 12)(font "Arial" ))
+		(text "clkin" (rect 21 27 43 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "det[1..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "det[1..0]" (rect 21 43 62 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "encodeAsShift" (rect 0 0 71 12)(font "Arial" ))
+		(text "encodeAsShift" (rect 21 59 92 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 216 32)
+		(output)
+		(text "encoded[1..0]" (rect 0 0 67 12)(font "Arial" ))
+		(text "encoded[1..0]" (rect 139 27 206 39)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 200 96))
+	)
+)
+(symbol
+	(rect 888 808 1144 1112)
 	(text "serialprocessor" (rect 5 0 79 12)(font "Arial" ))
-	(text "inst9" (rect 8 256 31 268)(font "Arial" ))
+	(text "inst9" (rect 8 288 31 300)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -676,6 +712,13 @@ refer to the applicable agreement for further details.
 		(text "h_out[0..1][31..0]" (rect 0 0 84 12)(font "Arial" ))
 		(text "h_out[0..1][31..0]" (rect 21 107 105 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "locked" (rect 0 0 31 12)(font "Arial" ))
+		(text "locked" (rect 21 123 52 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128))
 	)
 	(port
 		(pt 256 32)
@@ -775,13 +818,20 @@ refer to the applicable agreement for further details.
 		(text "ledIndicators[7..0]" (rect 161 235 235 247)(font "Arial" ))
 		(line (pt 256 240)(pt 240 240)(line_width 3))
 	)
+	(port
+		(pt 256 256)
+		(output)
+		(text "encodeAsShift" (rect 0 0 71 12)(font "Arial" ))
+		(text "encodeAsShift" (rect 175 251 235 263)(font "Arial" ))
+		(line (pt 256 256)(pt 240 256))
+	)
 	(parameter
 		"version"
-		"27"
+		"28"
 		""
 		(type "PARAMETER_UNKNOWN")	)
 	(drawing
-		(rectangle (rect 16 16 240 256))
+		(rectangle (rect 16 16 240 288))
 	)
 	(annotation_block (parameter)(rect 904 1080 1024 1118))
 )
@@ -895,11 +945,6 @@ refer to the applicable agreement for further details.
 	(pt 888 888)
 )
 (connector
-	(pt 984 352)
-	(pt 936 352)
-	(bus)
-)
-(connector
 	(pt 1896 472)
 	(pt 1912 472)
 	(bus)
@@ -974,10 +1019,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 992 528)
-	(pt 992 640)
-)
-(connector
 	(text "updatepll" (rect 568 592 614 609)(font "Intel Clear" ))
 	(pt 624 608)
 	(pt 560 608)
@@ -985,16 +1026,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 440 592)
 	(pt 624 592)
-)
-(connector
-	(pt 936 544)
-	(pt 904 544)
-	(bus)
-)
-(connector
-	(pt 936 352)
-	(pt 936 544)
-	(bus)
 )
 (connector
 	(text "photon_unregistered" (rect 943 576 1040 593)(font "Intel Clear" ))
@@ -1015,15 +1046,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 520 576)
 	(pt 624 576)
-)
-(connector
-	(pt 904 528)
-	(pt 992 528)
-)
-(connector
-	(text "laser_clk" (rect 1008 504 1051 521)(font "Intel Clear" ))
-	(pt 992 528)
-	(pt 1032 528)
 )
 (connector
 	(pt 360 544)
@@ -1156,8 +1178,86 @@ refer to the applicable agreement for further details.
 	(pt 1008 624)
 	(bus)
 )
+(connector
+	(text "locked" (rect 912 560 943 577)(font "Intel Clear" ))
+	(pt 904 576)
+	(pt 960 576)
+)
+(connector
+	(pt 1112 544)
+	(pt 1112 552)
+)
+(connector
+	(text "locked" (rect 848 920 879 937)(font "Intel Clear" ))
+	(pt 888 936)
+	(pt 840 936)
+)
+(connector
+	(pt 720 1096)
+	(pt 728 1096)
+)
+(connector
+	(pt 992 528)
+	(pt 992 640)
+)
+(connector
+	(pt 904 544)
+	(pt 936 544)
+	(bus)
+)
+(connector
+	(text "encodeAsShift" (rect 1152 1048 1219 1065)(font "Intel Clear" ))
+	(pt 1144 1064)
+	(pt 1216 1064)
+)
+(connector
+	(text "laser_clk" (rect 1008 504 1051 521)(font "Intel Clear" ))
+	(pt 992 528)
+	(pt 1032 528)
+)
+(connector
+	(pt 936 376)
+	(pt 1104 376)
+	(bus)
+)
+(connector
+	(pt 936 544)
+	(pt 936 376)
+	(bus)
+)
+(connector
+	(pt 1376 360)
+	(pt 1320 360)
+	(bus)
+)
+(connector
+	(pt 952 360)
+	(pt 1104 360)
+)
+(connector
+	(pt 952 528)
+	(pt 952 360)
+)
+(connector
+	(pt 904 528)
+	(pt 952 528)
+)
+(connector
+	(pt 952 528)
+	(pt 992 528)
+)
+(connector
+	(pt 1104 392)
+	(pt 1104 400)
+)
+(connector
+	(text "encodeAsShift" (rect 1014 384 1081 401)(font "Intel Clear" ))
+	(pt 1104 400)
+	(pt 984 400)
+)
 (junction (pt 872 704))
 (junction (pt 440 704))
 (junction (pt 992 528))
 (junction (pt 984 688))
 (junction (pt 976 624))
+(junction (pt 952 528))

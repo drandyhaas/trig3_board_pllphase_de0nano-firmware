@@ -1,6 +1,6 @@
 module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	disable_line_drivers, enable_debug_outputs, updatepll, pll_clk_src, pll_shifts,
-	passthrough, h, h_out, resethist, vetopmtlast, useInternalTestPulse, useExternalTestPulse, ledIndicators);
+	passthrough, h, h_out, resethist, vetopmtlast, useInternalTestPulse, useExternalTestPulse, ledIndicators, locked, encodeAsShift);
 	
 	
 
@@ -16,8 +16,8 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	reg [7:0] extradata[10];//to store command extra data, like arguemnts (up to 10 bytes)
 	localparam READ=0, SOLVING=1, WRITE1=3, WRITE2=4, READMORE=5,  UPDATEPLL=8;
 	
-	localparam VERSION=0, SET_OUTPUTS=1, SET_PLL=2, SET_PASSTHROUGH=3, SEND_HISTOGRAM=4, SET_PMT_VETO=5, RESET_PLL=6, SET_TEST_INPUTS=7; 
-	localparam bit[7:0] numToRead[16] = '{0, 1, 6, 1, 0, 1, 0, 1, 0,0,0,0,0,0,0,0};
+	localparam VERSION=0, SET_OUTPUTS=1, SET_PLL=2, SET_PASSTHROUGH=3, SEND_HISTOGRAM=4, SET_PMT_VETO=5, RESET_PLL=6, SET_TEST_INPUTS=7, GET_ERROR=8, SET_SHIFT_ENCODE=9; 
+	localparam bit[7:0] numToRead[16] = '{0, 1, 6, 1, 0, 1, 0, 1, 0,1,0,0,0,0,0,0};
 	
 	localparam MSGA = 8'b10000000, MSGB = 8'b01000000, MSGC = 8'b00100000, MSGD = 8'b00010000;
 	
@@ -45,6 +45,13 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	integer ioCount, ioCountToSend;
 	reg[7:0] data[136];//for writing out data in WRITE1,2 //32* 4 + 8 = 136
 	reg[7:0] q; //loop counter
+	
+	reg[7:0] error;
+	
+	input reg locked; 
+	
+	output reg encodeAsShift = 0;
+	
 	integer hh[32];
 	integer h_out_reg[2];
 	
@@ -54,6 +61,20 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 	h_out_reg <= h_out;
 	resethist <= resethist_int;
 	hh[0:15] <= h[0:15];
+	if (!locked) begin
+		error <= 1;
+	end 
+	else begin
+		error <= 0;
+	end
+	
+	if (error != 0) begin
+		ledIndicators <= 255;
+	end
+	else begin
+		ledIndicators <= 0;
+	end
+	
 	
 	case (state)
 	READ: begin		  
@@ -68,22 +89,22 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 				readdata <= rxData;
 				command <= rxData[3:0];
 				state <= SOLVING;
-				ledIndicators <= rxData;
+				//ledIndicators <= rxData;
 			end
 			else begin
-				ledIndicators <= 255; //error, bad rxData
+			//	ledIndicators <= 255; //error, bad rxData
 			end
       end
 	end
 	READMORE: begin
 		if (bytesread>=byteswanted) begin
 			state <= SOLVING;
-			ledIndicators <= ledIndicators & ~MSGA;
+		//	ledIndicators <= ledIndicators & ~MSGA;
 		end
 		if (rxReady) begin
 			extradata[bytesread] <= rxData;
 			bytesread <= bytesread+1;
-			ledIndicators <= ledIndicators | MSGA;
+			//ledIndicators <= ledIndicators | MSGA;
 		end
 	end
    SOLVING: begin
@@ -92,7 +113,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			ioCountToSend <= 1;
 			data[0] <= version; // this is the firmware version
 			state <= WRITE1;	
-			ledIndicators <= 255; //flash all on - should go to 0 then 1 if write is working			
+			//ledIndicators <= 255; //flash all on - should go to 0 then 1 if write is working			
 		end
 		else if (command == SET_OUTPUTS) begin
 			if (bytesread<byteswanted) state <= READMORE;
@@ -105,14 +126,14 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		else if (command == SET_PLL) begin // set clock phase
 			if (bytesread<byteswanted) begin
 				state <= READMORE;
-				ledIndicators <= ledIndicators & ~MSGC;
-				ledIndicators <= ledIndicators | MSGD;
+			//	ledIndicators <= ledIndicators & ~MSGC;
+			//	ledIndicators <= ledIndicators | MSGD;
 			end
 			else begin
 				pll_shifts <= extradata[0:5];
 				state <= UPDATEPLL;
-				ledIndicators <= ledIndicators & ~MSGD;
-				ledIndicators <= ledIndicators | MSGC;
+				//ledIndicators <= ledIndicators & ~MSGD;
+				//ledIndicators <= ledIndicators | MSGC;
 			end
 			
 		end
@@ -169,6 +190,20 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 			end
 		end
 		
+		else if (command == GET_ERROR) begin
+			ioCountToSend <= 1;
+			data[0] <= error; // this is the firmware version
+			state <= WRITE1;	
+		end
+		
+		else if (command == SET_SHIFT_ENCODE) begin
+			if (bytesread<byteswanted) state <= READMORE;
+			else begin
+				encodeAsShift <= extradata[0] != 0;
+				state <= READ;
+			end
+		end
+		
 	end
 	
 	UPDATEPLL: begin // to switch between clock inputs, put clkswitch high for a few cycles, then back down low
@@ -185,7 +220,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
          txStart = 1;
          state = WRITE2;
 		end
-		ledIndicators <= ledIndicators | MSGB;
+		//ledIndicators <= ledIndicators | MSGB;
 	end
    WRITE2: begin
 		txStart = 0;
@@ -195,7 +230,7 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
       end
 		else begin
 			state = READ;
-			ledIndicators <= ledIndicators & ~MSGB;
+			//ledIndicators <= ledIndicators & ~MSGB;
 		end
 	end
 endcase

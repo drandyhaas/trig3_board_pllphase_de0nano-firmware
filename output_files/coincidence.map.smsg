@@ -1,5 +1,5 @@
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Warning (10268): Verilog HDL information at serialprocessor.v(53): always construct contains both blocking and non-blocking assignments File: C:/Github/trig3_board_pllphase_de0nano-firmware/serialprocessor.v Line: 53
+Warning (10268): Verilog HDL information at serialprocessor.v(60): always construct contains both blocking and non-blocking assignments File: C:/Github/trig3_board_pllphase_de0nano-firmware/serialprocessor.v Line: 60
 Info (10281): Verilog HDL Declaration information at serialprocessor.v(17): object "UPDATEPLL" differs only in case from object "updatepll" in the same scope File: C:/Github/trig3_board_pllphase_de0nano-firmware/serialprocessor.v Line: 17
 Info (10281): Verilog HDL Declaration information at serialprocessor.v(19): object "VERSION" differs only in case from object "version" in the same scope File: C:/Github/trig3_board_pllphase_de0nano-firmware/serialprocessor.v Line: 19
 Warning (10268): Verilog HDL information at LED_4.v(50): always construct contains both blocking and non-blocking assignments File: C:/Github/trig3_board_pllphase_de0nano-firmware/LED_4.v Line: 50
