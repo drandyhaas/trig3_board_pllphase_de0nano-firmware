@@ -72,9 +72,8 @@ module serialprocessor(clk, rxReady, rxData, txBusy, txStart, txData, readdata,
 		ledIndicators <= 255;
 	end
 	else begin
-		ledIndicators <= 0;
+		ledIndicators <= encodeAsShift;
 	end
-	
 	
 	case (state)
 	READ: begin		  

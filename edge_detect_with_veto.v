@@ -30,7 +30,7 @@ always @(posedge validA) begin
 	sync_pulseA <= {sync_pulseA[1:0], pulseToggleA};  // now we cross the clock domains
 	sync_vetoA <= {sync_vetoA[4:0], vetoToggle};
 	 //suppress output if vetoLast is true and there was a pulse in the previous clock cycle, whether or not it was flagged as valid
-	toggleA <= toggleA^(sync_pulseA[2] ^ sync_pulseA[1]) && !(vetoLast[0] && (sync_vetoA[3] ^ sync_vetoA[2])  || vetoLast[1] && (sync_vetoA[4] ^ sync_vetoA[3]) || vetoLast[2] && (sync_vetoA[5] ^ sync_vetoA[4])); 
+	toggleA <= toggleA^((sync_pulseA[2] ^ sync_pulseA[1]) && !(vetoLast[0] && (sync_vetoA[3] ^ sync_vetoA[2])  || vetoLast[1] && (sync_vetoA[4] ^ sync_vetoA[3]) || vetoLast[2] && (sync_vetoA[5] ^ sync_vetoA[4]))); 
 end
 
 

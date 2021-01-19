@@ -10,6 +10,6 @@ Quad-Serial configuration device dummy clock cycle: 8
 
 Notes:
 
-- Data checksum for this conversion is 0x74E7D07B
+- Data checksum for this conversion is 0x74BD30C9
 
 - All the addresses in this file are byte addresses
