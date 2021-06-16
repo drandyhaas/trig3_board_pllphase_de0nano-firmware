@@ -828,14 +828,14 @@ refer to the applicable agreement for further details.
 		(pt 216 32)
 		(output)
 		(text "encoded[1..0]" (rect 0 0 67 12)(font "Arial" ))
-		(text "encoded[1..0]" (rect 139 27 195 39)(font "Arial" ))
+		(text "encoded[1..0]" (rect 139 27 206 39)(font "Arial" ))
 		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(port
 		(pt 216 48)
 		(output)
 		(text "encshft" (rect 0 0 37 12)(font "Arial" ))
-		(text "encshft" (rect 164 43 195 55)(font "Arial" ))
+		(text "encshft" (rect 164 43 201 55)(font "Arial" ))
 		(line (pt 216 48)(pt 200 48))
 	)
 	(drawing
@@ -1184,10 +1184,6 @@ refer to the applicable agreement for further details.
 	(text "locked" (rect 912 560 943 577)(font "Intel Clear" ))
 	(pt 904 576)
 	(pt 960 576)
-)
-(connector
-	(pt 1112 544)
-	(pt 1112 552)
 )
 (connector
 	(text "locked" (rect 848 920 879 937)(font "Intel Clear" ))

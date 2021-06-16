@@ -1310,15 +1310,6 @@ refer to the applicable agreement for further details.
 	(pt 800 952)
 )
 (connector
-	(pt 280 64)
-	(pt 280 72)
-)
-(connector
-	(text "inclk" (rect 280 56 302 73)(font "Intel Clear" ))
-	(pt 280 72)
-	(pt 312 72)
-)
-(connector
 	(text "areset" (rect 280 72 309 89)(font "Intel Clear" ))
 	(pt 312 88)
 	(pt 272 88)
@@ -1663,6 +1654,11 @@ refer to the applicable agreement for further details.
 	(pt 672 560)
 	(pt 672 664)
 	(bus)
+)
+(connector
+	(text "inclk" (rect 280 56 302 73)(font "Intel Clear" ))
+	(pt 272 72)
+	(pt 312 72)
 )
 (junction (pt 240 648))
 (junction (pt 512 952))
